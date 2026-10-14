@@ -1,0 +1,2089 @@
+/* ─── ДОКУМЕНТАЦИОННЫЕ СТРАНИЦЫ ─── */
+
+/* Хлебные крошки сверху и снизу */
+.doc-breadcrumbs {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: clamp(10px, 1.5vw, 20px);
+	margin: clamp(15px, 2vh, 30px) auto;
+	width: 100%;
+	max-width: clamp(320px, 65vw, 800px);
+}
+
+.doc-breadcrumbs__link {
+	position: relative;
+	padding: clamp(8px, 1.2vh, 12px) clamp(16px, 1.8vw, 24px);
+	font-family: Jost, sans-serif;
+	font-size: clamp(12px, 1vw, 15px);
+	font-weight: 400;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.7);
+	text-decoration: none;
+	border: 1px solid rgba(0, 255, 250, 0.25);
+	border-radius: 3px;
+	background: rgba(0, 0, 0, 0.5);
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+
+.doc-breadcrumbs__link:hover {
+	color: #00FFFA;
+	border-color: #00FFFA;
+	background: rgba(0, 255, 250, 0.08);
+	box-shadow: 0 0 15px rgba(0, 255, 250, 0.25);
+}
+
+/* Время чтения */
+.doc-readtime {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	font-family: Jost, sans-serif;
+	font-size: clamp(12px, 1vw, 14px);
+	font-weight: 300;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: rgba(0, 255, 250, 0.75);
+	margin: clamp(20px, 3vh, 35px) auto;
+	opacity: 0.85;
+}
+
+.doc-readtime::before {
+	content: '';
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: #00FFFA;
+	box-shadow: 0 0 10px rgba(0, 255, 250, 0.9);
+	flex-shrink: 0;
+}
+
+/* Тело документа */
+.doc-body {
+	width: 100%;
+	max-width: clamp(320px, 70vw, 850px);
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: clamp(30px, 5vh, 50px);
+}
+
+/* Вступление */
+.doc-intro {
+	text-align: center;
+}
+
+.doc-intro__title {
+	font-family: Jost, sans-serif;
+	font-size: clamp(24px, 3vw, 38px);
+	font-weight: 600;
+	letter-spacing: 0.03em;
+	line-height: 1.2;
+	color: #fff;
+	margin-bottom: clamp(15px, 2vh, 25px);
+}
+
+.doc-intro__lead {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(14px, 1.2vw, 18px);
+	font-weight: 300;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.85);
+}
+
+/* Иллюстрация */
+.doc-illustration {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.doc-illustration img {
+	width: 100%;
+	max-width: clamp(280px, 60vw, 800px);
+	height: auto;
+	display: block;
+	border-radius: 6px;
+	filter: drop-shadow(0 0 30px rgba(0, 255, 250, 0.15));
+}
+
+/* Смысловой блок */
+.doc-block {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(12px, 1.8vh, 20px);
+}
+
+.doc-block__title {
+	font-family: Jost, sans-serif;
+	font-size: clamp(18px, 1.8vw, 26px);
+	font-weight: 600;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+	color: #00FFFA;
+	padding-left: clamp(12px, 1.5vw, 18px);
+	border-left: 2px solid #FF1100;
+	line-height: 1.2;
+}
+
+.doc-block p {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(14px, 1.1vw, 17px);
+	font-weight: 300;
+	line-height: 1.65;
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.doc-block p strong {
+	color: #fff;
+	font-weight: 500;
+}
+
+/* Нумерованный список в стиле сайта */
+.doc-list {
+	list-style: none;
+	counter-reset: doc-counter;
+	display: flex;
+	flex-direction: column;
+	gap: clamp(8px, 1.2vh, 14px);
+	padding: 0;
+}
+
+.doc-list li {
+	position: relative;
+	padding-left: clamp(35px, 4vw, 50px);
+	font-family: Roboto, sans-serif;
+	font-size: clamp(14px, 1.1vw, 17px);
+	font-weight: 300;
+	line-height: 1.55;
+	color: rgba(255, 255, 255, 0.85);
+	counter-increment: doc-counter;
+}
+
+.doc-list li::before {
+	content: counter(doc-counter, decimal-leading-zero);
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-family: Jost, sans-serif;
+	font-size: clamp(11px, 0.9vw, 14px);
+	font-weight: 500;
+	letter-spacing: 0.05em;
+	color: #00FFFA;
+	opacity: 0.85;
+}
+
+.doc-list li::after {
+	content: '';
+	position: absolute;
+	left: clamp(24px, 2.8vw, 36px);
+	top: 50%;
+	width: clamp(6px, 0.6vw, 8px);
+	height: 1px;
+	background: rgba(0, 255, 250, 0.3);
+	transform: translateY(-50%);
+}
+
+/* Финальный блок */
+.doc-outro {
+	text-align: center;
+	padding: clamp(20px, 3vh, 35px) clamp(15px, 2vw, 25px);
+	border: 1px solid rgba(0, 255, 250, 0.2);
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.5);
+	position: relative;
+}
+
+.doc-outro::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, #00FFFA, transparent);
+	opacity: 0.5;
+}
+
+.doc-outro p {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(14px, 1.1vw, 17px);
+	font-weight: 300;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.85);
+	margin-bottom: clamp(8px, 1.2vh, 14px);
+}
+
+.doc-outro p:last-child {
+	margin-bottom: 0;
+}
+
+.doc-outro__signature {
+	margin-top: clamp(15px, 2vh, 25px);
+	font-family: Jost, sans-serif;
+	font-size: clamp(13px, 1vw, 16px);
+	font-weight: 400;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: #00FFFA;
+}
+
+/* Плашка внизу документа */
+.doc-plashka {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.doc-plashka img {
+	width: 100%;
+	max-width: clamp(280px, 60vw, 900px);
+	height: auto;
+	display: block;
+	filter: drop-shadow(0 0 30px rgba(0, 255, 250, 0.15));
+}
+
+/* Футер документа */
+.doc-footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: clamp(6px, 1vh, 10px);
+	text-align: center;
+	margin-top: clamp(20px, 3vh, 40px);
+}
+
+.doc-footer p {
+	font-family: Jost, sans-serif;
+	font-size: clamp(13px, 1.1vw, 16px);
+	font-weight: 300;
+	letter-spacing: 0.1em;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+/* Ссылки внутри текста */
+.doc-block a,
+.doc-outro a,
+.doc-intro a,
+.doc-spoiler-warning a,
+.doc-spoiler-reveal a {
+	color: #00FFFA;
+	text-decoration: none;
+	border-bottom: 1px dashed rgba(0, 255, 250, 0.5);
+	transition: color 0.3s, border-color 0.3s;
+	cursor: pointer;
+}
+
+.doc-block a:hover,
+.doc-outro a:hover,
+.doc-intro a:hover,
+.doc-spoiler-warning a:hover,
+.doc-spoiler-reveal a:hover {
+	color: #fff;
+	border-bottom-color: #00FFFA;
+	border-bottom-style: solid;
+}
+
+/* ─── Уровни важности ─── */
+.doc-level {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(10px, 1.5vh, 16px);
+	padding: clamp(18px, 2.4vh, 26px) clamp(18px, 2.4vw, 28px);
+	border-radius: 5px;
+	border-left: 3px solid;
+	background: rgba(0, 0, 0, 0.5);
+	position: relative;
+}
+
+.doc-level--yellow { border-color: #FFD400; background: rgba(255, 212, 0, 0.04); }
+.doc-level--orange { border-color: #FF7A00; background: rgba(255, 122, 0, 0.05); }
+.doc-level--red    { border-color: #FF1100; background: rgba(255, 17, 0, 0.06); }
+
+.doc-level__title {
+	font-family: Jost, sans-serif;
+	font-size: clamp(18px, 1.8vw, 26px);
+	font-weight: 600;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+	line-height: 1.2;
+	margin-bottom: clamp(4px, 0.6vh, 8px);
+}
+
+.doc-level--yellow .doc-level__title { color: #FFD400; }
+.doc-level--orange .doc-level__title { color: #FF7A00; }
+.doc-level--red    .doc-level__title { color: #FF1100; }
+
+.doc-level__lead {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(14px, 1.1vw, 17px);
+	font-weight: 300;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.85);
+	margin-bottom: clamp(8px, 1.2vh, 14px);
+}
+
+/* Обычные параграфы внутри уровней важности */
+.doc-level p {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(14px, 1.1vw, 17px);
+	font-weight: 300;
+	line-height: 1.65;
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.doc-level p strong {
+	color: #fff;
+	font-weight: 500;
+}
+
+/* ─── Список правил с нумерацией ─── */
+.doc-rules {
+	counter-reset: doc-counter;
+	display: flex;
+	flex-direction: column;
+	gap: clamp(14px, 2vh, 22px);
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.doc-rules li {
+	counter-increment: doc-counter;
+}
+
+.doc-rule {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding-left: clamp(24px, 2.8vw, 40px);
+	position: relative;
+}
+
+/* Номер 01, 02, 03... слева */
+.doc-rule::before {
+	content: counter(doc-counter, decimal-leading-zero);
+	position: absolute;
+	left: 0;
+	top: 0.15em;
+	font-family: Jost, sans-serif;
+	font-size: clamp(11px, 0.9vw, 14px);
+	font-weight: 500;
+	letter-spacing: 0.05em;
+	color: #00FFFA;
+	opacity: 0.85;
+}
+
+/* Заголовок пункта — «Взаимопонимание», «Уважение чужого труда»... */
+.doc-rule__title {
+	font-family: Jost, sans-serif;
+	font-size: clamp(14px, 1.2vw, 17px);
+	font-weight: 500;
+	letter-spacing: 0.05em;
+	color: #fff;
+	line-height: 1.3;
+}
+
+/* Текст пункта */
+.doc-rule__text {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(13px, 1.05vw, 16px);
+	font-weight: 300;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.8);
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	max-width: 100%;
+}
+
+.doc-rule__text strong {
+	color: #fff;
+	font-weight: 500;
+}
+
+/* ─── Цитата (для предупреждений) ─── */
+.doc-quote {
+	position: relative;
+	padding: clamp(12px, 1.6vh, 18px) clamp(16px, 2vw, 22px) clamp(12px, 1.6vh, 18px) clamp(38px, 4vw, 55px);
+	border-left: 2px solid #FF1100;
+	background: rgba(255, 17, 0, 0.05);
+	border-radius: 0 4px 4px 0;
+	font-family: Roboto, sans-serif;
+	font-size: clamp(13px, 1.05vw, 16px);
+	font-weight: 300;
+	line-height: 1.55;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.doc-quote::before {
+	content: '';
+	position: absolute;
+	left: clamp(14px, 1.6vw, 20px);
+	top: clamp(16px, 2vh, 22px);
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #FF1100;
+	box-shadow: 0 0 10px rgba(255, 17, 0, 0.7);
+}
+
+/* ─── Дополнительное пространство внутри блока ─── */
+.doc-block > p + .doc-level,
+.doc-block > p + .doc-rules,
+.doc-block > .doc-rules + p {
+	margin-top: clamp(12px, 1.8vh, 20px);
+}
+
+/* ─── Подзаголовок внутри блока ─── */
+.doc-subtitle {
+	font-family: Jost, sans-serif;
+	font-size: clamp(15px, 1.3vw, 19px);
+	font-weight: 500;
+	font-style: italic;
+	letter-spacing: 0.04em;
+	color: #00FFFA;
+	margin-top: clamp(15px, 2vh, 22px);
+	margin-bottom: clamp(6px, 1vh, 12px);
+	padding-left: clamp(10px, 1.2vw, 14px);
+	border-left: 1px solid rgba(0, 255, 250, 0.5);
+}
+
+/* ─── Маркированный список (без номеров) ─── */
+.doc-bullets {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(8px, 1.2vh, 12px);
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.doc-bullets li {
+	position: relative;
+	padding-left: clamp(28px, 3vw, 40px);
+	font-family: Roboto, sans-serif;
+	font-size: clamp(14px, 1.1vw, 17px);
+	font-weight: 300;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.doc-bullets li::before {
+	content: '';
+	position: absolute;
+	left: clamp(8px, 1vw, 14px);
+	top: 0.7em;
+	width: clamp(6px, 0.6vw, 8px);
+	height: 1px;
+	background: rgba(0, 255, 250, 0.5);
+}
+
+.doc-bullets li strong {
+	color: #fff;
+	font-weight: 500;
+}
+
+/* ─── Сетка карточек лицензий Creative Commons ─── */
+.doc-licenses {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: clamp(12px, 1.8vw, 20px);
+	margin-top: clamp(10px, 1.5vh, 15px);
+}
+
+.doc-license {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(8px, 1.2vh, 12px);
+	padding: clamp(16px, 2vw, 22px);
+	border: 1px solid rgba(0, 255, 250, 0.2);
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.5);
+	transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.doc-license:hover {
+	border-color: #00FFFA;
+	box-shadow: 0 0 20px rgba(0, 255, 250, 0.2);
+	transform: translateY(-2px);
+}
+
+.doc-license__badges {
+	display: flex;
+	gap: 6px;
+	font-size: clamp(16px, 1.4vw, 20px);
+	line-height: 1;
+}
+
+.doc-license__name {
+	font-family: Jost, sans-serif;
+	font-size: clamp(15px, 1.3vw, 19px);
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	color: #fff;
+	line-height: 1.2;
+}
+
+.doc-license__text {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(13px, 1vw, 15px);
+	font-weight: 300;
+	line-height: 1.55;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.doc-license__text strong {
+	color: #fff;
+	font-weight: 500;
+}
+
+/* ─── Диалог двух персонажей ─── */
+.doc-dialogue {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(14px, 2vh, 22px);
+	padding: clamp(20px, 2.5vw, 30px) clamp(18px, 2.4vw, 28px);
+	border: 1px solid rgba(0, 255, 250, 0.15);
+	border-radius: 6px;
+	background: rgba(0, 0, 0, 0.45);
+}
+
+.doc-dialogue__line {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding-left: clamp(14px, 1.6vw, 20px);
+	border-left: 2px solid;
+	font-family: Roboto, sans-serif;
+	font-size: clamp(14px, 1.1vw, 17px);
+	font-weight: 300;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.85);
+}
+
+/* Рэй — красный */
+.doc-dialogue__line--ray {
+	border-color: #FF1100;
+}
+
+/* Тия — бирюзовый */
+.doc-dialogue__line--tiya {
+	border-color: #00FFFA;
+}
+
+.doc-dialogue__speaker {
+	font-family: Jost, sans-serif;
+	font-size: clamp(12px, 0.95vw, 14px);
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+.doc-dialogue__line--ray .doc-dialogue__speaker {
+	color: #FF1100;
+}
+
+.doc-dialogue__line--tiya .doc-dialogue__speaker {
+	color: #00FFFA;
+}
+
+/* Реплика в сторону / ремарка */
+.doc-dialogue__stage {
+	text-align: center;
+	font-family: Jost, sans-serif;
+	font-size: clamp(12px, 1vw, 15px);
+	font-style: italic;
+	letter-spacing: 0.1em;
+	color: rgba(0, 255, 250, 0.7);
+	margin: clamp(6px, 1vh, 10px) 0;
+	opacity: 0.9;
+}
+
+/* Подпись в конце диалога */
+.doc-dialogue__signature {
+	text-align: center;
+	margin-top: clamp(15px, 2vh, 25px);
+	font-family: Jost, sans-serif;
+	font-size: clamp(14px, 1.2vw, 18px);
+	font-weight: 500;
+	letter-spacing: 0.05em;
+	color: #00FFFA;
+}
+
+/* ─── Дата основания ─── */
+.doc-foundation {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: clamp(10px, 1.5vw, 18px);
+	font-family: Jost, sans-serif;
+	font-size: clamp(20px, 2.2vw, 32px);
+	font-weight: 500;
+	font-style: italic;
+	letter-spacing: 0.15em;
+	color: #00FFFA;
+	text-shadow: 0 0 15px rgba(0, 255, 250, 0.5);
+	padding: clamp(20px, 3vh, 35px) 0;
+}
+
+.doc-foundation__snow {
+	font-size: 0.8em;
+	opacity: 0.85;
+}
+
+/* ─── Карточки целей с прогрессом ─── */
+.doc-goals {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(16px, 2.2vh, 24px);
+	margin-top: clamp(10px, 1.5vh, 15px);
+}
+
+.doc-goal {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(8px, 1.2vh, 12px);
+	padding: clamp(16px, 2vw, 22px);
+	border: 1px solid rgba(0, 255, 250, 0.15);
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.4);
+	transition: border-color 0.3s ease;
+}
+
+.doc-goal:hover {
+	border-color: rgba(0, 255, 250, 0.4);
+}
+
+.doc-goal__header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-family: Jost, sans-serif;
+	font-size: clamp(11px, 0.9vw, 13px);
+	font-weight: 500;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: rgba(0, 255, 250, 0.75);
+}
+
+.doc-goal__icon {
+	font-size: 1.1em;
+	line-height: 1;
+}
+
+.doc-goal__title {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(14px, 1.1vw, 17px);
+	font-weight: 300;
+	line-height: 1.5;
+	color: #fff;
+}
+
+.doc-goal__progress {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin-top: clamp(4px, 0.6vh, 8px);
+}
+
+.doc-goal__meta {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+	font-family: Jost, sans-serif;
+	font-size: clamp(11px, 0.9vw, 13px);
+	font-weight: 400;
+	letter-spacing: 0.08em;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.doc-goal__meta strong {
+	color: #00FFFA;
+	font-weight: 600;
+}
+
+.doc-goal__bar {
+	position: relative;
+	width: 100%;
+	height: 6px;
+	border-radius: 3px;
+	background: rgba(0, 255, 250, 0.08);
+	overflow: hidden;
+}
+
+.doc-goal__bar-fill {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	background: linear-gradient(90deg, #FF1100, #00FFFA);
+	box-shadow: 0 0 10px rgba(0, 255, 250, 0.6);
+	border-radius: 3px;
+	transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ─── Команда ─── */
+.doc-team {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(10px, 1.4vh, 14px);
+	max-width: clamp(280px, 50vw, 500px);
+	margin: 0 auto;
+}
+
+.doc-team__member {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding: clamp(10px, 1.4vh, 16px) clamp(16px, 1.8vw, 22px);
+	border: 1px solid rgba(0, 255, 250, 0.2);
+	border-radius: 4px;
+	background: rgba(0, 0, 0, 0.5);
+	transition: all 0.3s ease;
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+}
+
+.doc-team__member:hover {
+	border-color: #00FFFA;
+	background: rgba(0, 255, 250, 0.06);
+	transform: translateX(4px);
+	box-shadow: 0 0 15px rgba(0, 255, 250, 0.2);
+}
+
+.doc-team__star {
+	color: #FF1100;
+	font-size: 1.1em;
+	flex-shrink: 0;
+}
+
+.doc-team__name {
+	font-family: Jost, sans-serif;
+	font-size: clamp(14px, 1.2vw, 17px);
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+/* ─── Наши ценности ─── */
+.doc-values {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: clamp(12px, 1.8vw, 20px);
+	margin-top: clamp(10px, 1.5vh, 15px);
+}
+
+.doc-value {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: clamp(16px, 2vw, 22px);
+	border: 1px solid rgba(0, 255, 250, 0.15);
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.45);
+	transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.doc-value:hover {
+	border-color: #00FFFA;
+	box-shadow: 0 0 20px rgba(0, 255, 250, 0.2);
+	transform: translateY(-2px);
+}
+
+.doc-value__icon {
+	font-size: clamp(22px, 2vw, 28px);
+	line-height: 1;
+}
+
+.doc-value__title {
+	font-family: Jost, sans-serif;
+	font-size: clamp(14px, 1.2vw, 17px);
+	font-weight: 500;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: #00FFFA;
+}
+
+.doc-value__text {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(13px, 1vw, 15px);
+	font-weight: 300;
+	font-style: italic;
+	line-height: 1.55;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+/* ─── FAQ-страница ─── */
+.doc-faq {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(10px, 1.5vh, 15px);
+	width: 100%;
+}
+
+.doc-faq__item {
+	border: 1px solid rgba(0, 255, 250, 0.2);
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.5);
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+	overflow: hidden;
+}
+
+.doc-faq__item[open] {
+	border-color: #00FFFA;
+	box-shadow: 0 0 20px rgba(0, 255, 250, 0.2);
+}
+
+.doc-faq__question {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: clamp(10px, 1.2vw, 16px);
+	padding: clamp(14px, 1.8vh, 20px) clamp(18px, 2vw, 26px);
+	cursor: pointer;
+	font-family: Jost, sans-serif;
+	font-size: clamp(14px, 1.2vw, 17px);
+	font-weight: 500;
+	color: #fff;
+	letter-spacing: 0.02em;
+	line-height: 1.4;
+	list-style: none;
+	user-select: none;
+	transition: color 0.3s ease;
+}
+
+/* Звёздочка-маркер */
+.doc-faq__question::before {
+	content: '★';
+	color: #00FFFA;
+	font-size: clamp(12px, 1vw, 15px);
+	flex-shrink: 0;
+	transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Плюс справа */
+.doc-faq__question::after {
+	content: '+';
+	margin-left: auto;
+	font-family: Jost, sans-serif;
+	font-size: clamp(20px, 1.8vw, 26px);
+	font-weight: 300;
+	color: #00FFFA;
+	line-height: 1;
+	transition: transform 0.3s ease;
+	flex-shrink: 0;
+}
+
+.doc-faq__question::-webkit-details-marker { display: none; }
+.doc-faq__question::marker { display: none; }
+
+.doc-faq__item[open] .doc-faq__question::after {
+	transform: rotate(45deg);
+}
+
+.doc-faq__question:hover {
+	color: #00FFFA;
+}
+
+.doc-faq__question:hover::before {
+	transform: scale(1.2);
+}
+
+/* Ответ */
+.doc-faq__answer {
+	position: relative;
+	padding: 0 clamp(18px, 2vw, 26px) clamp(16px, 2vh, 22px) clamp(46px, 5vw, 60px);
+	font-family: Roboto, sans-serif;
+	font-size: clamp(13px, 1.05vw, 16px);
+	font-weight: 300;
+	font-style: italic;
+	line-height: 1.65;
+	color: rgba(255, 255, 255, 0.8);
+	animation: doc-faq-open 0.35s ease;
+}
+
+/* Стрелка --> перед ответом */
+.doc-faq__answer::before {
+	content: '→';
+	position: absolute;
+	left: clamp(20px, 2.2vw, 28px);
+	top: 0;
+	color: #00FFFA;
+	font-size: 1.1em;
+	font-style: normal;
+	opacity: 0.85;
+}
+
+@keyframes doc-faq-open {
+	from { opacity: 0; transform: translateY(-6px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Заголовок раздела FAQ */
+.doc-faq-group {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(12px, 1.8vh, 18px);
+}
+
+.doc-faq-group__title {
+	font-family: Jost, sans-serif;
+	font-size: clamp(18px, 1.8vw, 26px);
+	font-weight: 600;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+	color: #00FFFA;
+	padding-left: clamp(12px, 1.5vw, 18px);
+	border-left: 2px solid #FF1100;
+	line-height: 1.2;
+}
+
+/* ─── Статусы заказов ─── */
+.doc-status-list {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(14px, 2vh, 20px);
+	margin-top: clamp(10px, 1.5vh, 15px);
+}
+
+.doc-status {
+	padding: clamp(14px, 1.8vh, 20px) clamp(16px, 2vw, 22px);
+	border-left: 3px solid;
+	border-radius: 0 5px 5px 0;
+	background: rgba(0, 0, 0, 0.45);
+	transition: border-color 0.3s ease;
+}
+
+.doc-status--open {
+	border-color: #00FFFA;
+}
+
+.doc-status--closed {
+	border-color: #FF1100;
+}
+
+.doc-status__line {
+	font-family: Jost, sans-serif;
+	font-size: clamp(14px, 1.2vw, 17px);
+	font-weight: 500;
+	letter-spacing: 0.05em;
+	color: #fff;
+	margin-bottom: clamp(6px, 1vh, 10px);
+	line-height: 1.4;
+}
+
+.doc-status__line strong {
+	color: #00FFFA;
+	font-weight: 700;
+}
+
+.doc-status--closed .doc-status__line strong {
+	color: #FF1100;
+}
+
+.doc-status__note {
+	position: relative;
+	padding-left: clamp(22px, 2.5vw, 30px);
+	font-family: Roboto, sans-serif;
+	font-size: clamp(12px, 1vw, 15px);
+	font-weight: 300;
+	font-style: italic;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.doc-status__note::before {
+	content: '→';
+	position: absolute;
+	left: 0;
+	top: 0;
+	color: #00FFFA;
+	font-style: normal;
+	opacity: 0.7;
+}
+
+/* ─── Списки «создаю / не создаю» ─── */
+.doc-info-lists {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: clamp(14px, 2vw, 20px);
+	margin-top: clamp(10px, 1.5vh, 15px);
+}
+
+.doc-info-list {
+	padding: clamp(14px, 2vh, 20px) clamp(16px, 2vw, 22px);
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.45);
+	display: flex;
+	flex-direction: column;
+	gap: clamp(8px, 1vh, 12px);
+}
+
+.doc-info-list--yes { border: 1px solid rgba(0, 255, 250, 0.25); }
+.doc-info-list--no  { border: 1px solid rgba(255, 17, 0, 0.25); }
+
+.doc-info-list__title {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-family: Jost, sans-serif;
+	font-size: clamp(14px, 1.2vw, 17px);
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	line-height: 1.3;
+	margin-bottom: clamp(4px, 0.6vh, 8px);
+}
+
+.doc-info-list--yes .doc-info-list__title { color: #00FFFA; }
+.doc-info-list--no  .doc-info-list__title { color: #FF1100; }
+
+.doc-info-list__text {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(13px, 1vw, 15px);
+	font-weight: 300;
+	line-height: 1.55;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+/* ─── Особенности ─── */
+.doc-features {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(14px, 2vh, 20px);
+	margin-top: clamp(10px, 1.5vh, 15px);
+}
+
+.doc-feature {
+	padding: clamp(14px, 1.8vh, 20px) clamp(16px, 2vw, 22px);
+	border-left: 2px solid rgba(0, 255, 250, 0.4);
+	border-radius: 0 4px 4px 0;
+	background: rgba(0, 0, 0, 0.4);
+}
+
+.doc-feature__title {
+	font-family: Jost, sans-serif;
+	font-size: clamp(13px, 1.1vw, 16px);
+	font-weight: 500;
+	letter-spacing: 0.04em;
+	color: #fff;
+	margin-bottom: clamp(6px, 1vh, 10px);
+	line-height: 1.4;
+}
+
+.doc-feature__notes {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.doc-feature__note {
+	position: relative;
+	padding-left: clamp(22px, 2.5vw, 30px);
+	font-family: Roboto, sans-serif;
+	font-size: clamp(12px, 1vw, 15px);
+	font-weight: 300;
+	font-style: italic;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.doc-feature__note::before {
+	content: '→';
+	position: absolute;
+	left: 0;
+	top: 0;
+	color: #00FFFA;
+	font-style: normal;
+	opacity: 0.7;
+}
+
+/* ─── Карточка отдела с прайсом ─── */
+.doc-price-card {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(18px, 2.5vh, 26px);
+	padding: clamp(20px, 2.8vw, 32px);
+	border: 1px solid rgba(0, 255, 250, 0.25);
+	border-radius: 6px;
+	background: rgba(0, 0, 0, 0.5);
+	margin-top: clamp(10px, 1.5vh, 15px);
+	position: relative;
+	overflow: hidden;
+}
+
+.doc-price-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(90deg, #FF1100, #00FFFA);
+	opacity: 0.7;
+}
+
+.doc-price-card__header {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	text-align: center;
+}
+
+.doc-price-card__title {
+	font-family: Jost, sans-serif;
+	font-size: clamp(18px, 1.8vw, 24px);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: #fff;
+	line-height: 1.2;
+}
+
+.doc-price-card__desc {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(12px, 1vw, 15px);
+	font-weight: 300;
+	font-style: italic;
+	color: #00FFFA;
+	letter-spacing: 0.06em;
+}
+
+/* Блок одной услуги внутри карточки */
+.doc-price-service {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(12px, 1.8vh, 18px);
+	padding-top: clamp(14px, 2vh, 20px);
+	border-top: 1px solid rgba(0, 255, 250, 0.15);
+}
+
+.doc-price-service:first-of-type {
+	padding-top: 0;
+	border-top: none;
+}
+
+.doc-price-service__title {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-family: Jost, sans-serif;
+	font-size: clamp(15px, 1.3vw, 19px);
+	font-weight: 500;
+	color: #fff;
+	line-height: 1.35;
+}
+
+.doc-price-service__title::before {
+	content: '★';
+	color: #00FFFA;
+	font-size: 0.85em;
+	flex-shrink: 0;
+}
+
+.doc-price-service__deadline {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-family: Jost, sans-serif;
+	font-size: clamp(12px, 1vw, 14px);
+	font-weight: 400;
+	letter-spacing: 0.06em;
+	color: rgba(255, 255, 255, 0.75);
+	padding: 6px 12px;
+	border: 1px solid rgba(0, 255, 250, 0.2);
+	border-radius: 3px;
+	align-self: flex-start;
+	background: rgba(0, 255, 250, 0.04);
+}
+
+/* Группа цен */
+.doc-price-group {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(6px, 1vh, 10px);
+}
+
+.doc-price-group__title {
+	font-family: Jost, sans-serif;
+	font-size: clamp(12px, 1vw, 14px);
+	font-weight: 600;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: #FF1100;
+	margin-bottom: 4px;
+	padding-left: 2px;
+}
+
+.doc-price-list {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.doc-price-list li {
+	display: flex;
+	align-items: baseline;
+	gap: 12px;
+	padding: clamp(6px, 0.8vh, 10px) clamp(12px, 1.4vw, 18px);
+	border-radius: 3px;
+	background: rgba(255, 255, 255, 0.02);
+	font-family: Roboto, sans-serif;
+	font-size: clamp(13px, 1.05vw, 16px);
+	font-weight: 300;
+	line-height: 1.4;
+	color: rgba(255, 255, 255, 0.85);
+	transition: background 0.25s ease;
+}
+
+.doc-price-list li:hover {
+	background: rgba(0, 255, 250, 0.05);
+}
+
+.doc-price-list__price {
+	font-family: Jost, sans-serif;
+	font-size: clamp(14px, 1.15vw, 17px);
+	font-weight: 600;
+	color: #00FFFA;
+	letter-spacing: 0.02em;
+	white-space: nowrap;
+	min-width: clamp(60px, 6vw, 80px);
+	flex-shrink: 0;
+}
+
+.doc-price-list__desc {
+	flex: 1;
+}
+
+.doc-price-list__desc small {
+	display: block;
+	font-size: 0.85em;
+	color: rgba(255, 255, 255, 0.5);
+	font-style: italic;
+	margin-top: 2px;
+}
+
+/* Примеры работ в карточке */
+.doc-price-examples {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(14px, 2vh, 20px);
+	margin-top: clamp(8px, 1.2vh, 14px);
+}
+
+.doc-price-examples__label {
+	font-family: Jost, sans-serif;
+	font-size: clamp(13px, 1.1vw, 16px);
+	font-weight: 500;
+	letter-spacing: 0.04em;
+	color: #00FFFA;
+	text-align: center;
+}
+
+/* Вывод файла */
+.doc-price-output {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: clamp(14px, 1.8vh, 20px) clamp(16px, 2vw, 22px);
+	border: 1px dashed rgba(0, 255, 250, 0.3);
+	border-radius: 5px;
+	background: rgba(0, 255, 250, 0.03);
+}
+
+.doc-price-output p {
+	display: flex;
+	align-items: baseline;
+	gap: 10px;
+	font-family: Roboto, sans-serif;
+	font-size: clamp(13px, 1.05vw, 15px);
+	font-weight: 300;
+	line-height: 1.5;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+/* ─── Оплата ─── */
+.doc-payment {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: clamp(10px, 1.5vw, 16px);
+	margin-top: clamp(10px, 1.5vh, 15px);
+}
+
+.doc-payment__item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: clamp(12px, 1.6vh, 16px) clamp(14px, 1.8vw, 20px);
+	border: 1px solid rgba(0, 255, 250, 0.15);
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.4);
+	font-family: Jost, sans-serif;
+	font-size: clamp(13px, 1.1vw, 16px);
+	font-weight: 400;
+	letter-spacing: 0.05em;
+	color: rgba(255, 255, 255, 0.85);
+	transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.doc-payment__item:hover {
+	border-color: #00FFFA;
+	box-shadow: 0 0 15px rgba(0, 255, 250, 0.2);
+	transform: translateY(-2px);
+}
+
+.doc-payment__icon {
+	font-size: 1.2em;
+	flex-shrink: 0;
+}
+
+/* ─── Блок предупреждения (спойлер) ─── */
+.doc-spoiler-warning {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: clamp(14px, 2vh, 20px);
+	padding: clamp(22px, 3vh, 32px) clamp(20px, 2.4vw, 30px);
+	border: 1px solid rgba(255, 17, 0, 0.35);
+	border-radius: 6px;
+	background: rgba(0, 0, 0, 0.55);
+	box-shadow:
+		inset 0 0 30px rgba(255, 17, 0, 0.05),
+		0 0 30px rgba(255, 17, 0, 0.08);
+	overflow: hidden;
+}
+
+.doc-spoiler-warning::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(90deg, transparent, #FF1100, transparent);
+	opacity: 0.7;
+}
+
+.doc-spoiler-warning__label {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: clamp(6px, 0.8vh, 10px) clamp(14px, 1.6vw, 18px);
+	border: 1px solid rgba(255, 17, 0, 0.5);
+	border-radius: 3px;
+	background: rgba(255, 17, 0, 0.08);
+	font-family: Jost, sans-serif;
+	font-size: clamp(11px, 0.9vw, 13px);
+	font-weight: 600;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: #FF1100;
+	align-self: flex-start;
+}
+
+.doc-spoiler-warning__label::before {
+	content: '⚠';
+	font-size: 1.1em;
+	line-height: 1;
+}
+
+.doc-spoiler-warning p {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(14px, 1.1vw, 17px);
+	font-weight: 300;
+	line-height: 1.65;
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.doc-spoiler-warning p strong {
+	color: #fff;
+	font-weight: 500;
+}
+
+/* ─── Блок самого секрета ─── */
+.doc-spoiler-reveal {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(14px, 2vh, 20px);
+	padding: clamp(22px, 3vh, 32px) clamp(20px, 2.4vw, 30px);
+	border: 1px solid rgba(0, 255, 250, 0.35);
+	border-radius: 6px;
+	background: rgba(0, 0, 0, 0.55);
+	box-shadow:
+		inset 0 0 40px rgba(0, 255, 250, 0.05),
+		0 0 40px rgba(0, 255, 250, 0.1);
+	position: relative;
+	overflow: hidden;
+}
+
+.doc-spoiler-reveal::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(90deg, transparent, #00FFFA, transparent);
+	opacity: 0.7;
+}
+
+.doc-spoiler-reveal__label {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: clamp(6px, 0.8vh, 10px) clamp(14px, 1.6vw, 18px);
+	border: 1px solid rgba(0, 255, 250, 0.4);
+	border-radius: 3px;
+	background: rgba(0, 255, 250, 0.06);
+	font-family: Jost, sans-serif;
+	font-size: clamp(11px, 0.9vw, 13px);
+	font-weight: 600;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: #00FFFA;
+	align-self: flex-start;
+}
+
+.doc-spoiler-reveal__label::before {
+	content: '✦';
+	font-size: 1.1em;
+	line-height: 1;
+}
+
+.doc-spoiler-reveal__title {
+	font-family: Jost, sans-serif;
+	font-size: clamp(20px, 2vw, 28px);
+	font-weight: 600;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+	color: #fff;
+	line-height: 1.15;
+	padding-left: clamp(12px, 1.5vw, 18px);
+	border-left: 2px solid #00FFFA;
+}
+
+.doc-spoiler-reveal p {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(14px, 1.1vw, 17px);
+	font-weight: 300;
+	line-height: 1.65;
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.doc-spoiler-reveal p strong {
+	color: #fff;
+	font-weight: 500;
+}
+
+/* «Шёпот» — строка с приглушённым текстом */
+.doc-spoiler-reveal__whisper {
+	font-style: italic;
+	color: rgba(0, 255, 250, 0.75) !important;
+	text-align: center;
+	margin-top: clamp(8px, 1.2vh, 14px);
+	letter-spacing: 0.02em;
+}
+
+/* Ссылка "Все права защищены" в docs-футере */
+.doc-footer__rights-link {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px dashed rgba(0, 255, 250, 0.4);
+	transition: color 0.3s, border-bottom-color 0.3s;
+	cursor: pointer;
+}
+
+.doc-footer__rights-link:hover {
+	color: #00FFFA;
+	border-bottom-color: #00FFFA;
+	border-bottom-style: solid;
+}
+
+/* ─── Страница лицензии ─── */
+.doc-licence-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: clamp(10px, 1.4vh, 14px) clamp(18px, 2vw, 26px);
+	border: 1px solid #00FFFA;
+	border-radius: 4px;
+	background: rgba(0, 255, 250, 0.06);
+	font-family: Jost, sans-serif;
+	font-size: clamp(16px, 1.5vw, 22px);
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: #00FFFA;
+	box-shadow: 0 0 20px rgba(0, 255, 250, 0.2);
+	align-self: flex-start;
+}
+
+.doc-licence-badge::before {
+	content: '✦';
+	font-size: 1.1em;
+	line-height: 1;
+}
+
+.doc-licence-note {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(12px, 1vw, 15px);
+	font-style: italic;
+	color: rgba(255, 255, 255, 0.6);
+	margin-top: clamp(8px, 1.2vh, 12px);
+	padding-left: 4px;
+}
+
+/* ─── Страница "Связаться с нами" ─── */
+.doc-contacts {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(24px, 3.5vh, 36px);
+	width: 100%;
+}
+
+.doc-contacts__group {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(12px, 1.8vh, 18px);
+}
+
+.doc-contacts__group-title {
+	font-family: Jost, sans-serif;
+	font-size: clamp(18px, 1.8vw, 26px);
+	font-weight: 600;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+	color: #00FFFA;
+	padding-left: clamp(12px, 1.5vw, 18px);
+	border-left: 2px solid #FF1100;
+	line-height: 1.2;
+}
+
+/* Подзаголовок группы — мельче главного */
+.doc-contacts__subtitle {
+	position: relative;
+	padding-left: clamp(18px, 2vw, 24px);
+	font-family: Jost, sans-serif;
+	font-size: clamp(14px, 1.2vw, 17px);
+	font-weight: 500;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: rgba(0, 255, 250, 0.75);
+	line-height: 1.3;
+}
+
+/* Тонкая линия перед подзаголовком */
+.doc-contacts__subtitle::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: clamp(8px, 1vw, 12px);
+	height: 1px;
+	background: #00FFFA;
+	opacity: 0.6;
+}
+
+.doc-contacts__list {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(8px, 1.2vh, 12px);
+	width: 100%;
+}
+
+/* Карточка-ссылка */
+.doc-contact {
+	display: flex;
+	align-items: center;
+	gap: clamp(12px, 1.5vw, 18px);
+	padding: clamp(12px, 1.6vh, 18px) clamp(16px, 2vw, 24px);
+	border: 1px solid rgba(0, 255, 250, 0.2);
+	border-radius: 4px;
+	background: rgba(0, 0, 0, 0.5);
+	text-decoration: none;
+	color: #fff;
+	cursor: pointer;
+	transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.doc-contact:hover {
+	border-color: #00FFFA;
+	background: rgba(0, 255, 250, 0.06);
+	transform: translateX(6px);
+	box-shadow: 0 0 20px rgba(0, 255, 250, 0.2);
+}
+
+.doc-contact__icon {
+	font-size: clamp(18px, 1.6vw, 22px);
+	line-height: 1;
+	flex-shrink: 0;
+	width: clamp(24px, 2.4vw, 32px);
+	text-align: center;
+	transition: transform 0.35s ease;
+}
+
+.doc-contact:hover .doc-contact__icon {
+	transform: scale(1.15);
+}
+
+.doc-contact__info {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	flex: 1;
+	min-width: 0;
+}
+
+.doc-contact__name {
+	font-family: Jost, sans-serif;
+	font-size: clamp(14px, 1.15vw, 17px);
+	font-weight: 500;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: #fff;
+	line-height: 1.3;
+	transition: color 0.3s ease;
+}
+
+.doc-contact__url {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(11px, 0.95vw, 14px);
+	font-weight: 300;
+	color: rgba(255, 255, 255, 0.55);
+	line-height: 1.4;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	transition: color 0.3s ease;
+}
+
+.doc-contact:hover .doc-contact__name {
+	color: #00FFFA;
+}
+
+.doc-contact:hover .doc-contact__url {
+	color: rgba(0, 255, 250, 0.7);
+}
+
+/* Стрелка справа */
+.doc-contact__arrow {
+	color: rgba(0, 255, 250, 0.5);
+	font-size: clamp(14px, 1.2vw, 18px);
+	flex-shrink: 0;
+	transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.doc-contact:hover .doc-contact__arrow {
+	color: #00FFFA;
+	transform: translateX(4px);
+}
+
+/* Разные цвета для разных типов — опционально */
+.doc-contact--team .doc-contact__icon { color: #FF1100; }
+
+/* Сетка для WEB-платформ */
+.doc-contacts__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: clamp(10px, 1.4vw, 16px);
+}
+
+/* ─── Главное меню (main_menu.html) ─── */
+/* На этой странице первая секция — без огромного отступа сверху */
+.middle > .slide-block:first-child .text_caption {
+	margin-top: clamp(100px, 20vh, 300px);
+}
+
+/* ─── Меню документации ─── */
+.docs-nav {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(8px, 1.2vh, 12px);
+	width: 100%;
+	max-width: clamp(320px, 65vw, 700px);
+	margin: 0 auto;
+}
+
+.docs-nav__item {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding: clamp(12px, 1.6vh, 18px) clamp(18px, 2vw, 26px);
+	color: rgba(255, 255, 255, 0.75);
+	text-decoration: none;
+	font-family: Jost, sans-serif;
+	font-size: clamp(14px, 1.2vw, 17px);
+	font-weight: 400;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	border: 1px solid rgba(0, 255, 250, 0.2);
+	border-radius: 4px;
+	background: rgba(0, 0, 0, 0.5);
+	transition: color 0.3s, border-color 0.3s, background 0.3s, transform 0.3s, box-shadow 0.3s;
+	cursor: pointer;
+}
+
+.docs-nav__item::before {
+	content: '';
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: rgba(0, 255, 250, 0.4);
+	flex-shrink: 0;
+	transition: background 0.3s, box-shadow 0.3s;
+}
+
+.docs-nav__item:hover {
+	color: #fff;
+	border-color: #00FFFA;
+	background: rgba(0, 255, 250, 0.06);
+	transform: translateX(6px);
+	box-shadow: 0 0 18px rgba(0, 255, 250, 0.2);
+}
+
+.docs-nav__item:hover::before {
+	background: #00FFFA;
+	box-shadow: 0 0 10px rgba(0, 255, 250, 0.9);
+}
+
+/* Внешняя ссылка — со стрелкой */
+.docs-nav__item--external::after {
+	content: '↗';
+	margin-left: auto;
+	font-size: 0.9em;
+	color: #FF1100;
+	transition: transform 0.3s;
+}
+
+.docs-nav__item--external:hover::after {
+	transform: translate(2px, -2px);
+}
+
+/* ─── Плашка ─── */
+.menu-plate {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.menu-plate img {
+	width: 100%;
+	max-width: clamp(280px, 60vw, 900px);
+	height: auto;
+	display: block;
+	filter: drop-shadow(0 0 30px rgba(0, 255, 250, 0.15));
+}
+
+/* ─── Футер страницы ─── */
+.menu-footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: clamp(6px, 1vh, 10px);
+	text-align: center;
+}
+
+.menu-footer__line {
+	font-family: Jost, sans-serif;
+	font-size: clamp(13px, 1.1vw, 16px);
+	font-weight: 300;
+	letter-spacing: 0.1em;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+/* ─── Горизонтальный таймлайн (дорожная карта) ─── */
+.doc-timeline {
+	width: 100%;
+	max-width: min(1300px, 96vw);
+	margin: 0 auto;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding: clamp(15px, 2vh, 25px) 0 clamp(25px, 4vh, 40px);
+	scrollbar-width: thin;
+	scrollbar-color: rgba(0, 255, 250, 0.5) rgba(0, 255, 250, 0.08);
+	-webkit-overflow-scrolling: touch;
+	cursor: grab;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: pan-x;
+}
+
+.doc-timeline.is-dragging {
+	cursor: grabbing;
+	scroll-behavior: auto;
+}
+
+.doc-timeline::-webkit-scrollbar {
+	height: 6px;
+}
+
+.doc-timeline::-webkit-scrollbar-track {
+	background: rgba(0, 255, 250, 0.05);
+	border-radius: 3px;
+	margin: 0 clamp(15px, 2vw, 30px);
+}
+
+.doc-timeline::-webkit-scrollbar-thumb {
+	background: rgba(0, 255, 250, 0.4);
+	border-radius: 3px;
+}
+
+.doc-timeline::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 255, 250, 0.6);
+}
+
+.doc-timeline__track {
+	display: flex;
+	gap: clamp(15px, 2vw, 24px);
+	position: relative;
+	padding: 0 clamp(15px, 2vw, 30px);
+	min-width: max-content;
+}
+
+/* Горизонтальная линия */
+.doc-timeline__track::before {
+	content: '';
+	position: absolute;
+	top: 56px;
+	left: clamp(15px, 2vw, 30px);
+	right: clamp(15px, 2vw, 30px);
+	height: 2px;
+	background: linear-gradient(90deg,
+		transparent 0%,
+		rgba(255, 17, 0, 0.6) 5%,
+		rgba(255, 17, 0, 0.6) 60%,
+		#00FFFA 85%,
+		rgba(0, 255, 250, 0.4) 95%,
+		transparent 100%);
+	z-index: 0;
+}
+
+/* Точка на таймлайне */
+.doc-timeline__item {
+	flex: 0 0 auto;
+	width: clamp(180px, 22vw, 240px);
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+/* Год */
+.doc-timeline__year {
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: Jost, sans-serif;
+	font-size: clamp(15px, 1.3vw, 19px);
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	color: rgba(255, 255, 255, 0.6);
+	position: relative;
+}
+
+/* Маркер-точка */
+.doc-timeline__dot {
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: #0a0a0a;
+	border: 2px solid rgba(255, 17, 0, 0.5);
+	margin: 0 auto;
+	position: relative;
+	z-index: 1;
+	transition: all 0.3s ease;
+}
+
+/* Карточка с описанием */
+.doc-timeline__card {
+	margin-top: clamp(14px, 2vh, 20px);
+	padding: clamp(12px, 1.6vh, 18px) clamp(14px, 1.8vw, 20px);
+	border: 1px solid rgba(0, 255, 250, 0.15);
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.5);
+	font-family: Roboto, sans-serif;
+	font-size: clamp(12px, 1vw, 14px);
+	font-weight: 300;
+	line-height: 1.55;
+	color: rgba(255, 255, 255, 0.8);
+	transition: all 0.3s ease;
+}
+
+/* ─── Статусы точек ─── */
+
+/* Прошлое — красное, заполненное */
+.doc-timeline__item--past .doc-timeline__year {
+	color: rgba(255, 17, 0, 0.9);
+}
+
+.doc-timeline__item--past .doc-timeline__dot {
+	background: #FF1100;
+	border-color: #FF1100;
+	box-shadow: 0 0 12px rgba(255, 17, 0, 0.6);
+}
+
+.doc-timeline__item--past .doc-timeline__card {
+	border-color: rgba(255, 17, 0, 0.25);
+}
+
+/* Настоящее — бирюзовое, пульсирует */
+.doc-timeline__item--now .doc-timeline__year {
+	color: #00FFFA;
+	font-weight: 700;
+	text-shadow: 0 0 10px rgba(0, 255, 250, 0.5);
+}
+
+.doc-timeline__item--now .doc-timeline__dot {
+	width: 22px;
+	height: 22px;
+	margin-top: -2px;
+	background: #00FFFA;
+	border-color: #00FFFA;
+	animation: doc-timeline-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes doc-timeline-pulse {
+	0%, 100% {
+		box-shadow:
+			0 0 15px rgba(0, 255, 250, 0.9),
+			0 0 30px rgba(0, 255, 250, 0.4);
+	}
+	50% {
+		box-shadow:
+			0 0 22px rgba(0, 255, 250, 1),
+			0 0 45px rgba(0, 255, 250, 0.6);
+	}
+}
+
+.doc-timeline__item--now .doc-timeline__card {
+	border-color: #00FFFA;
+	color: #fff;
+	box-shadow: 0 0 25px rgba(0, 255, 250, 0.2);
+}
+
+/* Будущее — пустое, пунктирное */
+.doc-timeline__item--future .doc-timeline__year {
+	color: rgba(255, 255, 255, 0.35);
+}
+
+.doc-timeline__item--future .doc-timeline__dot {
+	background: transparent;
+	border-color: rgba(0, 255, 250, 0.4);
+	border-style: dashed;
+	box-shadow: none;
+}
+
+.doc-timeline__item--future .doc-timeline__card {
+	border-style: dashed;
+	border-color: rgba(0, 255, 250, 0.25);
+	color: rgba(255, 255, 255, 0.6);
+}
+
+/* Подсказка «скролль вбок» — показываем только если контент не влез */
+.doc-timeline-hint {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	margin-bottom: clamp(6px, 1vh, 12px);
+	font-family: Jost, sans-serif;
+	font-size: clamp(11px, 0.9vw, 13px);
+	font-weight: 300;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: rgba(0, 255, 250, 0.5);
+}
+
+/* ─── Блок "Сейчас" ─── */
+.doc-now-block {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(10px, 1.5vh, 16px);
+	padding: clamp(20px, 2.5vw, 28px);
+	border: 1px solid #00FFFA;
+	border-radius: 6px;
+	background: rgba(0, 255, 250, 0.04);
+	box-shadow:
+		inset 0 0 30px rgba(0, 255, 250, 0.05),
+		0 0 30px rgba(0, 255, 250, 0.1);
+	position: relative;
+	overflow: hidden;
+}
+
+.doc-now-block::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(90deg, transparent, #00FFFA, transparent);
+	opacity: 0.7;
+}
+
+/* ─── Блок "Мечта" ─── */
+.doc-dream {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(12px, 1.8vh, 18px);
+	padding: clamp(24px, 3vh, 36px) clamp(20px, 2.5vw, 32px);
+	border-radius: 6px;
+	background: linear-gradient(135deg,
+		rgba(255, 17, 0, 0.08) 0%,
+		rgba(0, 0, 0, 0.6) 50%,
+		rgba(0, 255, 250, 0.08) 100%);
+	border: 1px solid rgba(0, 255, 250, 0.3);
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+
+.doc-dream__label {
+	font-family: Jost, sans-serif;
+	font-size: clamp(12px, 1vw, 14px);
+	font-weight: 600;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: #00FFFA;
+	opacity: 0.85;
+}
+
+.doc-dream__text {
+	font-family: Jost, sans-serif;
+	font-size: clamp(18px, 1.8vw, 24px);
+	font-weight: 500;
+	font-style: italic;
+	line-height: 1.5;
+	color: #fff;
+	letter-spacing: 0.02em;
+}
+
+.doc-dream__text strong {
+	color: #00FFFA;
+	font-weight: 600;
+}
+
+/* ─── ФИКС: убираем двойные отступы в верхней части docs-страниц ─── */
+.middle > .doc-breadcrumbs,
+.middle > .doc-readtime,
+.middle > .divider {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/* Исключение: если divider стоит ВНУТРИ doc-body — оставляем margin */
+.doc-body .divider {
+	margin-top: clamp(20px, 4vh, 50px);
+	margin-bottom: clamp(20px, 4vh, 50px);
+}

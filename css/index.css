@@ -1,0 +1,1365 @@
+/* СТИЛЬ ГЛАВНОЙ СТРАНИЦЫ */
+
+/* Картинки */
+.item_image {
+	transition: transform .5s, border-radius .5s;
+	border: 2px solid rgba(255, 255, 255, .3);
+	border-radius: 5px;
+	width: clamp(36px, 3vw, 50px);
+	margin: clamp(8px, 1vw, 15px);
+}
+
+.item_image:hover {
+	transform: scale(1.6);
+	border-radius: 50px;
+}
+
+/* СРАВНЕНИЕ ДО/ПОСЛЕ */
+.compare {
+	position: relative;
+	width: 100%;
+	max-width: clamp(300px, 60vw, 800px);
+	aspect-ratio: 1 / 1;            /* ← соотношение сторон, подгони под картинки */
+	overflow: hidden;
+	border: 1px solid #00FFFA;
+	border-radius: 5px;
+	cursor: ew-resize;               /* курсор «тянуть влево-вправо» */
+	user-select: none;               /* чтобы не выделялся текст при перетаскивании */
+	-webkit-user-select: none;
+	touch-action: none;              /* чтобы на тачскрине не скроллилось вбок */
+	background: #000;
+	transition: opacity 0.2s ease;
+}
+
+.compare.is-switching {
+	opacity: 0.6;
+}
+
+.compare__img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;               /* картинка заполняет контейнер без искажений */
+	display: block;
+	pointer-events: none;            /* клики идут не на картинки, а на контейнер */
+}
+
+/* Слой «после» — обрезается по горизонтали через clip-path */
+.compare__after {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	/* 50% — начальная позиция ползунка */
+	clip-path: inset(0 50% 0 0);
+}
+
+/* Ползунок */
+.compare__handle {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 50%;                       /* старт — по центру */
+	width: 2px;
+	background: #00FFFA;
+	box-shadow: 0 0 12px #00FFFA;
+	transform: translateX(-50%);
+	pointer-events: none;            /* тащим не его, а весь .compare */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Круглая «ручка» в центре ползунка */
+.compare__handle::before {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: #000;
+	border: 2px solid #00FFFA;
+	box-shadow: 0 0 20px #00FFFA, inset 0 0 10px #00FFFA;
+}
+
+/* Стрелочки внутри ручки */
+.compare__handle svg {
+	position: relative;
+	color: #00FFFA;
+	z-index: 1;
+	filter: drop-shadow(0 0 4px #00FFFA);
+}
+
+/* ЛИНКИ */
+.block_links {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.item {
+	transition: box-shadow 1s, text-shadow .5s ease-out 0s;
+	display: flex;
+	align-items: center;
+	border: 1px solid #00FFFA;
+	background-color: #000;
+	width: 100%;
+	max-width: clamp(280px, 40vw, 512px);
+	padding: clamp(2px, 0.3vw, 5px);
+	margin: clamp(10px, 1.5vh, 20px) 0;
+}
+
+.item:hover {
+	box-shadow: 0 0 15px #00FFFA;
+	text-shadow: 0 0 10px #fff;
+}
+
+.item span {
+	font-family: Jost, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: clamp(12px, 1.4vw, 24px);
+	font-weight: 300;
+	text-transform: uppercase;
+	font-style: normal;
+	color: #fff;
+	letter-spacing: clamp(1px, 0.2vw, 3px);
+	padding-left: clamp(1px, 0.2vw, 3px);
+	margin: 0 auto;
+}
+
+/* ГОРИЗОНТАЛЬНАЯ ГАЛЕРЕЯ */
+.hscroll {
+	position: relative;
+	width: 100%;
+	/* Высоту JS выставит автоматически: 
+	   трек + один экран. Сейчас — запасная на случай, если JS отключён */
+	min-height: 200vh;
+}
+
+.hscroll__sticky {
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	padding-bottom: clamp(15px, 3vh, 30px);   /* ← добавить */
+}
+
+.hscroll__head {
+	flex-shrink: 0;
+	padding: clamp(20px, 4vh, 60px) 0 clamp(10px, 2vh, 30px);
+	padding-left: clamp(0px, 15vw, 20%);
+	text-align: left;
+	opacity: 0;
+	transform: translateY(30px);
+	transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hscroll__head.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.hscroll__hint {
+	margin-top: 10px;
+	font-family: Jost, sans-serif;
+	font-size: clamp(11px, 1vw, 14px);
+	font-weight: 300;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: rgba(0, 255, 250, 0.55);
+}
+
+.hscroll__viewport {
+	flex: 1 1 auto;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	width: 100%;
+}
+
+.hscroll__track {
+	display: flex;
+	flex-direction: row;
+	flex-shrink: 0;
+	width: max-content;
+	gap: clamp(15px, 2vw, 40px);
+	
+	/* 🎯 Слева — отступ, чтобы пропустить меню.
+	      Справа — отступ, чтобы последняя карточка остановилась в центре. */
+	padding-left: clamp(280px, 22vw, 420px);
+	padding-right: calc((100vw - clamp(260px, 38vw, 520px)) / 2 - 100px);
+	
+	will-change: transform;
+}
+
+/* Карточки внутри горизонтального трека */
+.hscroll__track .portfolio__item {
+	flex: 0 0 auto;
+	width: clamp(260px, 38vw, 520px);
+	aspect-ratio: 4 / 3;
+	/* остальные стили — из .portfolio__item, они уже есть в index.css */
+}
+
+/* На мобилке — без скролл-хвата, просто вертикальный список */
+@media (max-width: 700px) {
+	.hscroll {
+		min-height: auto;
+	}
+	.hscroll__sticky {
+		position: static;
+		height: auto;
+		overflow: visible;
+	}
+	.hscroll__viewport {
+		overflow: visible;
+	}
+	.hscroll__track {
+		flex-direction: column;
+		align-items: center;
+		transform: none !important;
+		padding: 0;
+		gap: clamp(15px, 2vw, 30px);
+	}
+	.hscroll__track .portfolio__item {
+		width: 100%;
+		max-width: clamp(280px, 80vw, 500px);
+	}
+	.hscroll__hint {
+		display: none;
+	}
+}
+
+/* ─── ФИКС: заголовок внутри hscroll ─── */
+.hscroll__head .text_caption {
+	margin: 0;
+}
+
+/* ─── КАРТОЧКИ РАБОТ ─── */
+.portfolio__item {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	border: 1px solid rgba(0, 255, 250, 0.3);
+	border-radius: 5px;
+	background: #000;
+	cursor: pointer;
+	transition:
+		transform .5s cubic-bezier(0.4, 0, 0.2, 1),
+		border-color .5s ease,
+		box-shadow .5s ease;
+}
+
+.portfolio__item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+					filter .5s ease;
+	filter: brightness(0.85);
+}
+
+.portfolio__caption {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: clamp(10px, 1.5vw, 20px);
+	background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0));
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	color: #fff;
+	transform: translateY(15%);
+	opacity: 0;
+	transition: opacity .4s ease, transform .4s ease;
+	pointer-events: none;
+}
+
+.portfolio__caption span {
+	font-family: Jost, sans-serif;
+	font-size: clamp(14px, 1.3vw, 20px);
+	font-weight: 500;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+.portfolio__caption small {
+	font-family: Jost, sans-serif;
+	font-size: clamp(10px, 0.9vw, 13px);
+	font-weight: 300;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: #00FFFA;
+	opacity: 0.9;
+}
+
+.portfolio__item:hover {
+	border-color: #00FFFA;
+	transform: translateY(-4px);
+	box-shadow:
+		0 0 20px rgba(0, 255, 250, 0.5),
+		0 0 60px rgba(0, 255, 250, 0.15);
+}
+
+.portfolio__item:hover img {
+	transform: scale(1.07);
+	filter: brightness(1) saturate(1.15);
+}
+
+.portfolio__item:hover .portfolio__caption {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.portfolio__play {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: clamp(48px, 5vw, 72px);
+	height: clamp(48px, 5vw, 72px);
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.55);
+	border: 2px solid #00FFFA;
+	color: #00FFFA;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	backdrop-filter: blur(6px);
+	box-shadow: 0 0 20px rgba(0, 255, 250, 0.5);
+	transition: transform .4s ease, box-shadow .4s ease;
+	pointer-events: none;
+	z-index: 2;
+}
+
+.portfolio__item--video:hover .portfolio__play {
+	transform: translate(-50%, -50%) scale(1.12);
+	box-shadow: 0 0 32px rgba(0, 255, 250, 0.8);
+}
+
+/* ─── ПАНЕЛЬ С ОПИСАНИЕМ ─── */
+.work-panel {
+	position: fixed;
+	inset: 0;
+	z-index: 9999;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	padding: clamp(20px, 4vh, 60px) clamp(15px, 3vw, 40px);
+}
+
+.work-panel.is-open {
+	display: flex;
+	animation: work-panel-fade .4s ease;
+}
+
+@keyframes work-panel-fade {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+
+/* ─── Затемнённый фон с радиальным свечением ─── */
+.work-panel__backdrop {
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(circle at 30% 30%, rgba(0, 255, 250, 0.05) 0%, transparent 50%),
+		radial-gradient(circle at 70% 70%, rgba(255, 17, 0, 0.05) 0%, transparent 50%),
+		rgba(0, 0, 0, 0.88);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	cursor: zoom-out;
+	animation: work-panel-backdrop .4s ease;
+}
+
+@keyframes work-panel-backdrop {
+	from { backdrop-filter: blur(0); background: rgba(0, 0, 0, 0); }
+	to   { backdrop-filter: blur(12px); }
+}
+
+/* ─── Контейнер панели ─── */
+.work-panel__content {
+	position: relative;
+	max-width: min(1100px, 92vw);
+	max-height: 92vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	color: #fff;
+	padding: clamp(18px, 2vw, 26px);
+	background:
+		linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.95)) padding-box,
+		linear-gradient(135deg,
+			#FF1100 0%,
+			rgba(0, 255, 250, 0.4) 45%,
+			#00FFFA 100%) border-box;
+	border: 1px solid transparent;
+	border-radius: 6px;
+	box-shadow:
+		inset 0 0 60px rgba(0, 255, 250, 0.05),
+		0 0 40px rgba(0, 255, 250, 0.15),
+		0 0 120px rgba(0, 255, 250, 0.08),
+		0 30px 80px rgba(0, 0, 0, 0.9);
+	overflow: hidden;
+	animation: work-panel-slide .5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes work-panel-slide {
+	from {
+		transform: translateY(40px) scale(0.96);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0) scale(1);
+		opacity: 1;
+	}
+}
+
+/* Угловые маркеры */
+.work-panel__content::before,
+.work-panel__content::after {
+	content: '';
+	position: absolute;
+	width: 26px;
+	height: 26px;
+	pointer-events: none;
+	z-index: 5;
+}
+
+.work-panel__content::before {
+	top: 8px;
+	left: 8px;
+	border-top: 2px solid #00FFFA;
+	border-left: 2px solid #00FFFA;
+	box-shadow: -2px -2px 10px rgba(0, 255, 250, 0.4);
+}
+
+.work-panel__content::after {
+	bottom: 8px;
+	right: 8px;
+	border-bottom: 2px solid #FF1100;
+	border-right: 2px solid #FF1100;
+	box-shadow: 2px 2px 10px rgba(255, 17, 0, 0.4);
+}
+
+/* ─── Кнопка закрытия ─── */
+.work-panel__close {
+	position: absolute;
+	top: 14px;
+	right: 14px;
+	width: 44px;
+	height: 44px;
+	background: rgba(0, 0, 0, 0.7);
+	border: 1px solid rgba(0, 255, 250, 0.5);
+	color: #00FFFA;
+	font-size: 16px;
+	line-height: 1;
+	cursor: pointer;
+	z-index: 10;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: inherit;
+	transition:
+		background 0.3s ease,
+		border-color 0.3s ease,
+		box-shadow 0.3s ease,
+		transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.work-panel__close:hover {
+	background: rgba(0, 255, 250, 0.15);
+	border-color: #00FFFA;
+	color: #fff;
+	box-shadow: 0 0 20px rgba(0, 255, 250, 0.6);
+	transform: rotate(90deg);
+}
+
+/* ─── Медиа-контейнер ─── */
+.work-panel__media-wrap {
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.work-panel__media {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 16 / 9;             /* fallback, если JS не сработает */
+	max-height: 65vh;
+	background: #000;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid rgba(0, 255, 250, 0.2);
+	border-radius: 4px;
+	box-shadow:
+		inset 0 0 40px rgba(0, 255, 250, 0.05),
+		0 0 25px rgba(0, 255, 250, 0.08);
+	transition: aspect-ratio 0.3s ease, max-width 0.3s ease;
+}
+
+.work-panel__media img,
+.work-panel__media video {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	display: block;
+	background: #000;
+}
+
+/* Тонкая светящаяся полоса сверху медиа */
+.work-panel__media::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, #00FFFA, transparent);
+	opacity: 0.6;
+	pointer-events: none;
+	z-index: 2;
+}
+
+/* ─── Текстовая часть ─── */
+.work-panel__body {
+	padding: clamp(18px, 2.4vw, 28px) clamp(4px, 0.5vw, 8px) 0;
+	display: flex;
+	flex-direction: column;
+	gap: clamp(8px, 1vh, 12px);
+	overflow-y: auto;
+}
+
+/* Категория — метка сверху */
+.work-panel__cat {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 5px 14px;
+	align-self: flex-start;
+	font-family: Jost, sans-serif;
+	font-size: clamp(10px, 0.9vw, 13px);
+	font-weight: 500;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: #00FFFA;
+	background: rgba(0, 255, 250, 0.08);
+	border: 1px solid rgba(0, 255, 250, 0.35);
+	border-radius: 3px;
+}
+
+.work-panel__cat::before {
+	content: '◆';
+	font-size: 0.7em;
+	line-height: 1;
+	opacity: 0.85;
+}
+
+/* Заголовок */
+.work-panel__title {
+	font-family: Jost, sans-serif;
+	font-size: clamp(20px, 2.4vw, 34px);
+	font-weight: 600;
+	line-height: 1.15;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	color: #fff;
+	padding-left: clamp(12px, 1.5vw, 18px);
+	border-left: 3px solid #FF1100;
+	text-shadow: 0 0 20px rgba(0, 255, 250, 0.15);
+}
+
+/* Описание */
+.work-panel__desc {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(13px, 1.1vw, 17px);
+	font-weight: 300;
+	line-height: 1.65;
+	color: rgba(255, 255, 255, 0.8);
+	padding-left: clamp(15px, 1.7vw, 21px);
+}
+
+/* Сообщение об ошибке загрузки медиа */
+.work-panel__error {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	padding: 40px;
+	text-align: center;
+	font-family: Jost, sans-serif;
+	font-size: clamp(14px, 1.2vw, 18px);
+	font-weight: 400;
+	letter-spacing: 0.08em;
+	color: rgba(255, 17, 0, 0.9);
+	text-shadow: 0 0 15px rgba(255, 17, 0, 0.4);
+	background: radial-gradient(circle, rgba(255, 17, 0, 0.04) 0%, transparent 70%);
+}
+
+/* ─── Скроллбар внутри панели ─── */
+.work-panel__body::-webkit-scrollbar {
+	width: 4px;
+}
+
+.work-panel__body::-webkit-scrollbar-track {
+	background: rgba(0, 255, 250, 0.05);
+	border-radius: 2px;
+}
+
+.work-panel__body::-webkit-scrollbar-thumb {
+	background: rgba(0, 255, 250, 0.4);
+	border-radius: 2px;
+}
+
+.work-panel__body::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 255, 250, 0.7);
+}
+
+/* ─── Стрелки навигации ─── */
+.work-panel__nav {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: clamp(40px, 3.5vw, 52px);
+	height: clamp(40px, 3.5vw, 52px);
+	background: rgba(0, 0, 0, 0.75);
+	border: 1px solid rgba(0, 255, 250, 0.4);
+	color: #00FFFA;
+	font-family: inherit;
+	font-size: clamp(22px, 2vw, 30px);
+	line-height: 1;
+	border-radius: 50%;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 6;
+	transition:
+		background 0.3s ease,
+		border-color 0.3s ease,
+		box-shadow 0.3s ease,
+		transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	padding-bottom: 3px;
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+}
+
+.work-panel__nav:hover {
+	background: rgba(0, 255, 250, 0.15);
+	border-color: #00FFFA;
+	box-shadow: 0 0 20px rgba(0, 255, 250, 0.6);
+}
+
+.work-panel__nav--prev {
+	left: clamp(8px, 1vw, 16px);
+}
+
+.work-panel__nav--next {
+	right: clamp(8px, 1vw, 16px);
+}
+
+.work-panel__nav--prev:hover {
+	transform: translateY(-50%) translateX(-3px);
+}
+
+.work-panel__nav--next:hover {
+	transform: translateY(-50%) translateX(3px);
+}
+
+.work-panel__nav[disabled] {
+	opacity: 0.15;
+	cursor: default;
+	pointer-events: none;
+}
+
+/* ─── Адаптив ─── */
+@media (max-width: 650px) {
+	.work-panel {
+		padding: 12px;
+	}
+
+	.work-panel__content {
+		max-height: 94vh;
+		padding: 14px;
+	}
+
+	.work-panel__media {
+		aspect-ratio: 4 / 3;
+	}
+
+	.work-panel__close {
+		width: 38px;
+		height: 38px;
+		top: 10px;
+		right: 10px;
+	}
+
+	.work-panel__content::before,
+	.work-panel__content::after {
+		width: 18px;
+		height: 18px;
+	}
+
+	.work-panel__nav {
+		width: 36px;
+		height: 36px;
+		font-size: 20px;
+	}
+}
+
+/* УСЛУГИ */
+.services {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: clamp(15px, 2vw, 25px);
+	width: 100%;
+	max-width: clamp(300px, 70vw, 1000px);
+}
+
+.services__item {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: clamp(24px, 3vh, 34px) clamp(20px, 2.4vw, 30px);
+	border: 1px solid rgba(0, 255, 250, 0.25);
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.5);
+	transition: border-color 0.4s, box-shadow 0.4s, transform 0.4s;
+	overflow: hidden;
+}
+
+.services__item::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background: linear-gradient(90deg, #FF1100, #00FFFA);
+	opacity: 0;
+	transition: opacity 0.4s ease;
+}
+
+.services__item:hover {
+	border-color: #00FFFA;
+	box-shadow: 0 0 25px rgba(0, 255, 250, 0.25);
+	transform: translateY(-3px);
+}
+
+.services__item:hover::before {
+	opacity: 1;
+}
+
+.services__icon {
+	width: clamp(38px, 3.5vw, 48px);
+	height: clamp(38px, 3.5vw, 48px);
+	color: #00FFFA;
+	margin-bottom: clamp(14px, 1.8vh, 20px);
+	transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.services__icon svg {
+	width: 100%;
+	height: 100%;
+	display: block;
+	filter: drop-shadow(0 0 6px rgba(0, 255, 250, 0.5));
+}
+
+.services__item:hover .services__icon {
+	transform: scale(1.08);
+	filter: drop-shadow(0 0 10px rgba(0, 255, 250, 0.9));
+}
+
+.services__item h3 {
+	font-family: Jost, sans-serif;
+	font-size: clamp(16px, 1.4vw, 22px);
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: #fff;
+	margin-bottom: clamp(8px, 1vh, 12px);
+}
+
+.services__item p {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(13px, 1.1vw, 16px);
+	font-weight: 300;
+	line-height: 1.5;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+/* FAQ */
+.faq {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(10px, 1.5vh, 15px);
+	width: 100%;
+	max-width: clamp(320px, 65vw, 850px);
+}
+
+.faq__item {
+	border: 1px solid rgba(0, 255, 250, 0.25);
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.55);
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+	overflow: hidden;
+}
+
+.faq__item[open] {
+	border-color: #00FFFA;
+	box-shadow: 0 0 20px rgba(0, 255, 250, 0.2);
+}
+
+.faq__question {
+	padding: clamp(12px, 1.8vh, 20px) clamp(15px, 2vw, 24px);
+	cursor: pointer;
+	font-family: Jost, sans-serif;
+	font-size: clamp(14px, 1.3vw, 18px);
+	font-weight: 500;
+	color: #fff;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 15px;
+	user-select: none;
+	transition: color 0.3s ease;
+}
+
+.faq__question::-webkit-details-marker { display: none; }
+.faq__question::marker { display: none; }
+
+.faq__question::after {
+	content: '+';
+	font-size: clamp(18px, 1.6vw, 24px);
+	font-weight: 300;
+	color: #00FFFA;
+	transition: transform 0.3s ease;
+	flex-shrink: 0;
+	line-height: 1;
+}
+
+.faq__item[open] .faq__question::after {
+	transform: rotate(45deg);
+}
+
+.faq__question:hover {
+	color: #00FFFA;
+}
+
+.faq__answer {
+	padding: 0 clamp(15px, 2vw, 24px) clamp(15px, 1.8vh, 20px);
+	font-family: Roboto, sans-serif;
+	font-size: clamp(13px, 1.1vw, 16px);
+	font-weight: 300;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.85);
+	animation: faq-open 0.3s ease;
+}
+
+@keyframes faq-open {
+	from { opacity: 0; transform: translateY(-6px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
+
+/* CTA */
+.cta {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: clamp(12px, 2vh, 22px);
+	text-align: center;
+	padding: clamp(35px, 6vh, 70px) clamp(25px, 4vw, 70px);
+	border: 1px solid #00FFFA;
+	border-radius: 6px;
+	background: rgba(0, 0, 0, 0.7);
+	max-width: clamp(320px, 65vw, 800px);
+	width: 100%;
+	overflow: hidden;
+}
+
+.cta::before {
+	content: '';
+	position: absolute;
+	inset: -40%;
+	background:
+		radial-gradient(circle at 30% 40%, rgba(0, 255, 250, 0.12) 0%, transparent 50%),
+		radial-gradient(circle at 70% 60%, rgba(255, 17, 0, 0.08) 0%, transparent 55%);
+	background-size: 200% 200%;
+	pointer-events: none;
+	z-index: 0;
+	animation: cta-drift 15s ease-in-out infinite;
+	opacity: 0.9;
+}
+
+@keyframes cta-drift {
+	0%, 100% { background-position: 0% 50%, 100% 50%; }
+	50%      { background-position: 100% 50%, 0% 50%; }
+}
+
+.cta > * { position: relative; z-index: 1; }
+
+.cta__title {
+	font-family: Jost, sans-serif;
+	font-size: clamp(24px, 3vw, 42px);
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	color: #fff;
+	line-height: 1.1;
+}
+
+.cta__text {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(14px, 1.2vw, 18px);
+	font-weight: 300;
+	line-height: 1.5;
+	color: rgba(255, 255, 255, 0.8);
+	max-width: 55ch;
+}
+
+.cta__actions {
+	display: flex;
+	gap: clamp(10px, 1.5vw, 18px);
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: clamp(5px, 1vh, 15px);
+}
+
+.cta__btn {
+	display: inline-block;
+	padding: clamp(12px, 1.6vh, 16px) clamp(24px, 2.5vw, 36px);
+	font-family: Jost, sans-serif;
+	font-size: clamp(13px, 1.1vw, 16px);
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	text-decoration: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	white-space: nowrap;
+}
+
+.cta__btn--primary {
+	color: #000;
+	background: #00FFFA;
+	border: 1px solid #00FFFA;
+}
+
+.cta__btn--primary:hover {
+	background: #fff;
+	border-color: #fff;
+	box-shadow: 0 0 25px rgba(0, 255, 250, 0.7);
+	transform: translateY(-2px);
+}
+
+.cta__btn--ghost {
+	color: #00FFFA;
+	background: transparent;
+	border: 1px solid #00FFFA;
+}
+
+.cta__btn--ghost:hover {
+	background: rgba(0, 255, 250, 0.12);
+	box-shadow: 0 0 25px rgba(0, 255, 250, 0.4);
+	transform: translateY(-2px);
+}
+
+/* СТАТИСТИКА (задел) */
+.stats {
+	display: flex;
+	flex-wrap: wrap;
+	gap: clamp(20px, 4vw, 60px);
+	justify-content: center;
+	width: 100%;
+}
+
+.stats__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 6px;
+}
+
+.stats__number {
+	font-family: Jost, sans-serif;
+	font-size: clamp(38px, 5vw, 64px);
+	font-weight: 700;
+	color: #00FFFA;
+	text-shadow: 0 0 20px rgba(0, 255, 250, 0.5);
+	line-height: 1;
+}
+
+.stats__label {
+	font-family: Jost, sans-serif;
+	font-size: clamp(11px, 1vw, 14px);
+	font-weight: 300;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+/* ОТЗЫВЫ (задел) */
+.reviews {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: clamp(15px, 2vw, 25px);
+	width: 100%;
+	max-width: clamp(320px, 70vw, 1000px);
+}
+
+.reviews__item {
+	padding: clamp(20px, 2.5vh, 30px);
+	border-left: 2px solid #00FFFA;
+	background: rgba(0, 0, 0, 0.4);
+	border-radius: 0 5px 5px 0;
+}
+
+.reviews__item p {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(13px, 1.1vw, 16px);
+	font-weight: 300;
+	font-style: italic;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.85);
+	margin-bottom: 12px;
+}
+
+.reviews__item cite {
+	font-family: Jost, sans-serif;
+	font-size: clamp(11px, 0.9vw, 13px);
+	font-weight: 500;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: #00FFFA;
+	font-style: normal;
+}
+
+/* Подсказка под вступлением */
+.intro__lead {
+	margin-top: clamp(20px, 3vh, 35px);
+	font-family: Jost, sans-serif;
+	font-size: clamp(13px, 1.1vw, 16px);
+	font-weight: 400;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	text-align: center;
+	color: #00FFFA;
+	opacity: 0.85;
+	text-shadow: 0 0 12px rgba(0, 255, 250, 0.4);
+}
+
+.intro__arrow {
+	display: inline-block;
+	margin-left: 10px;
+	animation: intro-bounce 1.6s ease-in-out infinite;
+}
+
+@keyframes intro-bounce {
+	0%, 100% { transform: translateY(0); }
+	50%      { transform: translateY(5px); }
+}
+
+/* Точки-индикаторы под галереей */
+.hscroll__dots {
+	display: flex;
+	justify-content: center;
+	gap: clamp(8px, 1vw, 14px);
+	padding: clamp(15px, 2vh, 25px) 0 0;
+	flex-wrap: wrap;
+}
+
+.hscroll__dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	border: 1px solid rgba(0, 255, 250, 0.4);
+	background: transparent;
+	cursor: pointer;
+	transition: all 0.4s ease;
+	padding: 0;
+	outline: none;
+}
+
+.hscroll__dot:hover {
+	border-color: #00FFFA;
+	box-shadow: 0 0 8px rgba(0, 255, 250, 0.5);
+}
+
+.hscroll__dot.is-active {
+	background: #00FFFA;
+	border-color: #00FFFA;
+	box-shadow:
+		0 0 10px rgba(0, 255, 250, 0.9),
+		0 0 0 3px rgba(0, 255, 250, 0.15);
+	transform: scale(1.3);
+}
+
+/* На мобилке — скрываем, там галерея вертикальная */
+@media (max-width: 700px) {
+	.hscroll__dots {
+		display: none;
+	}
+}
+
+/* ─── НАВИГАЦИЯ ПО ПАРАМ СРАВНЕНИЯ ─── */
+.compare__nav {
+	position: absolute;
+	bottom: clamp(12px, 2vh, 20px);
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	align-items: center;
+	gap: clamp(4px, 0.6vw, 8px);
+	padding: clamp(6px, 0.8vh, 10px);
+	background: rgba(0, 0, 0, 0.8);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	border: 1px solid rgba(0, 255, 250, 0.35);
+	border-radius: 30px;
+	z-index: 5;
+	pointer-events: auto;
+	box-shadow: 0 0 22px rgba(0, 255, 250, 0.18);
+	opacity: 1;
+	visibility: visible;
+	transition:
+		opacity 0.35s ease,
+		visibility 0.35s ease,
+		transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Скрытое состояние — панель уезжает вниз и исчезает */
+.compare__nav.is-hidden {
+	opacity: 0;
+	visibility: hidden;
+	transform: translateX(-50%) translateY(20px);
+	pointer-events: none;
+}
+
+/* Если точек нет — навигация не показывается (JS выставит hidden) */
+.compare__nav[hidden] {
+	display: none;
+}
+
+/* ─── Стрелки навигации ─── */
+.compare__arrow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: clamp(28px, 2.6vw, 34px);
+	height: clamp(28px, 2.6vw, 34px);
+	padding: 0;
+	border-radius: 50%;
+	background: transparent;
+	border: 1px solid rgba(0, 255, 250, 0.35);
+	color: #00FFFA;
+	font-family: Jost, sans-serif;
+	font-size: clamp(16px, 1.4vw, 20px);
+	line-height: 1;
+	cursor: pointer;
+	flex-shrink: 0;
+	transition:
+		background 0.3s ease,
+		border-color 0.3s ease,
+		box-shadow 0.3s ease,
+		transform 0.3s ease;
+	padding-bottom: 2px;
+}
+
+.compare__arrow:hover:not(:disabled) {
+	background: rgba(0, 255, 250, 0.15);
+	border-color: #00FFFA;
+	box-shadow: 0 0 14px rgba(0, 255, 250, 0.5);
+}
+
+.compare__arrow--prev:hover:not(:disabled) {
+	transform: translateX(-2px);
+}
+
+.compare__arrow--next:hover:not(:disabled) {
+	transform: translateX(2px);
+}
+
+.compare__arrow:disabled {
+	opacity: 0.25;
+	cursor: default;
+	pointer-events: none;
+}
+
+/* ─── Точки-переключатели ─── */
+.compare__dot {
+	width: clamp(8px, 0.9vw, 10px);
+	height: clamp(8px, 0.9vw, 10px);
+	border-radius: 50%;
+	border: 1px solid rgba(0, 255, 250, 0.5);
+	background: transparent;
+	cursor: pointer;
+	padding: 0;
+	outline: none;
+	transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+	flex-shrink: 0;
+	position: relative;
+}
+
+/* Невидимая расширенная зона клика (48x48 для тач) */
+.compare__dot::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 40px;
+	height: 40px;
+	transform: translate(-50%, -50%);
+}
+
+.compare__dot:hover {
+	border-color: #00FFFA;
+	box-shadow: 0 0 10px rgba(0, 255, 250, 0.6);
+	transform: scale(1.2);
+}
+
+.compare__dot.is-active {
+	background: #00FFFA;
+	border-color: #00FFFA;
+	box-shadow:
+		0 0 12px rgba(0, 255, 250, 0.9),
+		0 0 0 3px rgba(0, 255, 250, 0.15);
+	transform: scale(1.3);
+}
+
+/* ─── Текст «Примеры» внутри панели ─── */
+.compare__nav-label {
+	padding: 0 clamp(8px, 1vw, 12px) 0 clamp(4px, 0.5vw, 6px);
+	font-family: Jost, sans-serif;
+	font-size: clamp(9px, 0.75vw, 11px);
+	font-weight: 600;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: rgba(0, 255, 250, 0.85);
+	white-space: nowrap;
+	pointer-events: none;
+	border-right: 1px solid rgba(0, 255, 250, 0.2);
+	margin-right: clamp(2px, 0.3vw, 4px);
+	text-shadow: 0 0 6px rgba(0, 255, 250, 0.35);
+}
+
+/* ─── Метки «До» / «После» на картинке ─── */
+.compare__label {
+	position: absolute;
+	top: clamp(12px, 2vh, 20px);
+	padding: clamp(5px, 0.7vh, 8px) clamp(12px, 1.4vw, 16px);
+	font-family: Jost, sans-serif;
+	font-size: clamp(10px, 0.9vw, 13px);
+	font-weight: 600;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	background: rgba(0, 0, 0, 0.75);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	border-radius: 20px;
+	z-index: 4;
+	pointer-events: none;
+	transition: opacity 0.35s ease;
+}
+
+/* «До» — слева, приглушённый серо-белый */
+.compare__label--before {
+	left: clamp(12px, 1.4vw, 18px);
+	color: rgba(255, 255, 255, 0.85);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+	text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+/* «После» — справа, яркая бирюзовая с свечением */
+.compare__label--after {
+	right: clamp(12px, 1.4vw, 18px);
+	color: #00FFFA;
+	border: 1px solid rgba(0, 255, 250, 0.55);
+	box-shadow:
+		0 0 16px rgba(0, 255, 250, 0.3),
+		0 2px 10px rgba(0, 0, 0, 0.5);
+	text-shadow: 0 0 8px rgba(0, 255, 250, 0.6);
+}
+
+/* ─── Метки прячутся, когда ползунок подъехал к краю ─── */
+.compare.is-near-left .compare__label--before,
+.compare.is-near-right .compare__label--after {
+	opacity: 0;
+}
+
+.compare.is-switching .compare__label {
+	opacity: 0.6;
+}
+
+/* На мобилке — метки компактнее */
+@media (max-width: 500px) {
+	.compare__label {
+		padding: 4px 10px;
+		font-size: 10px;
+		letter-spacing: 0.15em;
+	}
+	.compare__nav-label {
+	    display: none;   /* на узких экранах текст экономит место */
+	}
+	.compare__dot {
+		width: 12px;
+		height: 12px;
+	}
+}
+
+/* ─── Пульсация навигации при первом появлении ─── */
+/* Класс добавляется JS один раз — привлекает внимание к тому, что это кнопки */
+.compare__nav.is-hinting .compare__dot {
+	animation: compare-dot-hint 1.4s ease-in-out 3;
+}
+
+.compare__nav.is-hinting .compare__dot:nth-child(2) { animation-delay: 0.15s; }
+.compare__nav.is-hinting .compare__dot:nth-child(3) { animation-delay: 0.3s; }
+.compare__nav.is-hinting .compare__dot:nth-child(4) { animation-delay: 0.45s; }
+.compare__nav.is-hinting .compare__dot:nth-child(5) { animation-delay: 0.6s; }
+
+@keyframes compare-dot-hint {
+	0%, 100% {
+		box-shadow: 0 0 0 rgba(0, 255, 250, 0);
+		transform: scale(1);
+	}
+	50% {
+		box-shadow: 0 0 16px rgba(0, 255, 250, 0.9);
+		transform: scale(1.35);
+	}
+}
+
+/* Активная точка не должна дёргаться во время подсказки */
+.compare__nav.is-hinting .compare__dot.is-active {
+	animation: compare-dot-hint-active 1.4s ease-in-out 3;
+}
+
+@keyframes compare-dot-hint-active {
+	0%, 100% {
+		box-shadow:
+			0 0 12px rgba(0, 255, 250, 0.9),
+			0 0 0 3px rgba(0, 255, 250, 0.15);
+		transform: scale(1.3);
+	}
+	50% {
+		box-shadow:
+			0 0 22px rgba(0, 255, 250, 1),
+			0 0 0 5px rgba(0, 255, 250, 0.2);
+		transform: scale(1.5);
+	}
+}
