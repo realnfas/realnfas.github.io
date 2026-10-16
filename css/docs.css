@@ -615,23 +615,149 @@
 
 /* ─── Дата основания ─── */
 .doc-foundation {
+	position: relative;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
-	gap: clamp(10px, 1.5vw, 18px);
-	font-family: Jost, sans-serif;
-	font-size: clamp(20px, 2.2vw, 32px);
-	font-weight: 500;
-	font-style: italic;
-	letter-spacing: 0.15em;
-	color: #00FFFA;
-	text-shadow: 0 0 15px rgba(0, 255, 250, 0.5);
-	padding: clamp(20px, 3vh, 35px) 0;
+	gap: clamp(10px, 1.6vh, 16px);
+	padding: clamp(28px, 4vh, 44px) clamp(24px, 3vw, 40px);
+	margin-top: clamp(10px, 1.5vh, 15px);
+	border: 1px solid rgba(0, 255, 250, 0.35);
+	border-radius: 6px;
+	background:
+		radial-gradient(circle at 50% 0%, rgba(0, 255, 250, 0.08) 0%, transparent 60%),
+		radial-gradient(circle at 50% 100%, rgba(255, 17, 0, 0.06) 0%, transparent 60%),
+		rgba(0, 0, 0, 0.55);
+	box-shadow:
+		inset 0 0 60px rgba(0, 255, 250, 0.04),
+		0 0 40px rgba(0, 255, 250, 0.1);
+	overflow: hidden;
 }
 
-.doc-foundation__snow {
-	font-size: 0.8em;
-	opacity: 0.85;
+/* Уголки — как у карточки описания на главной */
+.doc-foundation::before,
+.doc-foundation::after {
+	content: '';
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	pointer-events: none;
+}
+
+.doc-foundation::before {
+	top: -1px;
+	left: -1px;
+	border-top: 2px solid #00FFFA;
+	border-left: 2px solid #00FFFA;
+	box-shadow: -2px -2px 10px rgba(0, 255, 250, 0.4);
+}
+
+.doc-foundation::after {
+	bottom: -1px;
+	right: -1px;
+	border-bottom: 2px solid #FF1100;
+	border-right: 2px solid #FF1100;
+	box-shadow: 2px 2px 10px rgba(255, 17, 0, 0.4);
+}
+
+/* Метка «ОСНОВАНО» */
+.doc-foundation__label {
+	font-family: Jost, sans-serif;
+	font-size: clamp(11px, 0.9vw, 13px);
+	font-weight: 600;
+	letter-spacing: 0.3em;
+	text-transform: uppercase;
+	color: rgba(0, 255, 250, 0.75);
+	text-shadow: 0 0 8px rgba(0, 255, 250, 0.35);
+	padding-left: 0.3em;
+}
+
+/* Крупная дата */
+.doc-foundation__date {
+	font-family: Jost, sans-serif;
+	font-size: clamp(28px, 4vw, 48px);
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	color: #fff;
+	line-height: 1;
+	text-shadow:
+		0 0 20px rgba(0, 255, 250, 0.5),
+		0 0 60px rgba(0, 255, 250, 0.25);
+}
+
+/* Декоративная линия с ромбиком по центру */
+.doc-foundation__divider {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	width: min(260px, 70%);
+	margin: 2px 0;
+}
+
+.doc-foundation__line {
+	flex: 1;
+	height: 1px;
+	background: linear-gradient(90deg,
+		transparent,
+		rgba(0, 255, 250, 0.5),
+		transparent);
+}
+
+.doc-foundation__gem {
+	font-size: 14px;
+	line-height: 1;
+	color: #00FFFA;
+	flex-shrink: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	animation: doc-foundation-gem 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+	will-change: text-shadow, color;
+}
+
+@keyframes doc-foundation-gem {
+	0%, 100% {
+		color: rgba(0, 255, 250, 0.55);
+		text-shadow:
+			0 0 6px rgba(0, 255, 250, 0.5),
+			0 0 12px rgba(0, 255, 250, 0.2);
+	}
+	50% {
+		color: #00FFFA;
+		text-shadow:
+			0 0 14px rgba(0, 255, 250, 1),
+			0 0 28px rgba(0, 255, 250, 0.6),
+			0 0 48px rgba(0, 255, 250, 0.3);
+	}
+}
+
+/* Подпись снизу — название студии */
+.doc-foundation__signature {
+	font-family: Jost, sans-serif;
+	font-size: clamp(12px, 1vw, 15px);
+	font-weight: 400;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.75);
+	padding-left: 0.18em;
+}
+
+/* Адаптив */
+@media (max-width: 480px) {
+	.doc-foundation {
+		padding: 24px 18px;
+	}
+
+	.doc-foundation__date {
+		font-size: clamp(24px, 8vw, 34px);
+		letter-spacing: 0.08em;
+	}
+
+	.doc-foundation__label,
+	.doc-foundation__signature {
+		font-size: 10px;
+		letter-spacing: 0.24em;
+	}
 }
 
 /* ─── Карточки целей с прогрессом ─── */
@@ -728,47 +854,131 @@
 
 /* ─── Команда ─── */
 .doc-team {
-	display: flex;
-	flex-direction: column;
-	gap: clamp(10px, 1.4vh, 14px);
-	max-width: clamp(280px, 50vw, 500px);
-	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: clamp(14px, 1.8vw, 20px);
+	margin-top: clamp(10px, 1.5vh, 15px);
+	max-width: 720px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .doc-team__member {
+	position: relative;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	gap: 14px;
-	padding: clamp(10px, 1.4vh, 16px) clamp(16px, 1.8vw, 22px);
+	text-align: center;
+	gap: clamp(10px, 1.4vh, 14px);
+	padding: clamp(22px, 3vh, 30px) clamp(16px, 2vw, 22px) clamp(20px, 2.6vh, 26px);
 	border: 1px solid rgba(0, 255, 250, 0.2);
-	border-radius: 4px;
-	background: rgba(0, 0, 0, 0.5);
-	transition: all 0.3s ease;
+	border-radius: 6px;
+	background:
+		radial-gradient(circle at 50% 0%, rgba(0, 255, 250, 0.06) 0%, transparent 60%),
+		rgba(0, 0, 0, 0.5);
 	text-decoration: none;
 	color: inherit;
 	cursor: pointer;
+	overflow: hidden;
+	transition:
+		border-color 0.35s ease,
+		box-shadow 0.35s ease,
+		transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+		background 0.35s ease;
+}
+
+/* Тонкая светящаяся полоса сверху */
+.doc-team__member::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, #00FFFA, transparent);
+	opacity: 0.35;
+	transition: opacity 0.35s ease;
 }
 
 .doc-team__member:hover {
 	border-color: #00FFFA;
-	background: rgba(0, 255, 250, 0.06);
-	transform: translateX(4px);
-	box-shadow: 0 0 15px rgba(0, 255, 250, 0.2);
+	transform: translateY(-4px);
+	background:
+		radial-gradient(circle at 50% 0%, rgba(0, 255, 250, 0.12) 0%, transparent 60%),
+		rgba(0, 0, 0, 0.6);
+	box-shadow:
+		0 0 25px rgba(0, 255, 250, 0.25),
+		0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.doc-team__star {
-	color: #FF1100;
-	font-size: 1.1em;
-	flex-shrink: 0;
+.doc-team__member:hover::before {
+	opacity: 1;
+}
+
+/* Кружок с эмодзи */
+.doc-team__avatar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: clamp(56px, 6vw, 72px);
+	height: clamp(56px, 6vw, 72px);
+	border-radius: 50%;
+	border: 1.5px solid rgba(0, 255, 250, 0.35);
+	background: radial-gradient(circle at center, #0a0a0a 0%, #000 75%);
+	font-size: clamp(26px, 3vw, 34px);
+	line-height: 1;
+	box-shadow:
+		0 0 18px rgba(0, 255, 250, 0.15),
+		inset 0 0 12px rgba(0, 255, 250, 0.08);
+	transition:
+		border-color 0.35s ease,
+		box-shadow 0.35s ease,
+		transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.doc-team__member:hover .doc-team__avatar {
+	border-color: #00FFFA;
+	box-shadow:
+		0 0 25px rgba(0, 255, 250, 0.5),
+		inset 0 0 15px rgba(0, 255, 250, 0.15);
+	transform: scale(1.08);
 }
 
 .doc-team__name {
 	font-family: Jost, sans-serif;
-	font-size: clamp(14px, 1.2vw, 17px);
-	font-weight: 500;
-	letter-spacing: 0.1em;
+	font-size: clamp(16px, 1.4vw, 20px);
+	font-weight: 600;
+	letter-spacing: 0.12em;
 	text-transform: uppercase;
 	color: #fff;
+	line-height: 1.1;
+	text-shadow: 0 0 12px rgba(0, 255, 250, 0.15);
+}
+
+.doc-team__role {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(12px, 1vw, 14px);
+	font-weight: 300;
+	font-style: italic;
+	letter-spacing: 0.02em;
+	color: rgba(0, 255, 250, 0.75);
+	line-height: 1.4;
+}
+
+/* Стрелка в правом верхнем углу */
+.doc-team__arrow {
+	position: absolute;
+	top: clamp(10px, 1.2vh, 14px);
+	right: clamp(12px, 1.4vw, 16px);
+	font-family: Jost, sans-serif;
+	font-size: clamp(14px, 1.2vw, 18px);
+	color: rgba(0, 255, 250, 0.4);
+	transition: transform 0.35s ease, color 0.35s ease;
+}
+
+.doc-team__member:hover .doc-team__arrow {
+	color: #00FFFA;
+	transform: translate(3px, -3px);
 }
 
 /* ─── Наши ценности ─── */
@@ -2086,4 +2296,627 @@
 .doc-body .divider {
 	margin-top: clamp(20px, 4vh, 50px);
 	margin-bottom: clamp(20px, 4vh, 50px);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ДОРОЖНАЯ КАРТА — план развития и подразделения
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── 1. HERO-блок общего прогресса ─── */
+.doc-progress-hero {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: clamp(12px, 1.8vh, 18px);
+	padding: clamp(28px, 4vh, 44px) clamp(22px, 3vw, 36px);
+	border: 1px solid rgba(0, 255, 250, 0.35);
+	border-radius: 8px;
+	background:
+		radial-gradient(circle at 20% 30%, rgba(0, 255, 250, 0.08) 0%, transparent 55%),
+		radial-gradient(circle at 80% 70%, rgba(255, 17, 0, 0.06) 0%, transparent 55%),
+		rgba(0, 0, 0, 0.55);
+	box-shadow:
+		inset 0 0 60px rgba(0, 255, 250, 0.05),
+		0 0 40px rgba(0, 255, 250, 0.1);
+	overflow: hidden;
+}
+
+.doc-progress-hero::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(90deg, transparent, #00FFFA, transparent);
+	opacity: 0.7;
+}
+
+.doc-progress-hero__label {
+	font-family: Jost, sans-serif;
+	font-size: clamp(12px, 1vw, 14px);
+	font-weight: 600;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: #00FFFA;
+	opacity: 0.9;
+}
+
+.doc-progress-hero__percent {
+	font-family: Jost, sans-serif;
+	font-size: clamp(48px, 7vw, 92px);
+	font-weight: 700;
+	line-height: 1;
+	color: #fff;
+	text-shadow:
+		0 0 20px rgba(0, 255, 250, 0.5),
+		0 0 60px rgba(0, 255, 250, 0.25);
+	letter-spacing: 0.02em;
+}
+
+.doc-progress-hero__bar {
+	height: 10px !important;
+	border-radius: 5px !important;
+	background: rgba(0, 255, 250, 0.08) !important;
+}
+
+.doc-progress-hero__bar .doc-goal__bar-fill,
+.doc-progress-hero__bar #studioProgressFill {
+	height: 100%;
+	border-radius: 5px;
+	background: linear-gradient(90deg, #FF1100, #00FFFA);
+	box-shadow: 0 0 18px rgba(0, 255, 250, 0.6);
+	transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.doc-progress-hero__text {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(13px, 1.05vw, 15px);
+	font-weight: 300;
+	font-style: italic;
+	letter-spacing: 0.04em;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+/* ─── 2. План (аккордеоны) ─── */
+.doc-plan {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(8px, 1.2vh, 12px);
+	margin-top: clamp(6px, 1vh, 10px);
+}
+
+.doc-plan__item {
+	border: 1px solid rgba(0, 255, 250, 0.15);
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.4);
+	transition:
+		border-color 0.3s ease,
+		box-shadow 0.3s ease,
+		background 0.3s ease;
+	overflow: hidden;
+}
+
+.doc-plan__item:hover {
+	border-color: rgba(0, 255, 250, 0.35);
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.doc-plan__item[open] {
+	border-color: rgba(0, 255, 250, 0.5);
+	background: rgba(0, 0, 0, 0.55);
+	box-shadow:
+		0 0 20px rgba(0, 255, 250, 0.1),
+		inset 0 0 30px rgba(0, 255, 250, 0.03);
+}
+
+/* Строка заголовка */
+.doc-plan__summary {
+	display: grid;
+	grid-template-columns: auto 1fr auto auto;
+	align-items: center;
+	gap: clamp(10px, 1.4vw, 18px);
+	padding: clamp(12px, 1.6vh, 16px) clamp(14px, 1.8vw, 22px);
+	cursor: pointer;
+	user-select: none;
+	list-style: none;
+	transition: background 0.3s ease;
+}
+
+.doc-plan__summary::-webkit-details-marker { display: none; }
+.doc-plan__summary::marker { display: none; }
+
+.doc-plan__summary:hover {
+	background: rgba(0, 255, 250, 0.03);
+}
+
+/* Номер 01, 02... */
+.doc-plan__num {
+	font-family: Jost, sans-serif;
+	font-size: clamp(11px, 0.9vw, 13px);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	color: rgba(0, 255, 250, 0.7);
+	min-width: 22px;
+}
+
+/* Название пункта */
+.doc-plan__title {
+	font-family: Jost, sans-serif;
+	font-size: clamp(14px, 1.15vw, 17px);
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	color: #fff;
+	line-height: 1.3;
+}
+
+/* Мини-прогресс-бар справа от названия */
+.doc-plan__meter {
+	position: relative;
+	width: clamp(80px, 12vw, 140px);
+	height: 6px;
+	border-radius: 3px;
+	background: rgba(0, 255, 250, 0.08);
+	overflow: hidden;
+	flex-shrink: 0;
+}
+
+.doc-plan__meter-fill {
+	display: block;
+	height: 100%;
+	border-radius: 3px;
+	background: linear-gradient(90deg, #FF1100, #00FFFA);
+	box-shadow: 0 0 8px rgba(0, 255, 250, 0.5);
+	transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Процент справа */
+.doc-plan__pct {
+	font-family: Jost, sans-serif;
+	font-size: clamp(12px, 1vw, 14px);
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	color: #00FFFA;
+	min-width: 40px;
+	text-align: right;
+	flex-shrink: 0;
+}
+
+/* Стрелка-индикатор раскрытия */
+.doc-plan__summary::after {
+	content: '▾';
+	position: absolute;
+	right: clamp(14px, 1.8vw, 22px);
+	bottom: clamp(8px, 1.2vh, 12px);
+	font-family: Jost, sans-serif;
+	font-size: 12px;
+	color: rgba(0, 255, 250, 0.4);
+	transition: transform 0.3s ease;
+	pointer-events: none;
+}
+
+.doc-plan__item[open] .doc-plan__summary::after {
+	transform: rotate(180deg);
+}
+
+/* Список задач внутри */
+.doc-plan__tasks {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(6px, 0.9vh, 10px);
+	list-style: none;
+	margin: 0;
+	padding: clamp(4px, 0.6vh, 8px) clamp(14px, 1.8vw, 22px) clamp(14px, 2vh, 18px);
+	border-top: 1px solid rgba(0, 255, 250, 0.1);
+	animation: doc-plan-open 0.35s ease;
+}
+
+@keyframes doc-plan-open {
+	from { opacity: 0; transform: translateY(-4px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Отдельная задача с чекбоксом */
+.doc-plan__task {
+	display: flex;
+	align-items: flex-start;
+	gap: clamp(10px, 1.2vw, 14px);
+	padding: clamp(6px, 0.9vh, 10px) clamp(8px, 1vw, 12px);
+	border-radius: 3px;
+	font-family: Roboto, sans-serif;
+	font-size: clamp(13px, 1.05vw, 15px);
+	font-weight: 300;
+	line-height: 1.55;
+	color: rgba(255, 255, 255, 0.85);
+	transition: background 0.25s ease, color 0.25s ease;
+}
+
+.doc-plan__task:hover {
+	background: rgba(0, 255, 250, 0.03);
+}
+
+/* Кружок-чекбокс */
+.doc-plan__check {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 18px;
+	height: 18px;
+	margin-top: 2px;
+	border: 1.5px solid rgba(0, 255, 250, 0.5);
+	border-radius: 50%;
+	background: rgba(0, 255, 250, 0.03);
+	transition: all 0.3s ease;
+}
+
+.doc-plan__task:hover .doc-plan__check {
+	border-color: #00FFFA;
+	box-shadow: 0 0 10px rgba(0, 255, 250, 0.4);
+}
+
+/* Выполненная задача — залитая галочка + зачёркнутый текст */
+.doc-plan__task.is-done .doc-plan__check {
+	background: #00FFFA;
+	border-color: #00FFFA;
+	box-shadow:
+		0 0 12px rgba(0, 255, 250, 0.7),
+		inset 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.doc-plan__task.is-done .doc-plan__check::after {
+	content: '✓';
+	font-family: Jost, sans-serif;
+	font-size: 11px;
+	font-weight: 700;
+	color: #000;
+	line-height: 1;
+}
+
+.doc-plan__task.is-done > span:last-child {
+	text-decoration: line-through;
+	text-decoration-color: rgba(0, 255, 250, 0.4);
+	text-decoration-thickness: 1px;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+/* ─── 3. Карточки подразделений ─── */
+.doc-subs {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(14px, 2vh, 22px);
+	margin-top: clamp(8px, 1.2vh, 14px);
+}
+
+.doc-sub {
+	border: 1px solid rgba(0, 255, 250, 0.25);
+	border-radius: 6px;
+	background: rgba(0, 0, 0, 0.5);
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+	overflow: hidden;
+}
+
+.doc-sub:hover {
+	border-color: rgba(0, 255, 250, 0.5);
+	box-shadow: 0 0 25px rgba(0, 255, 250, 0.12);
+}
+
+.doc-sub__header {
+	position: relative;
+	display: grid;
+	grid-template-columns: auto 1fr auto auto;
+	align-items: center;
+	gap: clamp(12px, 1.5vw, 20px);
+	padding: clamp(16px, 2.2vh, 22px) clamp(16px, 2vw, 26px);
+	background: rgba(0, 0, 0, 0.35);
+	border-bottom: 1px solid rgba(0, 255, 250, 0.15);
+}
+
+.doc-sub__icon {
+	font-size: clamp(24px, 2.4vw, 32px);
+	line-height: 1;
+	flex-shrink: 0;
+	filter: drop-shadow(0 0 8px rgba(0, 255, 250, 0.35));
+}
+
+.doc-sub__head-info {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	min-width: 0;
+}
+
+.doc-sub__name {
+	font-family: Jost, sans-serif;
+	font-size: clamp(15px, 1.4vw, 20px);
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: #fff;
+	line-height: 1.2;
+	margin: 0;
+	text-shadow: 0 0 12px rgba(0, 255, 250, 0.15);
+}
+
+.doc-sub__goal {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(12px, 1vw, 14px);
+	font-weight: 300;
+	font-style: italic;
+	line-height: 1.4;
+	color: rgba(0, 255, 250, 0.75);
+	margin: 0;
+}
+
+/* Мини-прогресс-бар подразделения */
+.doc-sub__meter {
+	position: relative;
+	width: clamp(70px, 10vw, 110px);
+	height: 6px;
+	border-radius: 3px;
+	background: rgba(0, 255, 250, 0.08);
+	overflow: hidden;
+	flex-shrink: 0;
+}
+
+.doc-sub__meter-fill {
+	display: block;
+	height: 100%;
+	border-radius: 3px;
+	background: linear-gradient(90deg, #FF1100, #00FFFA);
+	box-shadow: 0 0 8px rgba(0, 255, 250, 0.5);
+	transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.doc-sub__pct {
+	font-family: Jost, sans-serif;
+	font-size: clamp(12px, 1vw, 14px);
+	font-weight: 600;
+	color: #00FFFA;
+	min-width: 40px;
+	text-align: right;
+	flex-shrink: 0;
+}
+
+.doc-sub__body {
+	padding: clamp(12px, 1.8vh, 18px) clamp(14px, 1.8vw, 22px) clamp(16px, 2.2vh, 22px);
+}
+
+/* Внутри подразделения — тот же .doc-plan, но чуть компактнее */
+.doc-sub__body .doc-plan {
+	margin-top: 0;
+	gap: clamp(6px, 0.9vh, 10px);
+}
+
+.doc-sub__body .doc-plan__summary {
+	padding: clamp(10px, 1.4vh, 14px) clamp(12px, 1.6vw, 18px);
+}
+
+.doc-sub__body .doc-plan__tasks {
+	padding: clamp(4px, 0.6vh, 8px) clamp(12px, 1.6vw, 18px) clamp(12px, 1.8vh, 16px);
+}
+
+/* ─── 4. Адаптив ─── */
+@media (max-width: 700px) {
+	.doc-progress-hero {
+		padding: 22px 18px;
+	}
+
+	.doc-progress-hero__percent {
+		font-size: clamp(40px, 12vw, 64px);
+	}
+
+	/* В шапке плана — две строки: название сверху, метры снизу */
+	.doc-plan__summary {
+		grid-template-columns: auto 1fr auto;
+		grid-template-areas:
+			"num title pct"
+			".   meter meter";
+		gap: 8px 12px;
+		padding: 12px 14px;
+	}
+
+	.doc-plan__num   { grid-area: num; }
+	.doc-plan__title { grid-area: title; }
+	.doc-plan__meter { grid-area: meter; width: 100%; margin-top: 4px; }
+	.doc-plan__pct   { grid-area: pct; }
+
+	.doc-plan__summary::after {
+		display: none;
+	}
+
+	/* Карточка подразделения — вертикальная раскладка */
+	.doc-sub__header {
+		grid-template-columns: auto 1fr;
+		grid-template-areas:
+			"icon info"
+			"meter meter"
+			"pct pct";
+		gap: 10px 14px;
+		padding: 16px;
+	}
+
+	.doc-sub__icon      { grid-area: icon; }
+	.doc-sub__head-info { grid-area: info; }
+	.doc-sub__meter     { grid-area: meter; width: 100%; margin-top: 4px; }
+	.doc-sub__pct       { grid-area: pct; text-align: left; min-width: 0; }
+}
+
+@media (max-width: 480px) {
+	.doc-plan__title {
+		font-size: 13px;
+	}
+
+	.doc-plan__task {
+		font-size: 12.5px;
+		padding: 6px 8px;
+		gap: 10px;
+	}
+
+	.doc-plan__check {
+		width: 16px;
+		height: 16px;
+	}
+
+	.doc-sub__name {
+		font-size: 14px;
+		letter-spacing: 0.04em;
+	}
+
+	.doc-sub__goal {
+		font-size: 12px;
+	}
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ЧЕМ МЫ ЗАНИМАЕМСЯ (basic.html)
+   ═══════════════════════════════════════════════════════════ */
+
+.doc-directions {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: clamp(10px, 1.4vw, 16px);
+	margin-top: clamp(10px, 1.5vh, 15px);
+}
+
+.doc-direction {
+	display: flex;
+	align-items: center;
+	gap: clamp(12px, 1.5vw, 16px);
+	padding: clamp(14px, 1.8vh, 18px) clamp(16px, 2vw, 20px);
+	border: 1px solid rgba(0, 255, 250, 0.2);
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.45);
+	transition:
+		border-color 0.3s ease,
+		box-shadow 0.3s ease,
+		transform 0.3s ease;
+}
+
+.doc-direction:hover {
+	border-color: #00FFFA;
+	box-shadow: 0 0 20px rgba(0, 255, 250, 0.2);
+	transform: translateX(4px);
+}
+
+.doc-direction__icon {
+	font-size: clamp(22px, 2vw, 28px);
+	line-height: 1;
+	flex-shrink: 0;
+	filter: drop-shadow(0 0 6px rgba(0, 255, 250, 0.35));
+}
+
+.doc-direction__info {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	min-width: 0;
+}
+
+.doc-direction__name {
+	font-family: Jost, sans-serif;
+	font-size: clamp(13px, 1.1vw, 16px);
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: #fff;
+	line-height: 1.2;
+}
+
+.doc-direction__tag {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(12px, 1vw, 14px);
+	font-weight: 300;
+	font-style: italic;
+	color: rgba(0, 255, 250, 0.75);
+	line-height: 1.4;
+}
+
+/* CTA-кнопка под списком */
+.doc-directions__cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	align-self: center;
+	margin-top: clamp(16px, 2.4vh, 24px);
+	padding: clamp(12px, 1.6vh, 16px) clamp(24px, 2.5vw, 36px);
+	font-family: Jost, sans-serif;
+	font-size: clamp(13px, 1.1vw, 16px);
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #00FFFA;
+	border: 1px solid rgba(0, 255, 250, 0.5);
+	border-radius: 4px;
+	background: rgba(0, 0, 0, 0.5);
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+
+.doc-directions__cta:hover {
+	color: #fff;
+	border-color: #00FFFA;
+	background: rgba(0, 255, 250, 0.12);
+	box-shadow: 0 0 25px rgba(0, 255, 250, 0.4);
+	transform: translateY(-2px);
+}
+
+/* ─── Аватарки в контактах (страница contactus) ─── */
+.doc-contact__avatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	object-fit: cover;
+	object-position: center;
+	flex-shrink: 0;
+	border: 1px solid rgba(0, 255, 250, 0.35);
+	background: #000;
+	display: block;
+	transition:
+		border-color 0.35s ease,
+		box-shadow 0.35s ease,
+		transform 0.35s ease;
+}
+
+.doc-contact:hover .doc-contact__avatar {
+	border-color: #00FFFA;
+	box-shadow: 0 0 12px rgba(0, 255, 250, 0.5);
+	transform: scale(1.08);
+}
+
+/* ─── Строчка-мостик на basic ─── */
+.doc-contacts__hint {
+	margin-top: clamp(12px, 1.8vh, 16px);
+	padding: 0 12px;
+	font-family: Roboto, sans-serif;
+	font-size: clamp(12px, 1vw, 14px);
+	font-weight: 300;
+	font-style: italic;
+	line-height: 1.5;
+	color: rgba(255, 255, 255, 0.6);
+	text-align: center;
+}
+
+.doc-contacts__hint a {
+	color: #00FFFA;
+	text-decoration: none;
+	border-bottom: 1px dashed rgba(0, 255, 250, 0.5);
+	transition: color 0.3s, border-bottom-color 0.3s;
+	cursor: pointer;
+}
+
+.doc-contacts__hint a:hover {
+	color: #fff;
+	border-bottom-color: #00FFFA;
+	border-bottom-style: solid;
+}
+
+/* Мобильный размер — чуть компактнее */
+@media (max-width: 480px) {
+	.doc-contact__avatar {
+		width: 34px;
+		height: 34px;
+	}
 }
