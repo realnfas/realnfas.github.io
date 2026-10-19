@@ -49,19 +49,19 @@ window.SITE_CONFIG = {
 		artDeptDesc:          'Создаёт изображения',
 		// Подразделения студии
 		subArtworksName:      'NFAS ARTWORKS',
-		subArtworksDesc:      'Научиться рисовать антропоморфных животных.',
+		subArtworksDesc:      'Научиться рисовать.',
 		subPhotoshotsName:    'NFAS PHOTO SHOTS',
-		subPhotoshotsDesc:    'Научиться фотографировать портреты.',
+		subPhotoshotsDesc:    'Научиться фотографировать.',
 		subRecordsName:       'NFAS RECORDS',
-		subRecordsDesc:       'Научиться обрабатывать голос.',
+		subRecordsDesc:       'Научиться обрабатывать звук.',
 		subCinematicsName:    'NFAS CINEMATICS',
-		subCinematicsDesc:    'Научиться снимать короткие кинофильмы.',
+		subCinematicsDesc:    'Научиться снимать.',
 		subVolumetricsName:   'NFAS 3D VOLUMETRICS',
-		subVolumetricsDesc:   'Научиться создавать 3D-модели персонажей для анимаций.',
+		subVolumetricsDesc:   'Научиться создавать 3D-модели.',
 		subStoriesName:       'NFAS STORIES',
-		subStoriesDesc:       'Научиться писать захватывающие рассказы.',
+		subStoriesDesc:       'Научиться писать рассказы.',
 		subDevelopmentName:   'NFAS DEVELOPMENT',
-		subDevelopmentDesc:   'Научиться создавать интерактивные сайты.',
+		subDevelopmentDesc:   'Научиться писать на языке программирования.',
 	},
 
 	// ─── Пути к медиа ───
@@ -337,18 +337,20 @@ document.addEventListener('DOMContentLoaded', () => {
 		el.appendChild(link);
 	});
 
-	// 14. Перетаскивание таймлайна мышкой
+	// 14. Перетаскивание таймлайна мышкой / пальцем
 	const timeline = document.getElementById('docTimeline');
 	if (timeline) {
 		let isDown = false;
 		let startX = 0;
 		let scrollStart = 0;
-	
+		let moved = false;
+
 		timeline.addEventListener('pointerdown', (e) => {
-			// На тач-устройствах работает нативный скролл пальцем
+			// На тач-устройствах работает нативный скролл
 			if (e.pointerType === 'touch') return;
 
 			isDown = true;
+			moved = false;
 			timeline.classList.add('is-dragging');
 			startX = e.clientX;
 			scrollStart = timeline.scrollLeft;
@@ -358,8 +360,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		timeline.addEventListener('pointermove', (e) => {
 			if (!isDown) return;
-			const walk = (e.clientX - startX) * 1.5;   // 1.5 — скорость прокрутки
-			timeline.scrollLeft = scrollStart - walk;
+			const walk = (e.clientX - startX) * 1.5;
+
+			// Первое заметное движение — блокируем выделение текста
+			if (!moved && Math.abs(walk) > 3) {
+				moved = true;
+				e.preventDefault();
+			}
+
+			if (moved) {
+				timeline.scrollLeft = scrollStart - walk;
+			}
 		});
 
 		const stopDrag = (e) => {
