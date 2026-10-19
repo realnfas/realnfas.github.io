@@ -2920,3 +2920,72 @@
 		height: 34px;
 	}
 }
+
+/* ─── Команда: адаптив ─── */
+
+/* Планшет (≤900px) — уменьшаем минимальную ширину карточек */
+@media (max-width: 900px) {
+	.doc-team {
+		grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+		max-width: 100%;
+	}
+}
+
+/* Телефон (≤600px) — строго одна колонка */
+@media (max-width: 600px) {
+	.doc-team {
+		grid-template-columns: 1fr;
+		max-width: 320px;
+		gap: 12px;
+	}
+
+	.doc-team__member {
+		padding: 18px 16px 16px;
+		gap: 8px;
+	}
+
+	.doc-team__avatar {
+		width: 64px;
+		height: 64px;
+	}
+
+	.doc-team__name {
+		font-size: 15px;
+		letter-spacing: 0.1em;
+	}
+
+	.doc-team__role {
+		font-size: 12px;
+	}
+
+	.doc-team__arrow {
+		top: 10px;
+		right: 12px;
+		font-size: 14px;
+	}
+}
+
+/* Маленький телефон (≤400px) — компактнее */
+@media (max-width: 400px) {
+	.doc-team {
+		max-width: 100%;
+	}
+
+	.doc-team__member {
+		padding: 16px 12px 14px;
+	}
+
+	.doc-team__avatar {
+		width: 56px;
+		height: 56px;
+	}
+
+	.doc-team__name {
+		font-size: 14px;
+	}
+
+	.doc-team__role {
+		font-size: 11px;
+		letter-spacing: 0.02em;
+	}
+}
