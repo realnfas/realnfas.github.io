@@ -112,7 +112,7 @@
 
 .hscroll__hint {
 	margin-top: 10px;
-	font-family: Montserrat, sans-serif;
+	font-family: Inter, sans-serif;
 	font-size: clamp(11px, 1vw, 14px);
 	font-weight: 300;
 	letter-spacing: 0.2em;
@@ -198,7 +198,7 @@
 }
 
 .portfolio__caption span {
-	font-family: Montserrat, sans-serif;
+	font-family: Inter, sans-serif;
 	font-size: clamp(14px, 1.3vw, 20px);
 	font-weight: 500;
 	letter-spacing: 0.05em;
@@ -206,7 +206,7 @@
 }
 
 .portfolio__caption small {
-	font-family: Montserrat, sans-serif;
+	font-family: Inter, sans-serif;
 	font-size: clamp(10px, 0.9vw, 13px);
 	font-weight: 300;
 	letter-spacing: 0.15em;
@@ -445,7 +445,7 @@
 	gap: 8px;
 	padding: 5px 14px;
 	align-self: flex-start;
-	font-family: Montserrat, sans-serif;
+	font-family: Inter, sans-serif;
 	font-size: clamp(10px, 0.9vw, 13px);
 	font-weight: 500;
 	letter-spacing: 0.2em;
@@ -465,7 +465,7 @@
 
 /* Заголовок */
 .work-panel__title {
-	font-family: Montserrat, sans-serif;
+	font-family: Inter, sans-serif;
 	font-size: clamp(20px, 2.4vw, 34px);
 	font-weight: 600;
 	line-height: 1.15;
@@ -496,7 +496,7 @@
 	height: 100%;
 	padding: 40px;
 	text-align: center;
-	font-family: Montserrat, sans-serif;
+	font-family: Inter, sans-serif;
 	font-size: clamp(14px, 1.2vw, 18px);
 	font-weight: 400;
 	letter-spacing: 0.08em;
@@ -647,7 +647,7 @@
 }
 
 .services__item h3 {
-	font-family: Montserrat, sans-serif;
+	font-family: Inter, sans-serif;
 	font-size: clamp(16px, 1.4vw, 22px);
 	font-weight: 500;
 	text-transform: uppercase;
@@ -691,7 +691,7 @@
 .faq__question {
 	padding: clamp(12px, 1.8vh, 20px) clamp(15px, 2vw, 24px);
 	cursor: pointer;
-	font-family: Montserrat, sans-serif;
+	font-family: Inter, sans-serif;
 	font-size: clamp(14px, 1.3vw, 18px);
 	font-weight: 500;
 	color: #fff;
@@ -773,7 +773,7 @@
 .cta > * { position: relative; z-index: 1; }
 
 .cta__title {
-	font-family: Montserrat, sans-serif;
+	font-family: Inter, sans-serif;
 	font-size: clamp(24px, 3vw, 42px);
 	font-weight: 600;
 	text-transform: uppercase;
@@ -802,7 +802,7 @@
 .cta__btn {
 	display: inline-block;
 	padding: clamp(12px, 1.6vh, 16px) clamp(24px, 2.5vw, 36px);
-	font-family: Montserrat, sans-serif;
+	font-family: Inter, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 500;
 	letter-spacing: 0.1em;
@@ -858,7 +858,7 @@
 }
 
 .stats__number {
-	font-family: Montserrat, sans-serif;
+	font-family: Inter, sans-serif;
 	font-size: clamp(38px, 5vw, 64px);
 	font-weight: 700;
 	color: #00FFFA;
@@ -867,7 +867,7 @@
 }
 
 .stats__label {
-	font-family: Montserrat, sans-serif;
+	font-family: Inter, sans-serif;
 	font-size: clamp(11px, 1vw, 14px);
 	font-weight: 300;
 	letter-spacing: 0.2em;
@@ -904,7 +904,7 @@
 }
 
 .reviews__item cite {
-	font-family: Montserrat, sans-serif;
+	font-family: Inter, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 500;
 	letter-spacing: 0.15em;
@@ -916,7 +916,7 @@
 /* Подсказка под вступлением */
 .intro__lead {
 	margin-top: clamp(20px, 3vh, 35px);
-	font-family: Montserrat, sans-serif;
+	font-family: Inter, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 400;
 	letter-spacing: 0.1em;
@@ -1021,7 +1021,7 @@
 	background: transparent;
 	border: 1px solid rgba(0, 255, 250, 0.35);
 	color: #00FFFA;
-	font-family: Montserrat, sans-serif;
+	font-family: Inter, sans-serif;
 	font-size: clamp(16px, 1.4vw, 20px);
 	line-height: 1;
 	cursor: pointer;
@@ -1098,7 +1098,7 @@
 /* Текст «Примеры» внутри панели */
 .compare__nav-label {
 	padding: 0 clamp(8px, 1vw, 12px) 0 clamp(4px, 0.5vw, 6px);
-	font-family: Montserrat, sans-serif;
+	font-family: Inter, sans-serif;
 	font-size: clamp(9px, 0.75vw, 11px);
 	font-weight: 600;
 	letter-spacing: 0.2em;
@@ -1116,7 +1116,7 @@
 	position: absolute;
 	top: clamp(12px, 2vh, 20px);
 	padding: clamp(5px, 0.7vh, 8px) clamp(12px, 1.4vw, 16px);
-	font-family: Montserrat, sans-serif;
+	font-family: Inter, sans-serif;
 	font-size: clamp(10px, 0.9vw, 13px);
 	font-weight: 600;
 	letter-spacing: 0.2em;
