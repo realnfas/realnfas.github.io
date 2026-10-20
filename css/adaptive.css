@@ -1,0 +1,212 @@
+/* АДАПТИВНОСТЬ */
+
+@media (prefers-reduced-motion: reduce) {
+	#studio_name span {
+		animation: none;
+		color: #FF1100;
+		text-shadow: 0 0 12px rgba(255, 17, 0, 0.6);
+	}
+	.intro__arrow,
+	.menu__item.active,
+	.menu__item.active::before,
+	#logotype_container::before {
+		animation: none;
+	}
+	.reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+	.logo-ring-spin,
+	* {
+		scroll-behavior: auto !important;
+	}
+}
+
+/* ─── Мобильное меню (≤900px) ─── */
+@media (max-width: 900px) {
+	/* Прячем «десктопное» меню, вместо него будет бургер */
+	.menu { display: none; }
+
+	/* Показываем бургер */
+	.menu-toggle { display: flex; }
+}
+
+/* Отключает анимацию NFAS на мобилке */
+@media (max-width: 700px) {
+	#studio_name span {
+		animation: none;
+		color: #FF1100;
+		text-shadow: 0 0 12px rgba(255, 17, 0, 0.6);
+	}
+}
+
+/* Плашка версии скрыта на мелких экранах */
+@media (max-width: 450px) {
+	#plashka_version {
+		display: none;
+	}
+}
+
+/* ─── Мобильный ремонт: узкие экраны (≤480px) ─── */
+
+/* 1. СТРАХОВКА ОТ ГОРИЗОНТАЛЬНОГО СКРОЛЛА — на всю мобилку */
+@media (max-width: 900px) {
+	html, body {
+		overflow-x: clip;
+		max-width: 100%;
+	}
+}
+
+/* 2. ШАПКА — компактнее на маленьких экранах */
+@media (max-width: 480px) {
+	/* NFAS: плотнее буквы, чтобы не разъезжалось */
+	#studio_name {
+		letter-spacing: clamp(4px, 1.5vw, 12px);
+		padding-left: clamp(4px, 1.5vw, 12px);
+		margin-top: clamp(80px, 14vh, 140px);
+	}
+
+	/* Подстрочник — уменьшаем и даём боковые отступы */
+	#studio_subname {
+		letter-spacing: clamp(1px, 0.5vw, 3px);
+		padding-left: clamp(1px, 0.5vw, 3px);
+		padding-right: clamp(1px, 0.5vw, 3px);
+		font-size: clamp(11px, 3vw, 14px);
+		line-height: 1.4;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	#studio_subname span {
+		display: inline-block;
+	}
+
+	/* ЛОГОТИП — уменьшаем и прижимаем к углу, чтобы не мешал тексту */
+	#logotype_container {
+		width: 54px;
+		height: 54px;
+		top: 12px;
+		right: 12px;
+	}
+
+	#logotype_container::before {
+		inset: -4px;
+	}
+}
+
+/* 3. БУРГЕР-МЕНЮ — компактные кнопки, ничего не вылазит */
+@media (max-width: 480px) {
+	.menu-drawer__nav {
+		padding: 16px;
+		gap: 12px;
+	}
+
+	.menu-drawer__item {
+		min-width: 0;
+		width: 100%;
+		max-width: calc(100vw - 48px);
+		padding: 12px 18px;
+		font-size: clamp(13px, 4vw, 16px);
+		letter-spacing: 0.1em;
+		word-break: break-word;
+		text-align: center;
+	}
+}
+
+/* ─── Меньше пустоты между секциями на мобилке ─── */
+@media (max-width: 900px) {
+	:root {
+		--gap-slide: clamp(50px, 8vh, 90px);
+	}
+}
+
+@media (max-width: 480px) {
+	:root {
+		--gap-slide: clamp(30px, 5vh, 50px);
+	}
+
+	/* Гигантский отступ над заголовками "01", "02"... уменьшаем */
+	.text_caption {
+		margin-top: clamp(180px, 80vh, 600px);
+	}
+
+	.text_caption h2 {
+		font-size: clamp(32px, 10vw, 48px);
+	}
+
+	/* Заголовок внутри hscroll — он и так с фиксированным положением */
+	.hscroll__head .text_caption {
+		margin-top: 0;
+	}
+}
+
+/* ─── Заголовки секций — не уезжают за край на мобилке ─── */
+@media (max-width: 900px) {
+	.text_caption {
+		width: 100%;                            /* вместо max-content */
+		max-width: 100%;
+		margin-left: 0;                         /* убираем 15vw-отступ */
+		margin-right: 0;
+		padding-left: clamp(16px, 5vw, 28px);   /* аккуратный отступ слева */
+		padding-right: clamp(16px, 5vw, 28px);  /* и справа, чтобы не касалось края */
+		box-sizing: border-box;
+		margin-top: clamp(200px, 80vh, 1000px);
+	}
+
+	.text_caption h2 {
+		font-size: clamp(28px, 9vw, 42px);      /* компактнее */
+		line-height: 1.15;
+		word-break: break-word;                 /* длинные слова переносятся */
+		max-width: 100%;
+	}
+}
+
+/* На совсем узких экранах — ещё плотнее */
+@media (max-width: 480px) {
+	.text_caption {
+		padding-left: 14px;
+		padding-right: 14px;
+	}
+
+	.text_caption h2 {
+		font-size: clamp(24px, 9vw, 34px);
+		padding-left: clamp(10px, 3vw, 16px);
+	}
+}
+
+/* ─── Заголовок внутри галереи (hscroll) — убираем особый отступ ─── */
+@media (max-width: 900px) {
+	.hscroll__head {
+		padding-left: 0;
+	}
+
+	/* Внутри галереи .text_caption уже обнуляется через margin: 0,
+	но добавим на всякий случай */
+	.hscroll__head .text_caption {
+		padding-left: clamp(16px, 5vw, 28px);
+		padding-right: clamp(16px, 5vw, 28px);
+	}
+}
+
+/* ─── Карточки галереи — центрируем на мобилке ─── */
+@media (max-width: 700px) {
+	.hscroll__viewport {
+		justify-content: center;
+	}
+
+	.hscroll__track {
+		padding: 0 !important;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.hscroll__track .portfolio__item {
+		width: 100%;
+		max-width: min(80vw, 500px);
+		margin: 0 auto;
+	}
+}

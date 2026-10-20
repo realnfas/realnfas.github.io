@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<title>NFox | ALT STUDIO</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+		<meta name="description" content="NFox | ALT STUDIO — виртуальная студия мультимедийного творчества. Обработка изображений, видео-монтаж, 3D-анимации, нейросетевые эксперименты.">
+		<meta name="theme-color" content="#050505">
+
+		<meta property="og:type" content="website">
+		<meta property="og:site_name" content="NFox | ALT STUDIO">
+		<meta property="og:locale" content="ru_RU">
+		<meta property="og:title" content="NFox | ALT STUDIO">
+		<meta property="og:description" content="NFox | ALT STUDIO — виртуальная студия мультимедийного творчества. Обработка изображений, видео-монтаж, 3D-анимации, нейросетевые эксперименты.">
+		<meta property="og:url" content="https://realnfas.github.io/">
+		<meta property="og:image" content="https://realnfas.github.io/media/img/og/og-default.png">
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="630">
+		<meta property="og:image:alt" content="NFox | ALT STUDIO">
+
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="NFox | ALT STUDIO">
+		<meta name="twitter:description" content="NFox | ALT STUDIO — виртуальная студия мультимедийного творчества. Обработка изображений, видео-монтаж, 3D-анимации, нейросетевые эксперименты.">
+		<meta name="twitter:image" content="https://realnfas.github.io/media/img/og/og-default.png">
+
+		<link rel="icon" href="/media/img/ico/favicon.ico">
+		<link rel="apple-touch-icon" href="/media/img/ico/favicon.ico">
+		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="/css/index.css">
+		<link rel="stylesheet" href="/css/fonts.css">
+		<link rel="stylesheet" href="/css/adaptive.css">
+		<link rel="stylesheet" href="/css/anim.css">
+		<link rel="preload" as="image" href="/media/img/bg/bg1.jpg">
+		<noscript>
+			<style>
+				.reveal { opacity: 1; transform: none; }
+			</style>
+		</noscript>
+	</head>
+	<body>
+		<!-- Прогресс-бар -->
+		<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+		<!-- Якорь начала страницы -->
+		<div data-bg-slide="0"></div>
+		<!-- Вращающийся фон -->
+		<div class="bg-carousel" aria-hidden="true">
+			<div class="slide" data-media-bg="bg/bg1.jpg"></div>
+			<div class="slide" data-media-bg="bg/bg2.jpg"></div>
+			<div class="slide" data-media-bg="bg/bg3.jpg"></div>
+			<div class="slide" data-media-bg="bg/bg4.jpg"></div>
+		</div>
+		<!-- ПЛАШКА ВЕРСИИ -->
+		<div id="plashka_version"></div>
+		<!-- ОБОЛОЧКА СТРАНИЦЫ -->
+		<div class="wrapper">
+			<!-- БЛОК КОНТЕЙНЕР -->
+			<div class="container">
+				<!-- БЛОК КОНТЕНТ -->
+				<div class="content">
+					<!-- БЛОК HEADER -->
+					<div class="header">
+						<div id="logotype_container">
+							<svg id="logotype" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 251.9 403.46">
+								<path d="M282.11,56.7,267.52,264.32h-23L229.89,56.7,130.05,262.52,256,460.16,382,262.53Zm3.33,226.82L295.94,127l65,135.55L256,425.86,151,262.53l65-135.55,10.5,156.54Zm-3.37-7-.22,3.19h0Zm-51.91,3.19h0l-.22-3.19Z" transform="translate(-130.05 -56.7)"/>
+							</svg>
+						</div>
+						<div id="studio_name">
+							<span data-text="studioShort">NFAS</span>
+						</div>
+						<div id="studio_subname">
+							<span data-text="studioSubname">NFOX | ALTERNATIVE STUDIO</span>
+						</div>
+					</div>
+					<nav class="menu">
+						<a data-page="home" href="/index.html" class="menu__item active">Главная</a>
+						<a data-page="menu" href="/pages/p2/main_menu.html" class="menu__item">Меню</a>
+						<a data-page="roadmap" href="/pages/p3/roadmap.html" data-text="navRoadmap" class="menu__item">Наш путь</a>
+						<a data-page="contacts" href="/pages/p4/contactus.html" class="menu__item">Контакты</a>
+					</nav>
+					<!-- БЛОК ОСНОВАНИЯ -->
+					<div class="middle">
+						<!-- ПОДБЛОК 1: Вступление -->
+						<section class="slide-block reveal">
+							<div class="text_caption" data-bg-slide="1">
+								<h2>01 Привет,<br>наблюдатель</h2>
+							</div>
+							<div id="block_description">
+								<span class="corner corner--tl"></span>
+								<span class="corner corner--br"></span>
+									<p>Устали от однообразия?</p>
+									<p>Шаблоны — это хорошо, но у нас есть кое-что поинтереснее</p>
+									<p>Жажда изучать и пробовать — наша главная черта</p>
+									<p>Да, не идеально. Но скучать не придётся</p>
+							</div>
+							<p class="intro__lead">
+								Потрогай ползуночек мышкой — удивим ^^
+								<span class="intro__arrow" aria-hidden="true">↓</span>
+							</p>
+						</section>
+						<!-- Пример обработки -->
+						<section class="slide-block reveal">
+							<!-- Можно добавить свойство data-aspect="16 / 9" в следующую строку, чтобы вручную регулировать соотношение сторон,
+							но по умолчанию скрипт сам считает индивидуально под любую картинку-->
+							<div class="compare" id="compare" data-bg-slide="1">
+								<img class="compare__img compare__img--before"
+									data-media="img/before.jpg" alt="До обработки" draggable="false">
+								<div class="compare__after" id="compareAfter">
+									<img class="compare__img"
+										data-media="img/after.jpg" alt="После обработки" draggable="false">
+								</div>
+								<div class="compare__handle" id="compareHandle" aria-hidden="true">
+									<svg viewBox="0 0 24 24" width="20" height="20">
+										<path d="M8 5 L3 12 L8 19 M16 5 L21 12 L16 19"
+											stroke="currentColor" stroke-width="2"
+											fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+									</svg>
+								</div>
+							
+								<!-- Точки-переключатели (появятся автоматически, если пар > 1) -->
+								<!-- Метки «До» и «После» на картинке -->
+								<span class="compare__label compare__label--before" aria-hidden="true">До</span>
+								<span class="compare__label compare__label--after" aria-hidden="true">После</span>
+
+								<div class="compare__nav" id="compareNav" aria-label="Переключение примеров"></div>
+
+									<template class="compare__pair"
+												data-before="img/before-2.jpg"
+												data-after="img/after-2.jpg">
+									</template>
+
+									<template class="compare__pair"
+												data-before="img/before-3.jpg"
+												data-after="img/after-3.png">
+									</template>
+
+							</div>
+						</section>
+						<!-- Удержатель скролла для слайда -->
+						<div data-bg-slide="1" style="height:0; margin:0;"></div>
+						<!-- ПОДБЛОК 2: Перечисление услуг -->
+						<section class="slide-block reveal">
+							<div class="text_caption" data-bg-slide="2">
+								<h2>02 Что мы делаем</h2>
+							</div>
+
+							<div class="services">
+								<article class="services__item">
+									<div class="services__icon">
+										<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+											<rect x="3" y="3" width="18" height="18" rx="2"/>
+											<circle cx="8.5" cy="8.5" r="1.5"/>
+											<path d="m21 15-5-5L5 21"/>
+										</svg>
+									</div>
+									<h3>Обработка изображений</h3>
+									<p>Цветокоррекция, ретушь, художественная стилизация фото и артов.</p>
+								</article>
+
+								<article class="services__item">
+									<div class="services__icon">
+										<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+											<polygon points="23 7 16 12 23 17 23 7"/>
+											<rect x="1" y="5" width="15" height="14" rx="2"/>
+										</svg>
+									</div>
+									<h3>Видео-монтаж</h3>
+									<p>Нарезка кадров, склейка, наложение звука, простые эффекты.</p>
+								</article>
+
+								<article class="services__item">
+									<div class="services__icon">
+										<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+											<circle cx="12" cy="12" r="3"/>
+											<path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
+										</svg>
+									</div>
+									<h3>Нейросетевые инструменты</h3>
+									<p>AI-генерация, апскейл, стилизация и эксперименты с обработкой.</p>
+								</article>
+
+								<article class="services__item">
+									<div class="services__icon">
+										<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+											<circle cx="9" cy="7" r="3"/>
+											<circle cx="17" cy="11" r="3"/>
+											<path d="M3 21v-2a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v2"/>
+											<path d="M18 16.5a4 4 0 0 1 3 3.5v1"/>
+										</svg>
+									</div>
+									<h3>Коллаборации</h3>
+									<p>Открыты к совместным проектам с творческими лапками.</p>
+								</article>
+							</div>
+						</section>
+						<hr class="divider">
+						<!-- ПОДБЛОК 3: Горизонтальное демо работ -->
+						<section class="hscroll" id="hscroll">
+							<div class="hscroll__sticky" data-bg-slide="2">
+								<div class="hscroll__head">
+									<div class="text_caption">
+										<h2>03 Пример работ</h2>
+									</div>
+									<div class="hscroll__hint">Скролль вниз — работы поедут вбок</div>
+								</div>
+
+								<div class="hscroll__viewport">
+									<div class="hscroll__track" id="hscrollTrack">
+
+									<article class="portfolio__item reveal"
+											data-title="Неоновый хвостик"
+											data-cat="Артик"
+											data-desc="Такой вот рисуночек"
+											data-src="work1.png">
+										<img data-media="works/work1.png" alt="Работа 1" loading="lazy">
+										<div class="portfolio__caption">
+											<span>Неоновый хвостик</span>
+											<small>Артик</small>
+										</div>
+									</article>
+
+									<article class="portfolio__item reveal portfolio__item--video"
+											data-title="Интро V2.0"
+											data-cat="Видосик"
+											data-desc="Первая версия была попроще, а здесь многое доработано"
+											data-src="work2-poster.jpg"
+											data-video="work2.mp4">
+										<img data-media="works/work2-poster.jpg" alt="Работа 2" loading="lazy">
+										<div class="portfolio__play" aria-hidden="true">
+											<svg viewBox="0 0 24 24" width="28" height="28">
+												<path d="M8 5v14l11-7z" fill="currentColor"/>
+											</svg>
+										</div>
+										<div class="portfolio__caption">
+											<span>Интро V2.0</span>
+											<small>Видосик</small>
+										</div>
+									</article>
+
+									<article class="portfolio__item reveal"
+											data-title="Цветочек"
+											data-cat="Фоточка"
+											data-desc="Попытки в макро-фото"
+											data-src="work3.png">
+										<img data-media="works/work3.png" alt="Работа 3" loading="lazy">
+										<div class="portfolio__caption">
+											<span>Цветочек</span>
+											<small>Фоточка</small>
+										</div>
+									</article>
+
+									<article class="portfolio__item reveal"
+											data-title="Бублик"
+											data-cat="3D Рендер"
+											data-desc="Само как-то вышло, побаловались с кривыми)"
+											data-src="work4.jpg">
+										<img data-media="works/work4.jpg" alt="Работа 4" loading="lazy">
+										<div class="portfolio__caption">
+											<span>Бублик</span>
+											<small>3D Рендерик</small>
+										</div>
+									</article>
+
+									<article class="portfolio__item reveal"
+											data-title="Инь & Ян"
+											data-cat="Логотипчик"
+											data-desc="Взяли основу от классического логотипа инь и ян"
+											data-src="work5.jpg">
+										<img data-media="works/work5.jpg" alt="Работа 5" loading="lazy">
+										<div class="portfolio__caption">
+											<span>Инь & Ян</span>
+											<small>Логотипчик</small>
+										</div>
+									</article>
+									<!-- Можно добавлять ещё карточки по шаблону -->
+
+									</div>
+								</div>
+								<!-- Точечки для навигации -->
+								<div class="hscroll__dots" id="hscrollDots"></div>
+							</div>
+							<!-- ПАНЕЛЬ С ОПИСАНИЕМ (одна на всю страницу) -->
+							<div class="work-panel" id="workPanel" aria-hidden="true">
+								<div class="work-panel__backdrop" data-close></div>
+								<div class="work-panel__content" role="dialog" aria-modal="true">
+									<button class="work-panel__close" data-close aria-label="Закрыть">✕</button>
+								
+									<div class="work-panel__media-wrap">
+										<div class="work-panel__media" id="workMedia"></div>
+									
+										<button class="work-panel__nav work-panel__nav--prev" data-nav="prev" type="button" aria-label="Предыдущая работа">‹</button>
+										<button class="work-panel__nav work-panel__nav--next" data-nav="next" type="button" aria-label="Следующая работа">›</button>
+									</div>
+								
+									<div class="work-panel__body">
+										<span class="work-panel__cat" id="workCat"></span>
+										<h3 class="work-panel__title" id="workTitle"></h3>
+										<p class="work-panel__desc" id="workDesc"></p>
+									</div>
+								</div>
+							</div>
+						</section>
+						<!-- Удержатель скролла для слайда -->
+						<div data-bg-slide="2" style="height:0; margin:0;"></div>
+						<!-- ПОДБЛОК 4: Отзывы -->
+						<section class="slide-block reveal">
+							<div class="text_caption" data-bg-slide="3">
+								<h2>04 Что о нас говорят</h2>
+							</div>
+
+							<div class="stats">
+								<div class="stats__item">
+									<span class="stats__number">3+</span>
+									<span class="stats__label">Работ</span>
+								</div>
+								<div class="stats__item">
+									<span class="stats__number">5+</span>
+									<span class="stats__label">Подписчиков</span>
+								</div>
+								<div class="stats__item">
+									<span class="stats__number">3+</span>
+									<span class="stats__label">Коллабораций</span>
+								</div>
+							</div>
+
+							<div class="reviews">
+								<blockquote class="reviews__item">
+									<p>Тут когда-нибудь будет ваш отзыв о нас ^^</p>
+									<cite>— Тия, кофеманка ^^</cite>
+								</blockquote>
+							</div>
+						</section>
+						<!-- ПОДБЛОК 5: FAQ -->
+						<section class="slide-block reveal">
+							<div class="text_caption" data-bg-slide="3">
+								<h2>05 Частые вопросы</h2>
+							</div>
+
+							<div class="faq">
+								<details class="faq__item">
+									<summary class="faq__question">Вы берёте заказы?</summary>
+									<div class="faq__answer">
+										<p>Сейчас мы открыты для коллабораций и реквестов. Напишите нам в <a data-cfg="telegram" target="_blank" rel="noopener"><strong data-text="webnameTelegram">Telegram</strong></a> или на <a data-cfg="email" target="_blank" rel="noopener"><strong>почту</strong></a> — обсудим детали и сроки.</p>
+									</div>
+								</details>
+
+								<details class="faq__item">
+									<summary class="faq__question">Сколько стоит работа?</summary>
+									<div class="faq__answer">
+										<p>Цена зависит от срочности, сложности и объёма. Но сейчас мы индвидуально рассматриваем бесплатные работы для опыта.</p>
+									</div>
+								</details>
+
+								<details class="faq__item">
+									<summary class="faq__question">Можно ли использовать ваши работы?</summary>
+									<div class="faq__answer">
+										<p>Для личного просмотра — пожалуйста. Для публикации — обязательно покажите и не убирайте наш логотип. Для иных форм использования — свяжитесь с нами для уточнения.</p>
+									</div>
+								</details>
+
+								<details class="faq__item">
+									<summary class="faq__question">Чем вы работаете?</summary>
+									<div class="faq__answer">
+										<p>В основном обработка изображений и видео: графические редакторы, инструменты для монтажа, нейросетевые решения.</p>
+									</div>
+								</details>
+
+								<details class="faq__item">
+									<summary class="faq__question">Как с вами связаться?</summary>
+									<div class="faq__answer">
+										<p>Удобнее всего — <a data-cfg="telegram" target="_blank" rel="noopener"><strong data-text="webnameTelegram">Telegram</strong></a>. Отвечаем в течение дня. Другие ссылки — в разделе <a data-page="contacts" href="/pages/p4/contactus.html">Контакты</a>.</p>
+									</div>
+								</details>
+							</div>
+						</section>
+						<hr class="divider">
+						<!-- ПОДБЛОК 6: CTA -->
+						<section class="slide-block reveal">
+							<div class="cta" data-bg-slide="3">
+								<h2 class="cta__title">Готовы к сотрудничеству?</h2>
+								<p class="cta__text">
+									Расскажите о своей идее — обсудим, как её воплотить.
+								</p>
+								<div class="cta__actions">
+									<a class="cta__btn cta__btn--primary" data-cfg="email">Написать нам</a>
+									<a class="cta__btn cta__btn--ghost" data-cfg="telegram" target="_blank">Мы в Telegram</a>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="/js/site-config.js"></script>
+		<script src="/js/scroll-bg.js"></script>
+		<script src="/js/compare.js"></script>
+		<script src="/js/portfolio.js"></script>
+		<script src="/js/hscroll.js"></script>
+		<!-- ПОДВАЛ -->
+		<footer>
+			<div id="text_footer"></div>
+		</footer>
+	</body>
+</html>

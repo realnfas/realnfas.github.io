@@ -1,0 +1,171 @@
+/* УСТАНОВКА ШРИФТОВ */
+
+/* Roboto */
+@font-face {
+	font-family:'Roboto';
+	src:url('../fonts/Roboto Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family:'Roboto';
+	src:url('../fonts/Roboto Light Italic.ttf') format('truetype');
+	font-weight: 300;
+	font-style: italic;
+}
+
+@font-face {
+	font-family:'Roboto';
+	src:url('../fonts/Roboto Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family:'Roboto';
+	src:url('../fonts/Roboto Medium Italic.ttf') format('truetype');
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family:'Roboto';
+	src:url('../fonts/Roboto.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family:'Roboto';
+	src:url('../fonts/Roboto Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+
+/* Jost */
+@font-face {
+	font-family: 'Jost';
+	src:url('../fonts/Jost/Jost-100-Thin.ttf') format('truetype');
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Jost';
+	src:url('../fonts/Jost/Jost-100-ThinItalic.ttf') format('truetype');
+	font-weight: 100;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Jost';
+	src:url('../fonts/Jost/Jost-200-ExtraLight.ttf') format('truetype');
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Jost';
+	src:url('../fonts/Jost/Jost-200-ExtraLightItalic.ttf') format('truetype');
+	font-weight: 200;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Jost';
+	src:url('../fonts/Jost/Jost-300-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Jost';
+	src:url('../fonts/Jost/Jost-300-LightItalic.ttf') format('truetype');
+	font-weight: 300;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Jost';
+	src:url('../fonts/Jost/Jost-400-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Jost';
+	src:url('../fonts/Jost/Jost-400-Italic.ttf') format('truetype');
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Jost';
+	src:url('../fonts/Jost/Jost-500-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Jost';
+	src:url('../fonts/Jost/Jost-500-MediumItalic.ttf') format('truetype');
+	font-weight: 500;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Jost';
+	src:url('../fonts/Jost/Jost-600-SemiBold.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Jost';
+	src:url('../fonts/Jost/Jost-600-SemiBoldItalic.ttf') format('truetype');
+	font-weight: 600;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Jost';
+	src:url('../fonts/Jost/Jost-700-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Jost';
+	src:url('../fonts/Jost/Jost-700-BoldItalic.ttf') format('truetype');
+	font-weight: 700;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Jost';
+	src:url('../fonts/Jost/Jost-800-ExtraBold.ttf') format('truetype');
+	font-weight: 800;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Jost';
+	src:url('../fonts/Jost/Jost-800-ExtraBoldItalic.ttf') format('truetype');
+	font-weight: 800;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Jost';
+	src:url('../fonts/Jost/Jost-900-Black.ttf') format('truetype');
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Jost';
+	src:url('../fonts/Jost/Jost-900-BlackItalic.ttf') format('truetype');
+	font-weight: 900;
+	font-style: italic;
+}
