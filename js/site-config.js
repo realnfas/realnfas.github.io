@@ -5,8 +5,7 @@ window.SITE_CONFIG = {
 
 	// ─── Ссылки ───
 	links: {
-		telegram:             'https://t.me/realnfas',
-		neurobridge:          'https://t.me/neuro_bridge',
+		telegram:             'https://t.me/neuro_bridge',
 		telegramAriko:        'https://t.me/ArikoDog',
 		telegramRay:          'https://t.me/realnfox',
 		telegramTiya:         'https://t.me/realtiya',
@@ -25,11 +24,14 @@ window.SITE_CONFIG = {
 
 	// ─── Тексты ───
 	texts: {
+		// Названия
 		studioName:           'NFox | ALT STUDIO',
 		studioShort:          'NFAS',
 		studioSubname:        'NFOX | ALTERNATIVE STUDIO',
 		nicknameGeneral:      'NFox',
 		startYear:             2017,
+		// Названия соцсетей
+		webnameTelegram:      'Telegram',
 		// Меню проекта
 		navDisclaimer:        'Дисклеймер',
 		navRules:             'Правила',
@@ -501,7 +503,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	updateScrollTopVisibility();
 
-	// 17. Футер с автоматическим годом
+	// 18. Авто-статус карточек в price.html
+	document.querySelectorAll('.doc-status-card').forEach(card => {
+		const badgeEl = card.querySelector('.doc-status-card__badge');
+		const numEl   = card.querySelector('.doc-status-card__slots-num');
+		const fillEl  = card.querySelector('.doc-status-card__slots-fill');
+
+		// ─── 1. Определяем число слотов ───
+		const max = parseInt(card.dataset.maxSlots, 10) || 5;
+		const current = numEl ? (parseInt(numEl.textContent, 10) || 0) : 0;
+
+		// ─── 2. Решаем, открыта карточка или закрыта ───
+		// Если слотов 0 — принудительно "Закрыты".
+		// Если слотов > 0 — по тексту бейджа (ручное управление).
+		const text = badgeEl ? badgeEl.textContent.toLowerCase() : '';
+		const manualClosed = text.includes('закрыт');
+		const manualOpen   = text.includes('открыт');
+
+		const isClosed = current === 0 || manualClosed;
+		const isOpen   = !isClosed && manualOpen;
+
+		// ─── 3. Меняем класс карточки ───
+		if (isClosed) {
+			card.classList.remove('doc-status-card--open');
+			card.classList.add('doc-status-card--closed');
+		} else if (isOpen) {
+			card.classList.remove('doc-status-card--closed');
+			card.classList.add('doc-status-card--open');
+		}
+
+		// ─── 4. Меняем текст бейджа (если слотов 0) ───
+		if (badgeEl && current === 0) {
+			// Сохраняем точку-индикатор, меняем только слово
+			const dot = badgeEl.querySelector('.doc-status-card__badge-dot');
+			const dotHTML = dot ? dot.outerHTML : '';
+			badgeEl.innerHTML = dotHTML + ' Закрыты';
+		}
+
+		// ─── 5. Пересчитываем шкалу слотов ───
+		if (numEl && fillEl) {
+			const pct = isClosed || max === 0
+				? 0
+				: Math.min(100, Math.max(0, (current / max) * 100));
+
+			requestAnimationFrame(() => {
+				fillEl.style.width = pct + '%';
+			});
+		}
+	});
+
+	// 18. Футер с автоматическим годом
 	const footer = document.getElementById('text_footer');
 	if (footer) {
 		const { studioName, startYear } = SITE_CONFIG.texts;

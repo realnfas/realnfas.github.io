@@ -29,15 +29,37 @@
 		imgEl.addEventListener('load', () => applyAspectFromImage(imgEl), { once: true });
 	}
 
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', () => {
-			watchBefore(beforeImgEl);
-			initPairs();
-		}, { once: true });
-	} else {
-		watchBefore(beforeImgEl);
-		initPairs();
+	// ─────────────────────────────────────────────────────────
+	//  ПОЛЗУНОК — состояние
+	// ─────────────────────────────────────────────────────────
+	let currentPosition = 50;
+	let dragging        = false;
+
+	function setPosition(percent) {
+		const p = Math.max(0, Math.min(100, percent));
+		currentPosition = p;
+
+		after.style.clipPath = `inset(0 0 0 ${p}%)`;
+		handle.style.left = p + '%';
+
+		// ARIA обновляется при любом способе управления (мышь, палец, клавиатура)
+		root.setAttribute('aria-valuenow', Math.round(p));
+
+		// Скрываем метки «До»/«После» у краёв
+		root.classList.toggle('is-near-left',  p <= 30);
+		root.classList.toggle('is-near-right', p >= 70);
 	}
+
+	// ─────────────────────────────────────────────────────────
+	//  ARIA (для скринридеров и клавиатуры)
+	// ─────────────────────────────────────────────────────────
+	root.setAttribute('tabindex', '0');
+	root.setAttribute('role', 'slider');
+	root.setAttribute('aria-label', 'Сравнение до/после');
+	root.setAttribute('aria-valuemin', '0');
+	root.setAttribute('aria-valuemax', '100');
+	root.setAttribute('aria-valuenow', '50');
+	root.setAttribute('aria-orientation', 'horizontal');
 
 	// ─────────────────────────────────────────────────────────
 	//  ПАРЫ КАРТИНОК
@@ -91,7 +113,7 @@
 		navBox.innerHTML = '';
 		navBox.hidden = false;
 
-		// ─── Текст «Примеры» слева ───  // ← ДОБАВЛЕНО
+		// Метка «Примеры»
 		const label = document.createElement('span');
 		label.className = 'compare__nav-label';
 		label.textContent = 'Примеры';
@@ -185,7 +207,7 @@
 		if (next) next.disabled = currentPair >= pairs.length - 1;
 	}
 
-	// ─── Одноразовая пульсация точек ───
+	// Одноразовая пульсация точек — привлекаем внимание, что это кнопки
 	let hintPlayed = false;
 	function hintNavigationOnce() {
 		if (hintPlayed || !navBox || !('IntersectionObserver' in window)) return;
@@ -207,8 +229,7 @@
 	}
 
 	// ─────────────────────────────────────────────────────────
-	//  ПОКАЗ / СКРЫТИЕ ПАНЕЛИ
-	//  Логика: зажал ползунок — спрятали, отпустил — показали.
+	//  ПАКАЗ / СКРЫТИЕ ПАНЕЛИ
 	// ─────────────────────────────────────────────────────────
 	function showNav() {
 		if (!navBox || navBox.hidden) return;
@@ -221,21 +242,8 @@
 	}
 
 	// ─────────────────────────────────────────────────────────
-	//  ПОЛЗУНОК
+	//  ПОЛЗУНОК — события
 	// ─────────────────────────────────────────────────────────
-	let dragging = false;
-
-	function setPosition(percent) {
-		const p = Math.max(0, Math.min(100, percent));
-		after.style.clipPath = `inset(0 0 0 ${p}%)`;
-		handle.style.left = p + '%';
-
-		// Скрываем метки, когда ползунок близко к соответствующему краю.
-		// Порог 12% — если хочешь раньше/позже, поменяй число.
-		root.classList.toggle('is-near-left',  p <= 30);
-		root.classList.toggle('is-near-right', p >= 70);
-	}
-
 	function positionFromEvent(clientX) {
 		const rect = root.getBoundingClientRect();
 		return ((clientX - rect.left) / rect.width) * 100;
@@ -260,6 +268,22 @@
 		showNav();
 	}
 
+	// Клавиатура: ←/→, Home/End
+	root.addEventListener('keydown', (e) => {
+		let handled = true;
+
+		switch (e.key) {
+			case 'ArrowLeft':  setPosition(currentPosition - 2); break;
+			case 'ArrowRight': setPosition(currentPosition + 2); break;
+			case 'Home':       setPosition(0);                   break;
+			case 'End':        setPosition(100);                 break;
+			default:           handled = false;
+		}
+
+		if (handled) e.preventDefault();
+	});
+
+	// Указатель
 	root.addEventListener('pointerdown', (e) => {
 		if (e.target.closest('.compare__nav')) return;
 		startDrag(e);
@@ -269,6 +293,7 @@
 	root.addEventListener('pointercancel', endDrag);
 	root.addEventListener('pointerleave', endDrag);
 
+	// Клик — тоже двигает ползунок
 	root.addEventListener('click', (e) => {
 		if (e.target.closest('.compare__nav')) return;
 		if (e.detail !== 1) return;
@@ -277,10 +302,24 @@
 		setTimeout(showNav, 400);
 	});
 
+	// Не даём навигации дёргать ползунок
 	if (navBox) {
 		navBox.addEventListener('pointerdown', (e) => e.stopPropagation());
 		navBox.addEventListener('click',       (e) => e.stopPropagation());
 	}
 
-	setPosition(50);
+	// ─────────────────────────────────────────────────────────
+	//  СТАРТ
+	// ─────────────────────────────────────────────────────────
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', () => {
+			watchBefore(beforeImgEl);
+			initPairs();
+			setPosition(50);
+		}, { once: true });
+	} else {
+		watchBefore(beforeImgEl);
+		initPairs();
+		setPosition(50);
+	}
 })();

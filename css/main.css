@@ -26,6 +26,8 @@ html,body{
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
+	overflow-x: clip;
+	max-width: 100%;
 }
 
 input,button,textarea{font-family:inherit;}
@@ -174,14 +176,6 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 	margin: clamp(20px, 4vh, 50px) auto;    /* ← auto центрирует */
 	
 	flex-shrink: 0;
-}
-
-.vertical_line {
-	border: none;
-	background-color: #FF1100;
-	height: clamp(28px, 4vh, 50px);
-	width: 1px;
-	margin: 0 clamp(6px, 1vw, 15px) 0 clamp(4px, 0.7vw, 10px);
 }
 
 /* ----------------------------------------------------------------------------------------------------------------------- */
@@ -730,5 +724,56 @@ footer {
 	.scroll-top {
 		bottom: 20px;
 		right: 16px;
+	}
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ССЫЛКИ ВНУТРИ ТЕКСТА (главная страница)
+   ═══════════════════════════════════════════════════════════ */
+
+/* Стилизованные ссылки внутри контентных блоков главной */
+#block_description a,
+.services__item a,
+.faq__answer a,
+.reviews__item a,
+.stats__item a,
+.cta__text a,
+.intro__lead a,
+.hscroll__head a,
+.hscroll__hint a,
+.portfolio__caption a,
+.work-panel__desc a,
+.work-panel__cat a {
+	color: #00FFFA;
+	text-decoration: none;
+	border-bottom: 1px dashed rgba(0, 255, 250, 0.5);
+	transition: color 0.3s ease, border-bottom-color 0.3s ease;
+	cursor: pointer;
+}
+
+#block_description a:hover,
+.services__item a:hover,
+.faq__answer a:hover,
+.reviews__item a:hover,
+.stats__item a:hover,
+.cta__text a:hover,
+.intro__lead a:hover,
+.hscroll__head a:hover,
+.hscroll__hint a:hover,
+.portfolio__caption a:hover,
+.work-panel__desc a:hover,
+.work-panel__cat a:hover {
+	color: #fff;
+	border-bottom-color: #00FFFA;
+	border-bottom-style: solid;
+}
+
+/* Уважаем prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+	#block_description a,
+	.services__item a,
+	.faq__answer a,
+	.reviews__item a {
+		transition: none;
 	}
 }

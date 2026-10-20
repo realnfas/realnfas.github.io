@@ -102,28 +102,86 @@
 
 								<!-- Статус -->
 								<div class="doc-block">
-									<h3 class="doc-block__title">✨ Статус ✨</h3>
-									<div class="doc-status-list">
+									<h3 class="doc-block__title">Статус ✨</h3>
 
-										<div class="doc-status doc-status--open">
-											<div class="doc-status__line">🔸 ЗАКАЗЫ 🔸 — ✅ <strong>Открыты</strong> | Свободны 5 слотов.</div>
-											<div class="doc-status__note">Открываются слотами (слот — это место в очереди, рассчитанное на одну заказную работу). Также вы можете задать вопрос, когда ожидается следующий набор слотов в моём ЛС: <a data-cfg="telegramRay" target="_blank" rel="noopener">Рэй</a>.</div>
-										</div>
+									<div class="doc-status-grid">
+										<!-- Тут можно менять общее количество слотов -->
+										<article class="doc-status-card doc-status-card--open" data-max-slots="5">
+											<header class="doc-status-card__header">
+												<span class="doc-status-card__icon">📬</span>
+													<h4 class="doc-status-card__title">Заказы</h4>
+													<span class="doc-status-card__badge">
+													<span class="doc-status-card__badge-dot"></span>
+														Открыты
+													</span>
+											</header>
 
-										<div class="doc-status doc-status--open">
-											<div class="doc-status__line">🔹 КОЛЛАБЫ 🔹 — ✅ <strong>Открыты</strong> | Свободны 5 слотов.</div>
-											<div class="doc-status__note">Предлагаю сам, но не откажусь от отдыха за совместной работой, поэтому вы можете предложить создать мне с вами коллаб.</div>
-										</div>
+											<div class="doc-status-card__slots">
+												<!-- Когда больше чем 0 карточка становится сама открытой, если не выставлено "Закрыты" -->
+												<span class="doc-status-card__slots-num">0</span>
+												<span class="doc-status-card__slots-text">свободных слотов</span>
+													<div class="doc-status-card__slots-bar">
+														<span class="doc-status-card__slots-fill"></span>
+													</div>
+											</div>
 
-										<div class="doc-status doc-status--closed">
-											<div class="doc-status__line">🔸 РЕКВЕСТЫ 🔸 — ❌ <strong>Закрыты</strong> | Сейчас нет свободных слотов.</div>
-											<div class="doc-status__note">Беру ради опыта и развлечения, но не часто. Буду благодарен, если скинете мне на кофе)</div>
-										</div>
+											<p class="doc-status-card__note">
+												Открываются слотами (слот — это место в очереди на одну работу). Спросить о наборе можно в ЛС: <a data-cfg="telegramRay" target="_blank" rel="noopener">Рэй</a>.
+											</p>
+										</article>
+
+										<article class="doc-status-card doc-status-card--open" data-max-slots="5">
+											<header class="doc-status-card__header">
+												<span class="doc-status-card__icon">🤝</span>
+												<h4 class="doc-status-card__title">Коллабы</h4>
+												<span class="doc-status-card__badge">
+													<span class="doc-status-card__badge-dot"></span>
+													Открыты
+												</span>
+											</header>
+
+											<div class="doc-status-card__slots">
+												<span class="doc-status-card__slots-num">1</span>
+												<span class="doc-status-card__slots-text">свободных слотов</span>
+												<div class="doc-status-card__slots-bar">
+													<span class="doc-status-card__slots-fill"></span>
+												</div>
+											</div>
+
+											<p class="doc-status-card__note">
+												Предлагаю сам, но не откажусь от отдыха за совместной работой — пишите, если хотите сделать коллаб.
+											</p>
+										</article>
+
+										<article class="doc-status-card doc-status-card--closed" data-max-slots="5">
+											<header class="doc-status-card__header">
+												<span class="doc-status-card__icon">🎁</span>
+												<h4 class="doc-status-card__title">Реквесты</h4>
+												<span class="doc-status-card__badge">
+													<span class="doc-status-card__badge-dot"></span>
+													Открыты
+												</span>
+											</header>
+
+											<div class="doc-status-card__slots">
+												<span class="doc-status-card__slots-num">2</span>
+												<span class="doc-status-card__slots-text">свободных слотов</span>
+												<div class="doc-status-card__slots-bar">
+													<span class="doc-status-card__slots-fill"></span>
+												</div>
+											</div>
+
+											<p class="doc-status-card__note">
+												Беру ради опыта и развлечения, но не часто ☕️
+											</p>
+										</article>
 
 									</div>
 
-									<p>❗️ Примеры работ я отправляю по просьбе в ЛС, если спросите~</p>
-									<p>↪️ Очередь по заказам можно посмотреть здесь, в <a data-cfg="yougile" target="_blank" rel="noopener">проектном листе студии</a>, он актуален и часто обновляется.</p>
+									<div class="doc-status-footer">
+										<p>❗️ Примеры работ отправляю по просьбе в ЛС, если спросите~</p>
+										<p>↪️ Очередь по заказам — в <a data-cfg="yougile" target="_blank" rel="noopener">проектном листе студии</a>, он актуален и часто обновляется.</p>
+									</div>
 								</div>
 
 								<hr class="divider">
@@ -163,33 +221,66 @@
 										<li>Я показываю вам финальный вариант проделанной работы скриншотом, и если вас всё устраивает — я отправляю вам готовую работу. Если вы заметили какие-то недостатки, мы продолжаем вносить правки, пока всё не будет готово.</li>
 										<li>Когда вы получили готовую работу, вы вносите остальную половину суммы и по желанию оставляете отзыв.</li>
 									</ol>
+								</div>
 
-									<h4 class="doc-subtitle">Особенности</h4>
-									<div class="doc-features">
+								<hr class="divider">
 
-										<div class="doc-feature">
-											<div class="doc-feature__title">✏️ Каждая незначительная правка бесплатная.</div>
-											<div class="doc-feature__notes">
-												<div class="doc-feature__note">Если правка будет означать переделывание всего заново, то это будет стоить 50% от изначальной стоимости. То есть если мы сошлись на финальной стоимости условно 1000 рублей, то вы сначала вносите предоплату 500 рублей. Если вас не устроила работа и вы хотите, чтобы я переделал её заново — вы вносите ещё 500 рублей, и финальная сумма уже будет 1500 рублей с учётом критической правки. Без критических правок стоимость не будет изменяться, так как простые правки бесплатны.</div>
-											</div>
-										</div>
+								<div class="doc-block">
+									<h4 class="doc-block__title">Особенности</h4>
 
-										<div class="doc-feature">
-											<div class="doc-feature__title">🔄 Возможен возврат средств.</div>
-											<div class="doc-feature__notes">
-												<div class="doc-feature__note">Возврат средств осуществляется в процентном соотношении от того, какая часть работы уже выполнена.</div>
-												<div class="doc-feature__note">Возврат средств исполняется сразу, как только вы об этом прямо мне сообщили, что вы отказываетесь от продукта или услуги.</div>
-												<div class="doc-feature__note">Если я взял в работу ваш заказ и в какой-то момент осознал, что не осилю его полноценно — верну 50–75% стоимости в зависимости от того, сколько уже было проделано работы.</div>
-											</div>
-										</div>
+									<div class="price-features">
 
-										<div class="doc-feature">
-											<div class="doc-feature__title">💎 Высокое качество и срочность будут иметь наценку в размере 25–50% от стоимости услуги.</div>
-										</div>
+										<article class="price-feature">
+											<header class="price-feature__head">
+												<span class="price-feature__icon">✏️</span>
+												<h5 class="price-feature__title">Правки</h5>
+												<span class="price-feature__badge price-feature__badge--good">Бесплатно</span>
+											</header>
+											<p class="price-feature__lead">
+												Незначительные правки — <strong>бесплатно</strong>. Если работу нужно переделать полностью — <strong>+50%</strong> от изначальной стоимости.
+											</p>
+											<details class="price-feature__details">
+												<summary>Пример</summary>
+												<p>Допустим, финальная стоимость — 1000 ₽. Вы вносите предоплату 500 ₽. Если работа не устроила и нужна полная переделка — вносите ещё 500 ₽, итог — 1500 ₽. Без критических правок стоимость не меняется.</p>
+											</details>
+										</article>
 
-										<div class="doc-feature">
-											<div class="doc-feature__title">⏰ Дедлайн индивидуален для каждой услуги и может изменяться в процессе от обстоятельств.</div>
-										</div>
+										<article class="price-feature">
+											<header class="price-feature__head">
+												<span class="price-feature__icon">🔄</span>
+												<h5 class="price-feature__title">Возврат средств</h5>
+												<span class="price-feature__badge price-feature__badge--good">Возможен</span>
+											</header>
+											<p class="price-feature__lead">
+												Возврат — пропорционально объёму невыполненной работы. Сразу после вашего сообщения об отказе.
+											</p>
+											<details class="price-feature__details">
+												<summary>Условия</summary>
+												<p>Если я взял заказ и понял, что не осилю его полноценно — возвращаю <strong>50–75%</strong> в зависимости от того, сколько работы уже сделано.</p>
+											</details>
+										</article>
+
+										<article class="price-feature">
+											<header class="price-feature__head">
+												<span class="price-feature__icon">💎</span>
+												<h5 class="price-feature__title">Срочность и качество</h5>
+												<span class="price-feature__badge price-feature__badge--warn">+25–50%</span>
+											</header>
+											<p class="price-feature__lead">
+												Приоритетная работа или повышенные требования к качеству — наценка <strong>25–50%</strong> от базовой стоимости услуги.
+											</p>
+										</article>
+
+										<article class="price-feature">
+											<header class="price-feature__head">
+												<span class="price-feature__icon">⏰</span>
+												<h5 class="price-feature__title">Дедлайн</h5>
+												<span class="price-feature__badge">Индивидуально</span>
+											</header>
+											<p class="price-feature__lead">
+												Сроки обсуждаются отдельно для каждого проекта и могут меняться в процессе — в зависимости от сложности и обстоятельств.
+											</p>
+										</article>
 
 									</div>
 								</div>
@@ -290,40 +381,72 @@
 								<!-- Оплата -->
 								<div class="doc-block">
 									<h3 class="doc-block__title">Оплата 💳</h3>
-									<p>Принимаю денежку:</p>
-									<div class="doc-payment">
 
-										<div class="doc-payment__item">
-											<span class="doc-payment__icon">🔸</span>
-											<span>Т-Банк</span>
-										</div>
+									<p class="price-payment-lead">
+										Принимаю оплату в рублях и криптовалюте — выбирайте удобный способ.
+									</p>
 
-										<div class="doc-payment__item">
-											<span class="doc-payment__icon">🔹</span>
-											<span>Сбербанк</span>
-										</div>
+									<div class="price-payment">
 
-										<div class="doc-payment__item">
-											<span class="doc-payment__icon">🔸</span>
-											<span>ЮMoney</span>
-										</div>
+										<!-- Карты и кошельки -->
+										<div class="price-payment__group">
+											<h4 class="price-payment__group-title">
+													<span class="price-payment__group-icon">🇷🇺</span>
+													Карты и кошельки
+											</h4>
 
-										<div class="doc-payment__item">
-											<span class="doc-payment__icon">🔹</span>
-											<span>СБП (Система быстрых платежей)</span>
-										</div>
+											<div class="price-payment__grid">
 
-										<div class="doc-payment__item">
-											<span class="doc-payment__icon">🔸</span>
-											<span>TON (Криптовалюта Телеграм)</span>
-										</div>
+													<div class="price-payment__card">
+														<span class="price-payment__icon">💳</span>
+														<span class="price-payment__name">Т-Банк</span>
+														<span class="price-payment__meta">Перевод на карту или по номеру телефона</span>
+													</div>
 
-										<div class="doc-payment__item">
-											<span class="doc-payment__icon">🔹</span>
-											<span>Stars (Звёздочки Телеграм)</span>
-										</div>
+													<div class="price-payment__card">
+														<span class="price-payment__icon">🏦</span>
+														<span class="price-payment__name">Сбербанк</span>
+														<span class="price-payment__meta">Перевод на карту или по номеру телефона</span>
+													</div>
+
+													<div class="price-payment__card">
+														<span class="price-payment__icon">🪙</span>
+														<span class="price-payment__name">ЮMoney</span>
+														<span class="price-payment__meta">Электронный кошелёк</span>
+													</div>
+
+													<div class="price-payment__card">
+														<span class="price-payment__icon">⚡</span>
+														<span class="price-payment__name">СБП</span>
+														<span class="price-payment__meta">Система быстрых платежей — по номеру телефона</span>
+													</div>
+
+												</div>
+											</div>
+
+											<!-- Крипта и Telegram -->
+											<div class="price-payment__group">
+												<h4 class="price-payment__group-title">
+														<span class="price-payment__group-icon">🌐</span>
+														Крипта и Telegram
+												</h4>
+
+												<div class="price-payment__grid">
+
+												<div class="price-payment__card">
+													<span class="price-payment__icon">⭐</span>
+													<span class="price-payment__name">Stars</span>
+													<span class="price-payment__meta">Звёздочки Telegram</span>
+												</div>
+
+												</div>
+											</div>
 
 									</div>
+
+									<p class="price-payment-note">
+										💡 После перевода пришлите подтверждение в ЛС — сразу приступлю к работе.
+									</p>
 								</div>
 
 								<!-- В заключение -->

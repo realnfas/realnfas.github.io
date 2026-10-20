@@ -53,7 +53,7 @@
 /* 1. СТРАХОВКА ОТ ГОРИЗОНТАЛЬНОГО СКРОЛЛА — на всю мобилку */
 @media (max-width: 900px) {
 	html, body {
-		overflow-x: hidden;
+		overflow-x: clip;
 		max-width: 100%;
 	}
 }
@@ -151,6 +151,7 @@
 		padding-left: clamp(16px, 5vw, 28px);   /* аккуратный отступ слева */
 		padding-right: clamp(16px, 5vw, 28px);  /* и справа, чтобы не касалось края */
 		box-sizing: border-box;
+		margin-top: clamp(200px, 80vh, 1000px);
 	}
 
 	.text_caption h2 {

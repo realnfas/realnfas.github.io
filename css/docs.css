@@ -1154,70 +1154,6 @@
 	line-height: 1.2;
 }
 
-/* ─── Статусы заказов ─── */
-.doc-status-list {
-	display: flex;
-	flex-direction: column;
-	gap: clamp(14px, 2vh, 20px);
-	margin-top: clamp(10px, 1.5vh, 15px);
-}
-
-.doc-status {
-	padding: clamp(14px, 1.8vh, 20px) clamp(16px, 2vw, 22px);
-	border-left: 3px solid;
-	border-radius: 0 5px 5px 0;
-	background: rgba(0, 0, 0, 0.45);
-	transition: border-color 0.3s ease;
-}
-
-.doc-status--open {
-	border-color: #00FFFA;
-}
-
-.doc-status--closed {
-	border-color: #FF1100;
-}
-
-.doc-status__line {
-	font-family: Jost, sans-serif;
-	font-size: clamp(14px, 1.2vw, 17px);
-	font-weight: 500;
-	letter-spacing: 0.05em;
-	color: #fff;
-	margin-bottom: clamp(6px, 1vh, 10px);
-	line-height: 1.4;
-}
-
-.doc-status__line strong {
-	color: #00FFFA;
-	font-weight: 700;
-}
-
-.doc-status--closed .doc-status__line strong {
-	color: #FF1100;
-}
-
-.doc-status__note {
-	position: relative;
-	padding-left: clamp(22px, 2.5vw, 30px);
-	font-family: Roboto, sans-serif;
-	font-size: clamp(12px, 1vw, 15px);
-	font-weight: 300;
-	font-style: italic;
-	line-height: 1.6;
-	color: rgba(255, 255, 255, 0.75);
-}
-
-.doc-status__note::before {
-	content: '→';
-	position: absolute;
-	left: 0;
-	top: 0;
-	color: #00FFFA;
-	font-style: normal;
-	opacity: 0.7;
-}
-
 /* ─── Списки «создаю / не создаю» ─── */
 .doc-info-lists {
 	display: grid;
@@ -2012,209 +1948,6 @@
 	color: rgba(255, 255, 255, 0.75);
 }
 
-/* ─── Горизонтальный таймлайн (дорожная карта) ─── */
-.doc-timeline {
-	width: 100%;
-	max-width: min(1300px, 96vw);
-	margin: 0 auto;
-	overflow-x: auto;
-	overflow-y: hidden;
-	padding: clamp(15px, 2vh, 25px) 0 clamp(25px, 4vh, 40px);
-	scrollbar-width: thin;
-	scrollbar-color: rgba(0, 255, 250, 0.5) rgba(0, 255, 250, 0.08);
-	-webkit-overflow-scrolling: touch;
-	cursor: grab;
-	user-select: none;
-	-webkit-user-select: none;
-	touch-action: pan-x;
-}
-
-.doc-timeline.is-dragging {
-	cursor: grabbing;
-	scroll-behavior: auto;
-}
-
-.doc-timeline::-webkit-scrollbar {
-	height: 6px;
-}
-
-.doc-timeline::-webkit-scrollbar-track {
-	background: rgba(0, 255, 250, 0.05);
-	border-radius: 3px;
-	margin: 0 clamp(15px, 2vw, 30px);
-}
-
-.doc-timeline::-webkit-scrollbar-thumb {
-	background: rgba(0, 255, 250, 0.4);
-	border-radius: 3px;
-}
-
-.doc-timeline::-webkit-scrollbar-thumb:hover {
-	background: rgba(0, 255, 250, 0.6);
-}
-
-.doc-timeline__track {
-	display: flex;
-	gap: clamp(15px, 2vw, 24px);
-	position: relative;
-	padding: 0 clamp(15px, 2vw, 30px);
-	min-width: max-content;
-}
-
-/* Горизонтальная линия */
-.doc-timeline__track::before {
-	content: '';
-	position: absolute;
-	top: 56px;
-	left: clamp(15px, 2vw, 30px);
-	right: clamp(15px, 2vw, 30px);
-	height: 2px;
-	background: linear-gradient(90deg,
-		transparent 0%,
-		rgba(255, 17, 0, 0.6) 5%,
-		rgba(255, 17, 0, 0.6) 60%,
-		#00FFFA 85%,
-		rgba(0, 255, 250, 0.4) 95%,
-		transparent 100%);
-	z-index: 0;
-}
-
-/* Точка на таймлайне */
-.doc-timeline__item {
-	flex: 0 0 auto;
-	width: clamp(180px, 22vw, 240px);
-	display: flex;
-	flex-direction: column;
-	position: relative;
-}
-
-/* Год */
-.doc-timeline__year {
-	height: 40px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-family: Jost, sans-serif;
-	font-size: clamp(15px, 1.3vw, 19px);
-	font-weight: 600;
-	letter-spacing: 0.1em;
-	color: rgba(255, 255, 255, 0.6);
-	position: relative;
-}
-
-/* Маркер-точка */
-.doc-timeline__dot {
-	width: 18px;
-	height: 18px;
-	border-radius: 50%;
-	background: #0a0a0a;
-	border: 2px solid rgba(255, 17, 0, 0.5);
-	margin: 0 auto;
-	position: relative;
-	z-index: 1;
-	transition: all 0.3s ease;
-}
-
-/* Карточка с описанием */
-.doc-timeline__card {
-	margin-top: clamp(14px, 2vh, 20px);
-	padding: clamp(12px, 1.6vh, 18px) clamp(14px, 1.8vw, 20px);
-	border: 1px solid rgba(0, 255, 250, 0.15);
-	border-radius: 5px;
-	background: rgba(0, 0, 0, 0.5);
-	font-family: Roboto, sans-serif;
-	font-size: clamp(12px, 1vw, 14px);
-	font-weight: 300;
-	line-height: 1.55;
-	color: rgba(255, 255, 255, 0.8);
-	transition: all 0.3s ease;
-}
-
-/* ─── Статусы точек ─── */
-
-/* Прошлое — красное, заполненное */
-.doc-timeline__item--past .doc-timeline__year {
-	color: rgba(255, 17, 0, 0.9);
-}
-
-.doc-timeline__item--past .doc-timeline__dot {
-	background: #FF1100;
-	border-color: #FF1100;
-	box-shadow: 0 0 12px rgba(255, 17, 0, 0.6);
-}
-
-.doc-timeline__item--past .doc-timeline__card {
-	border-color: rgba(255, 17, 0, 0.25);
-}
-
-/* Настоящее — бирюзовое, пульсирует */
-.doc-timeline__item--now .doc-timeline__year {
-	color: #00FFFA;
-	font-weight: 700;
-	text-shadow: 0 0 10px rgba(0, 255, 250, 0.5);
-}
-
-.doc-timeline__item--now .doc-timeline__dot {
-	width: 22px;
-	height: 22px;
-	margin-top: -2px;
-	background: #00FFFA;
-	border-color: #00FFFA;
-	animation: doc-timeline-pulse 2.4s ease-in-out infinite;
-}
-
-@keyframes doc-timeline-pulse {
-	0%, 100% {
-		box-shadow:
-			0 0 15px rgba(0, 255, 250, 0.9),
-			0 0 30px rgba(0, 255, 250, 0.4);
-	}
-	50% {
-		box-shadow:
-			0 0 22px rgba(0, 255, 250, 1),
-			0 0 45px rgba(0, 255, 250, 0.6);
-	}
-}
-
-.doc-timeline__item--now .doc-timeline__card {
-	border-color: #00FFFA;
-	color: #fff;
-	box-shadow: 0 0 25px rgba(0, 255, 250, 0.2);
-}
-
-/* Будущее — пустое, пунктирное */
-.doc-timeline__item--future .doc-timeline__year {
-	color: rgba(255, 255, 255, 0.35);
-}
-
-.doc-timeline__item--future .doc-timeline__dot {
-	background: transparent;
-	border-color: rgba(0, 255, 250, 0.4);
-	border-style: dashed;
-	box-shadow: none;
-}
-
-.doc-timeline__item--future .doc-timeline__card {
-	border-style: dashed;
-	border-color: rgba(0, 255, 250, 0.25);
-	color: rgba(255, 255, 255, 0.6);
-}
-
-/* Подсказка «скролль вбок» — показываем только если контент не влез */
-.doc-timeline-hint {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 8px;
-	margin-bottom: clamp(6px, 1vh, 12px);
-	font-family: Jost, sans-serif;
-	font-size: clamp(11px, 0.9vw, 13px);
-	font-weight: 300;
-	letter-spacing: 0.15em;
-	text-transform: uppercase;
-	color: rgba(0, 255, 250, 0.5);
-}
-
 /* ─── Блок "Сейчас" ─── */
 .doc-now-block {
 	display: flex;
@@ -2412,6 +2145,7 @@
 
 /* Строка заголовка */
 .doc-plan__summary {
+	position: relative;
 	display: grid;
 	grid-template-columns: auto 1fr auto auto;
 	align-items: center;
@@ -3867,4 +3601,654 @@
 	text-shadow:
 		0 1px 4px rgba(0, 0, 0, 0.85),
 		0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════
+	PRICE — Статус заказов (карточки)
+	═══════════════════════════════════════════════════════════ */
+
+.doc-status-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: clamp(14px, 2vw, 20px);
+	margin-top: clamp(12px, 1.8vh, 18px);
+}
+
+.doc-status-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: clamp(12px, 1.8vh, 16px);
+	padding: clamp(18px, 2.4vh, 24px) clamp(18px, 2vw, 24px);
+	border-radius: 8px;
+	background: rgba(0, 0, 0, 0.55);
+	overflow: hidden;
+	transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.doc-status-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	opacity: 0.5;
+	pointer-events: none;
+}
+
+/* ─── Открыто ─── */
+.doc-status-card--open {
+	border: 1px solid rgba(0, 255, 250, 0.35);
+	background:
+		radial-gradient(circle at 100% 0%, rgba(0, 255, 250, 0.08) 0%, transparent 55%),
+		rgba(0, 0, 0, 0.55);
+}
+
+.doc-status-card--open::before {
+	background: linear-gradient(90deg, transparent, #00FFFA, transparent);
+}
+
+.doc-status-card--open:hover {
+	transform: translateY(-4px);
+	border-color: #00FFFA;
+	box-shadow:
+		0 0 25px rgba(0, 255, 250, 0.2),
+		0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ─── Закрыто ─── */
+.doc-status-card--closed {
+	border: 1px solid rgba(255, 17, 0, 0.3);
+	background:
+		radial-gradient(circle at 100% 0%, rgba(255, 17, 0, 0.06) 0%, transparent 55%),
+		rgba(0, 0, 0, 0.55);
+}
+
+.doc-status-card--closed::before {
+	background: linear-gradient(90deg, transparent, #FF1100, transparent);
+	opacity: 0.4;
+}
+
+.doc-status-card--closed:hover {
+	transform: translateY(-4px);
+	border-color: rgba(255, 17, 0, 0.6);
+	box-shadow:
+		0 0 20px rgba(255, 17, 0, 0.15),
+		0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ─── Шапка ─── */
+.doc-status-card__header {
+	display: flex;
+	align-items: center;
+	gap: clamp(10px, 1.2vw, 14px);
+	flex-wrap: wrap;
+}
+
+.doc-status-card__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: clamp(36px, 3.2vw, 44px);
+	height: clamp(36px, 3.2vw, 44px);
+	border-radius: 50%;
+	border: 1px solid rgba(0, 255, 250, 0.35);
+	background: rgba(0, 0, 0, 0.5);
+	font-size: clamp(18px, 1.6vw, 22px);
+	line-height: 1;
+	flex-shrink: 0;
+	filter: drop-shadow(0 0 8px rgba(0, 255, 250, 0.3));
+}
+
+.doc-status-card--closed .doc-status-card__icon {
+	border-color: rgba(255, 17, 0, 0.3);
+	filter: drop-shadow(0 0 8px rgba(255, 17, 0, 0.2));
+}
+
+.doc-status-card__title {
+	font-family: Jost, sans-serif;
+	font-size: clamp(16px, 1.4vw, 20px);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: #fff;
+	line-height: 1.2;
+	margin: 0;
+	flex: 1;
+	text-shadow: 0 0 12px rgba(0, 255, 250, 0.15);
+}
+
+/* ─── Бейдж статуса ─── */
+.doc-status-card__badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: clamp(4px, 0.6vh, 6px) clamp(10px, 1.2vw, 14px);
+	border-radius: 20px;
+	font-family: Jost, sans-serif;
+	font-size: clamp(10px, 0.85vw, 12px);
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+
+.doc-status-card--open .doc-status-card__badge {
+	color: #00FFFA;
+	background: rgba(0, 255, 250, 0.1);
+	border: 1px solid rgba(0, 255, 250, 0.45);
+	box-shadow: 0 0 10px rgba(0, 255, 250, 0.15);
+}
+
+.doc-status-card--closed .doc-status-card__badge {
+	color: #FF5040;
+	background: rgba(255, 17, 0, 0.1);
+	border: 1px solid rgba(255, 17, 0, 0.4);
+}
+
+.doc-status-card__badge-dot {
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	flex-shrink: 0;
+}
+
+.doc-status-card--open .doc-status-card__badge-dot {
+	background: #00FFFA;
+	box-shadow: 0 0 8px rgba(0, 255, 250, 0.9);
+	animation: doc-status-dot 1.8s ease-in-out infinite;
+}
+
+.doc-status-card--closed .doc-status-card__badge-dot {
+	background: #FF1100;
+	box-shadow: 0 0 6px rgba(255, 17, 0, 0.6);
+}
+
+@keyframes doc-status-dot {
+	0%, 100% {
+		opacity: 1;
+		box-shadow: 0 0 8px rgba(0, 255, 250, 0.9);
+	}
+	50% {
+		opacity: 0.4;
+		box-shadow: 0 0 3px rgba(0, 255, 250, 0.3);
+	}
+}
+
+/* ─── Слоты ─── */
+.doc-status-card__slots {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 8px;
+	padding: clamp(10px, 1.4vh, 14px) 0;
+	border-top: 1px dashed rgba(255, 255, 255, 0.1);
+	border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.doc-status-card__slots-num {
+	font-family: Jost, sans-serif;
+	font-size: clamp(28px, 3vw, 40px);
+	font-weight: 700;
+	line-height: 1;
+	color: #00FFFA;
+	text-shadow: 0 0 15px rgba(0, 255, 250, 0.4);
+}
+
+.doc-status-card--closed .doc-status-card__slots-num {
+	color: #FF1100;
+	text-shadow: 0 0 15px rgba(255, 17, 0, 0.3);
+}
+
+.doc-status-card__slots-text {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(12px, 1vw, 14px);
+	font-weight: 300;
+	font-style: italic;
+	color: rgba(255, 255, 255, 0.65);
+	line-height: 1.3;
+}
+
+.doc-status-card__slots-bar {
+	flex: 1 1 100%;
+	height: 5px;
+	border-radius: 3px;
+	background: rgba(0, 255, 250, 0.08);
+	overflow: hidden;
+	margin-top: 4px;
+}
+
+.doc-status-card--closed .doc-status-card__slots-bar {
+	background: rgba(255, 17, 0, 0.08);
+}
+
+.doc-status-card__slots-fill {
+	display: block;
+	height: 100%;
+	width: 100%;
+	border-radius: 3px;
+	background: linear-gradient(90deg, rgba(0, 255, 250, 0.4), #00FFFA);
+	box-shadow: 0 0 8px rgba(0, 255, 250, 0.5);
+	transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.doc-status-card--closed .doc-status-card__slots-fill {
+	background: linear-gradient(90deg, rgba(255, 17, 0, 0.3), #FF1100);
+	box-shadow: 0 0 8px rgba(255, 17, 0, 0.4);
+}
+
+/* ─── Заметка ─── */
+.doc-status-card__note {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(12px, 1vw, 14px);
+	font-weight: 300;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.78);
+	margin: 0;
+}
+
+.doc-status-card__note a {
+	color: #00FFFA;
+	text-decoration: none;
+	border-bottom: 1px dashed rgba(0, 255, 250, 0.5);
+	transition: color 0.3s, border-color 0.3s;
+}
+
+.doc-status-card__note a:hover {
+	color: #fff;
+	border-bottom-color: #00FFFA;
+	border-bottom-style: solid;
+}
+
+/* ─── Футер статуса ─── */
+.doc-status-footer {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(6px, 1vh, 10px);
+	margin-top: clamp(16px, 2.4vh, 22px);
+	padding: clamp(14px, 1.8vh, 18px) clamp(16px, 2vw, 22px);
+	border-left: 2px solid rgba(0, 255, 250, 0.3);
+	border-radius: 0 4px 4px 0;
+	background: rgba(0, 0, 0, 0.4);
+}
+
+.doc-status-footer p {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(12px, 1vw, 15px);
+	font-weight: 300;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.78);
+	margin: 0;
+}
+
+.doc-status-footer a {
+	color: #00FFFA;
+	text-decoration: none;
+	border-bottom: 1px dashed rgba(0, 255, 250, 0.5);
+	transition: color 0.3s, border-color 0.3s;
+}
+
+.doc-status-footer a:hover {
+	color: #fff;
+	border-bottom-color: #00FFFA;
+	border-bottom-style: solid;
+}
+
+/* ─── Адаптив ─── */
+@media (max-width: 600px) {
+	.doc-status-card__icon {
+		width: 34px;
+		height: 34px;
+		font-size: 16px;
+	}
+
+	.doc-status-card__title {
+		font-size: 15px;
+	}
+
+	.doc-status-card__badge {
+		font-size: 9px;
+		padding: 3px 8px;
+		letter-spacing: 0.1em;
+	}
+
+	.doc-status-card__slots-num {
+		font-size: 26px;
+	}
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PRICE — Особенности (карточки)
+   ═══════════════════════════════════════════════════════════ */
+
+.price-features {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: clamp(14px, 2vw, 20px);
+	margin-top: clamp(8px, 1.2vh, 12px);
+}
+
+.price-feature {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: clamp(10px, 1.4vh, 14px);
+	padding: clamp(18px, 2.4vh, 24px) clamp(18px, 2vw, 24px);
+	border: 1px solid rgba(0, 255, 250, 0.2);
+	border-radius: 8px;
+	background:
+		radial-gradient(circle at 100% 0%, rgba(0, 255, 250, 0.04) 0%, transparent 60%),
+		rgba(0, 0, 0, 0.5);
+	transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+	overflow: hidden;
+}
+
+.price-feature::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(90deg, transparent, rgba(0, 255, 250, 0.4), transparent);
+	opacity: 0.6;
+}
+
+.price-feature:hover {
+	border-color: rgba(0, 255, 250, 0.5);
+	transform: translateY(-3px);
+	box-shadow:
+		0 0 25px rgba(0, 255, 250, 0.15),
+		0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ─── Шапка карточки ─── */
+.price-feature__head {
+	display: flex;
+	align-items: center;
+	gap: clamp(8px, 1vw, 12px);
+	flex-wrap: wrap;
+}
+
+.price-feature__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: clamp(32px, 3vw, 40px);
+	height: clamp(32px, 3vw, 40px);
+	border-radius: 50%;
+	border: 1px solid rgba(0, 255, 250, 0.3);
+	background: rgba(0, 0, 0, 0.4);
+	font-size: clamp(16px, 1.4vw, 20px);
+	line-height: 1;
+	flex-shrink: 0;
+	filter: drop-shadow(0 0 6px rgba(0, 255, 250, 0.25));
+}
+
+.price-feature__title {
+	font-family: Jost, sans-serif;
+	font-size: clamp(14px, 1.2vw, 17px);
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: #fff;
+	line-height: 1.2;
+	margin: 0;
+	flex: 1;
+	min-width: 0;
+}
+
+/* ─── Бейдж ─── */
+.price-feature__badge {
+	padding: 4px 10px;
+	border-radius: 20px;
+	font-family: Jost, sans-serif;
+	font-size: clamp(10px, 0.85vw, 12px);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	flex-shrink: 0;
+	color: rgba(255, 255, 255, 0.85);
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.price-feature__badge--good {
+	color: #00FFFA;
+	background: rgba(0, 255, 250, 0.08);
+	border-color: rgba(0, 255, 250, 0.4);
+	box-shadow: 0 0 10px rgba(0, 255, 250, 0.15);
+}
+
+.price-feature__badge--warn {
+	color: #FF5040;
+	background: rgba(255, 17, 0, 0.08);
+	border-color: rgba(255, 17, 0, 0.4);
+}
+
+/* ─── Лид — основной текст ─── */
+.price-feature__lead {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(13px, 1.05vw, 15px);
+	font-weight: 300;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.85);
+	margin: 0;
+}
+
+.price-feature__lead strong {
+	color: #fff;
+	font-weight: 500;
+}
+
+/* ─── Сворачиваемые детали ─── */
+.price-feature__details {
+	margin-top: 4px;
+	border-top: 1px dashed rgba(255, 255, 255, 0.1);
+	padding-top: clamp(8px, 1.2vh, 12px);
+}
+
+.price-feature__details summary {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	cursor: pointer;
+	list-style: none;
+	font-family: Jost, sans-serif;
+	font-size: clamp(11px, 0.9vw, 13px);
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: rgba(0, 255, 250, 0.75);
+	transition: color 0.3s ease;
+	user-select: none;
+}
+
+.price-feature__details summary::-webkit-details-marker { display: none; }
+.price-feature__details summary::marker { display: none; }
+
+.price-feature__details summary::before {
+	content: '+';
+	font-size: 1.3em;
+	line-height: 1;
+	color: #00FFFA;
+	transition: transform 0.3s ease;
+	flex-shrink: 0;
+}
+
+.price-feature__details[open] summary::before {
+	transform: rotate(45deg);
+}
+
+.price-feature__details summary:hover {
+	color: #00FFFA;
+}
+
+.price-feature__details p {
+	margin: clamp(8px, 1.2vh, 12px) 0 0;
+	font-family: Roboto, sans-serif;
+	font-size: clamp(12px, 1vw, 14px);
+	font-weight: 300;
+	font-style: italic;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.72);
+	animation: price-feature-fade 0.35s ease;
+}
+
+.price-feature__details p strong {
+	color: #fff;
+	font-weight: 500;
+}
+
+@keyframes price-feature-fade {
+	from { opacity: 0; transform: translateY(-4px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PRICE — Оплата (карточки по группам)
+   ═══════════════════════════════════════════════════════════ */
+
+.price-payment-lead {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(13px, 1.05vw, 15px);
+	font-weight: 300;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.8);
+	margin: 0;
+}
+
+.price-payment {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(18px, 2.4vh, 24px);
+	margin-top: clamp(12px, 1.8vh, 18px);
+}
+
+.price-payment__group {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(10px, 1.4vh, 14px);
+}
+
+.price-payment__group-title {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-family: Jost, sans-serif;
+	font-size: clamp(13px, 1.1vw, 15px);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: rgba(0, 255, 250, 0.8);
+	margin: 0;
+	padding-left: 2px;
+}
+
+.price-payment__group-icon {
+	font-size: 1.1em;
+	line-height: 1;
+}
+
+.price-payment__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: clamp(10px, 1.4vw, 14px);
+}
+
+/* ─── Карточка способа оплаты ─── */
+.price-payment__card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding: clamp(14px, 1.8vh, 18px) clamp(16px, 2vw, 20px);
+	border: 1px solid rgba(0, 255, 250, 0.15);
+	border-radius: 6px;
+	background: rgba(0, 0, 0, 0.45);
+	transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+	cursor: default;
+}
+
+.price-payment__card:hover {
+	border-color: rgba(0, 255, 250, 0.5);
+	background: rgba(0, 255, 250, 0.04);
+	transform: translateY(-2px);
+	box-shadow:
+		0 0 18px rgba(0, 255, 250, 0.15),
+		0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.price-payment__icon {
+	font-size: clamp(20px, 1.8vw, 24px);
+	line-height: 1;
+	margin-bottom: 4px;
+	filter: drop-shadow(0 0 6px rgba(0, 255, 250, 0.2));
+	transition: filter 0.3s ease;
+}
+
+.price-payment__card:hover .price-payment__icon {
+	filter: drop-shadow(0 0 10px rgba(0, 255, 250, 0.5));
+}
+
+.price-payment__name {
+	font-family: Jost, sans-serif;
+	font-size: clamp(13px, 1.1vw, 16px);
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	color: #fff;
+	line-height: 1.2;
+}
+
+.price-payment__meta {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(11px, 0.9vw, 13px);
+	font-weight: 300;
+	font-style: italic;
+	line-height: 1.4;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+/* ─── Подсказка внизу ─── */
+.price-payment-note {
+	margin-top: clamp(14px, 2vh, 20px);
+	padding: clamp(12px, 1.6vh, 16px) clamp(16px, 2vw, 20px);
+	border-left: 2px solid rgba(0, 255, 250, 0.4);
+	border-radius: 0 4px 4px 0;
+	background: rgba(0, 255, 250, 0.03);
+	font-family: Roboto, sans-serif;
+	font-size: clamp(12px, 1vw, 14px);
+	font-weight: 300;
+	font-style: italic;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+/* ─── Адаптив ─── */
+@media (max-width: 600px) {
+	.price-feature__icon {
+		width: 30px;
+		height: 30px;
+		font-size: 15px;
+	}
+
+	.price-feature__title {
+		font-size: 13px;
+	}
+
+	.price-feature__badge {
+		font-size: 9px;
+		padding: 3px 8px;
+	}
+
+	.price-payment__card {
+		padding: 12px 14px;
+	}
+
+	.price-payment__name {
+		font-size: 13px;
+	}
 }

@@ -13,31 +13,24 @@
 
 	const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
 
+	// Уважаем системную настройку «уменьшить движение» (только при загрузке)
+	const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 	// ─────────────────────────────────────────────────────────
 	//  НАСТРОЙКИ
-	//
-	//  enabled: true  → переключение слайдов активно
-	//  enabled: false → фон статичен (первый слайд), без анимаций
-	//
-	//  Остальные параметры работают только при enabled: true
 	// ─────────────────────────────────────────────────────────
 	const PRESETS = {
 		desktop: {
-			enabled: true,                 // ← ВЫКЛЮЧАТЕЛЬ: true / false
+			enabled: !reducedMotion,
 
 			angle: 140, slideY: 35, scaleBoost: 1.1, fade: 0.5, easing: 0.025,
 			transitionStart: 0.35, transitionEnd: 1.0
-			// Для десктопа работает плавная интерполяция между якорями.
-			// Хочешь другой режим? Добавь `anchorMode: 1.0` и убери
-			// transitionStart/transitionEnd — включится режим появления якоря.
 		},
 		mobile: {
-			enabled: true,                 // ← ВЫКЛЮЧАТЕЛЬ: true / false
+			enabled: !reducedMotion,
 
 			angle: 25, slideY: 15, scaleBoost: 0.10, fade: 0.30, easing: 0.06,
 			anchorMode: 0.9
-			// anchorMode: 1.0 — фон меняется, когда следующий якорь появляется
-			// у нижнего края экрана. Меньше = позже, больше = раньше.
 		}
 	};
 
@@ -88,19 +81,15 @@
 	}
 
 	function readScroll() {
-		// ─── Если переключение отключено — цель всегда слайд 0 ───
 		if (config.enabled === false) {
 			target = 0;
 			return;
 		}
 
-		// Пересобираем якоря, если высота документа изменилась
-		// (hscroll раскрылся, картинки подгрузились и т.п.)
 		if (document.documentElement.scrollHeight !== lastDocHeight) {
 			rebuildAnchors();
 		}
 
-		// ─── Режим «появления якоря» (anchorMode) ───
 		if (config.anchorMode !== undefined) {
 			const triggerY = window.scrollY + window.innerHeight * config.anchorMode;
 			let result = anchors[0]?.slide ?? 0;
@@ -112,13 +101,11 @@
 			return;
 		}
 
-		// ─── Режим плавной интерполяции между якорями (transitionStart/End) ───
 		const pivot = window.scrollY + window.innerHeight * 0.5;
 		target = computeSlide(pivot);
 	}
 
 	function applyFrame() {
-		// ─── Если переключение отключено — показываем только первый слайд ───
 		if (config.enabled === false) {
 			slides.forEach((s, i) => {
 				s.style.transform = '';
@@ -128,7 +115,6 @@
 			return;
 		}
 
-		// ─── Обычный режим анимации ───
 		for (let i = 0; i < total; i++) {
 			const slide = slides[i];
 			const offset = current - i;
@@ -176,8 +162,6 @@
 	});
 	window.addEventListener('load', init);
 
-	// Страховка: несколько раз пересобираем якоря после загрузки,
-	// чтобы поймать момент раскрытия hscroll
 	[100, 300, 700, 1500].forEach(ms => {
 		setTimeout(() => { rebuildAnchors(); readScroll(); kick(); }, ms);
 	});

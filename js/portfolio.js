@@ -164,7 +164,7 @@
 			vid.src = video;
 			vid.poster = src;
 			vid.controls = true;
-			vid.autoplay = true;
+			vid.autoplay = false;
 			vid.playsInline = true;
 			vid.muted = false;
 			vid.preload = 'metadata';
@@ -177,7 +177,7 @@
 
 			mediaBox.appendChild(vid);
 			currentVideo = vid;
-			vid.play().catch(() => {});
+			//vid.play().catch(() => {});
 
 			vid.addEventListener('loadedmetadata', () => {
 				applyMediaSize(vid.videoWidth, vid.videoHeight);
