@@ -5,16 +5,16 @@
 	position: relative;
 	width: 100%;
 	max-width: clamp(300px, 60vw, 800px);
-	aspect-ratio: 1 / 1;            /* ← соотношение сторон, подгони под картинки */
+	aspect-ratio: 1 / 1;             /* ← соотношение сторон, подгони под картинки */
 	overflow: hidden;
 	border: 1px solid #00FFFA;
 	border-radius: 5px;
 	cursor: ew-resize;               /* курсор «тянуть влево-вправо» */
 	user-select: none;               /* чтобы не выделялся текст при перетаскивании */
 	-webkit-user-select: none;
-	touch-action: none;              /* чтобы на тачскрине не скроллилось вбок */
 	background: #000;
 	transition: opacity 0.2s ease;
+	touch-action: pan-y;
 }
 
 .compare.is-switching {
@@ -36,8 +36,7 @@
 	position: absolute;
 	inset: 0;
 	overflow: hidden;
-	/* 50% — начальная позиция ползунка */
-	clip-path: inset(0 50% 0 0);
+	clip-path: inset(0 50% 0 0);     /* 50% — начальная позиция ползунка */
 }
 
 /* Ползунок */
@@ -76,13 +75,13 @@
 	filter: drop-shadow(0 0 4px #00FFFA);
 }
 
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
 /* ГОРИЗОНТАЛЬНАЯ ГАЛЕРЕЯ */
 .hscroll {
 	position: relative;
 	width: 100%;
-	/* Высоту JS выставит автоматически: 
-	   трек + один экран. Сейчас — запасная на случай, если JS отключён */
-	min-height: 200vh;
+	min-height: 200vh;                        /* Высоту JS выставит автоматически: трек + один экран. Сейчас — запасная на случай, если JS отключён */
 }
 
 .hscroll__sticky {
@@ -113,7 +112,7 @@
 
 .hscroll__hint {
 	margin-top: 10px;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(11px, 1vw, 14px);
 	font-weight: 300;
 	letter-spacing: 0.2em;
@@ -135,13 +134,11 @@
 	flex-shrink: 0;
 	width: max-content;
 	gap: clamp(15px, 2vw, 40px);
+	will-change: transform;
 	
-	/* 🎯 Слева — отступ, чтобы пропустить меню.
-	      Справа — отступ, чтобы последняя карточка остановилась в центре. */
+	/* Слева — отступ, чтобы пропустить меню. Справа — отступ, чтобы последняя карточка остановилась в центре. */
 	padding-left: clamp(280px, 22vw, 420px);
 	padding-right: calc((100vw - clamp(260px, 38vw, 520px)) / 2 - 100px);
-	
-	will-change: transform;
 }
 
 /* Карточки внутри горизонтального трека */
@@ -149,44 +146,16 @@
 	flex: 0 0 auto;
 	width: clamp(260px, 38vw, 520px);
 	aspect-ratio: 4 / 3;
-	/* остальные стили — из .portfolio__item, они уже есть в index.css */
 }
 
-/* На мобилке — без скролл-хвата, просто вертикальный список */
-@media (max-width: 700px) {
-	.hscroll {
-		min-height: auto;
-	}
-	.hscroll__sticky {
-		position: static;
-		height: auto;
-		overflow: visible;
-	}
-	.hscroll__viewport {
-		overflow: visible;
-	}
-	.hscroll__track {
-		flex-direction: column;
-		align-items: center;
-		transform: none !important;
-		padding: 0;
-		gap: clamp(15px, 2vw, 30px);
-	}
-	.hscroll__track .portfolio__item {
-		width: 100%;
-		max-width: clamp(280px, 80vw, 500px);
-	}
-	.hscroll__hint {
-		display: none;
-	}
-}
-
-/* ─── ФИКС: заголовок внутри hscroll ─── */
+/* ФИКС: заголовок внутри hscroll */
 .hscroll__head .text_caption {
 	margin: 0;
 }
 
-/* ─── КАРТОЧКИ РАБОТ ─── */
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* КАРТОЧКИ РАБОТ */
 .portfolio__item {
 	position: relative;
 	display: block;
@@ -229,7 +198,7 @@
 }
 
 .portfolio__caption span {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(14px, 1.3vw, 20px);
 	font-weight: 500;
 	letter-spacing: 0.05em;
@@ -237,7 +206,7 @@
 }
 
 .portfolio__caption small {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(10px, 0.9vw, 13px);
 	font-weight: 300;
 	letter-spacing: 0.15em;
@@ -290,7 +259,9 @@
 	box-shadow: 0 0 32px rgba(0, 255, 250, 0.8);
 }
 
-/* ─── ПАНЕЛЬ С ОПИСАНИЕМ ─── */
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* ПАНЕЛЬ С ОПИСАНИЕМ */
 .work-panel {
 	position: fixed;
 	inset: 0;
@@ -306,12 +277,7 @@
 	animation: work-panel-fade .4s ease;
 }
 
-@keyframes work-panel-fade {
-	from { opacity: 0; }
-	to   { opacity: 1; }
-}
-
-/* ─── Затемнённый фон с радиальным свечением ─── */
+/* Затемнённый фон с радиальным свечением */
 .work-panel__backdrop {
 	position: absolute;
 	inset: 0;
@@ -325,12 +291,7 @@
 	animation: work-panel-backdrop .4s ease;
 }
 
-@keyframes work-panel-backdrop {
-	from { backdrop-filter: blur(0); background: rgba(0, 0, 0, 0); }
-	to   { backdrop-filter: blur(12px); }
-}
-
-/* ─── Контейнер панели ─── */
+/* Контейнер панели */
 .work-panel__content {
 	position: relative;
 	max-width: min(1100px, 92vw);
@@ -355,17 +316,6 @@
 		0 30px 80px rgba(0, 0, 0, 0.9);
 	overflow: hidden;
 	animation: work-panel-slide .5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-@keyframes work-panel-slide {
-	from {
-		transform: translateY(40px) scale(0.96);
-		opacity: 0;
-	}
-	to {
-		transform: translateY(0) scale(1);
-		opacity: 1;
-	}
 }
 
 /* Угловые маркеры */
@@ -395,7 +345,7 @@
 	box-shadow: 2px 2px 10px rgba(255, 17, 0, 0.4);
 }
 
-/* ─── Кнопка закрытия ─── */
+/* Кнопка закрытия */
 .work-panel__close {
 	position: absolute;
 	top: 14px;
@@ -429,7 +379,7 @@
 	transform: rotate(90deg);
 }
 
-/* ─── Медиа-контейнер ─── */
+/* Медиа-контейнер */
 .work-panel__media-wrap {
 	position: relative;
 	width: 100%;
@@ -479,7 +429,7 @@
 	z-index: 2;
 }
 
-/* ─── Текстовая часть ─── */
+/* Текстовая часть */
 .work-panel__body {
 	padding: clamp(18px, 2.4vw, 28px) clamp(4px, 0.5vw, 8px) 0;
 	display: flex;
@@ -495,7 +445,7 @@
 	gap: 8px;
 	padding: 5px 14px;
 	align-self: flex-start;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(10px, 0.9vw, 13px);
 	font-weight: 500;
 	letter-spacing: 0.2em;
@@ -515,7 +465,7 @@
 
 /* Заголовок */
 .work-panel__title {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(20px, 2.4vw, 34px);
 	font-weight: 600;
 	line-height: 1.15;
@@ -546,7 +496,7 @@
 	height: 100%;
 	padding: 40px;
 	text-align: center;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(14px, 1.2vw, 18px);
 	font-weight: 400;
 	letter-spacing: 0.08em;
@@ -555,7 +505,7 @@
 	background: radial-gradient(circle, rgba(255, 17, 0, 0.04) 0%, transparent 70%);
 }
 
-/* ─── Скроллбар внутри панели ─── */
+/* Скроллбар внутри панели */
 .work-panel__body::-webkit-scrollbar {
 	width: 4px;
 }
@@ -574,7 +524,7 @@
 	background: rgba(0, 255, 250, 0.7);
 }
 
-/* ─── Стрелки навигации ─── */
+/* Стрелки навигации */
 .work-panel__nav {
 	position: absolute;
 	top: 50%;
@@ -631,40 +581,7 @@
 	pointer-events: none;
 }
 
-/* ─── Адаптив ─── */
-@media (max-width: 650px) {
-	.work-panel {
-		padding: 12px;
-	}
-
-	.work-panel__content {
-		max-height: 94vh;
-		padding: 14px;
-	}
-
-	.work-panel__media {
-		aspect-ratio: 4 / 3;
-	}
-
-	.work-panel__close {
-		width: 38px;
-		height: 38px;
-		top: 10px;
-		right: 10px;
-	}
-
-	.work-panel__content::before,
-	.work-panel__content::after {
-		width: 18px;
-		height: 18px;
-	}
-
-	.work-panel__nav {
-		width: 36px;
-		height: 36px;
-		font-size: 20px;
-	}
-}
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
 /* УСЛУГИ */
 .services {
@@ -730,7 +647,7 @@
 }
 
 .services__item h3 {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(16px, 1.4vw, 22px);
 	font-weight: 500;
 	text-transform: uppercase;
@@ -746,6 +663,8 @@
 	line-height: 1.5;
 	color: rgba(255, 255, 255, 0.75);
 }
+
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
 /* FAQ */
 .faq {
@@ -772,7 +691,7 @@
 .faq__question {
 	padding: clamp(12px, 1.8vh, 20px) clamp(15px, 2vw, 24px);
 	cursor: pointer;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(14px, 1.3vw, 18px);
 	font-weight: 500;
 	color: #fff;
@@ -818,10 +737,7 @@
 	animation: faq-open 0.3s ease;
 }
 
-@keyframes faq-open {
-	from { opacity: 0; transform: translateY(-6px); }
-	to   { opacity: 1; transform: translateY(0); }
-}
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
 /* CTA */
 .cta {
@@ -854,15 +770,10 @@
 	opacity: 0.9;
 }
 
-@keyframes cta-drift {
-	0%, 100% { background-position: 0% 50%, 100% 50%; }
-	50%      { background-position: 100% 50%, 0% 50%; }
-}
-
 .cta > * { position: relative; z-index: 1; }
 
 .cta__title {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(24px, 3vw, 42px);
 	font-weight: 600;
 	text-transform: uppercase;
@@ -891,7 +802,7 @@
 .cta__btn {
 	display: inline-block;
 	padding: clamp(12px, 1.6vh, 16px) clamp(24px, 2.5vw, 36px);
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 500;
 	letter-spacing: 0.1em;
@@ -928,7 +839,9 @@
 	transform: translateY(-2px);
 }
 
-/* СТАТИСТИКА (задел) */
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* СТАТИСТИКА */
 .stats {
 	display: flex;
 	flex-wrap: wrap;
@@ -945,7 +858,7 @@
 }
 
 .stats__number {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(38px, 5vw, 64px);
 	font-weight: 700;
 	color: #00FFFA;
@@ -954,7 +867,7 @@
 }
 
 .stats__label {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(11px, 1vw, 14px);
 	font-weight: 300;
 	letter-spacing: 0.2em;
@@ -962,7 +875,9 @@
 	color: rgba(255, 255, 255, 0.7);
 }
 
-/* ОТЗЫВЫ (задел) */
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* ОТЗЫВЫ */
 .reviews {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -989,7 +904,7 @@
 }
 
 .reviews__item cite {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 500;
 	letter-spacing: 0.15em;
@@ -1001,7 +916,7 @@
 /* Подсказка под вступлением */
 .intro__lead {
 	margin-top: clamp(20px, 3vh, 35px);
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 400;
 	letter-spacing: 0.1em;
@@ -1016,11 +931,6 @@
 	display: inline-block;
 	margin-left: 10px;
 	animation: intro-bounce 1.6s ease-in-out infinite;
-}
-
-@keyframes intro-bounce {
-	0%, 100% { transform: translateY(0); }
-	50%      { transform: translateY(5px); }
 }
 
 /* Точки-индикаторы под галереей */
@@ -1058,14 +968,9 @@
 	transform: scale(1.3);
 }
 
-/* На мобилке — скрываем, там галерея вертикальная */
-@media (max-width: 700px) {
-	.hscroll__dots {
-		display: none;
-	}
-}
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
-/* ─── НАВИГАЦИЯ ПО ПАРАМ СРАВНЕНИЯ ─── */
+/* НАВИГАЦИЯ ПО ПАРАМ СРАВНЕНИЯ */
 .compare__nav {
 	position: absolute;
 	bottom: clamp(12px, 2vh, 20px);
@@ -1104,7 +1009,7 @@
 	display: none;
 }
 
-/* ─── Стрелки навигации ─── */
+/* Стрелки навигации */
 .compare__arrow {
 	display: flex;
 	align-items: center;
@@ -1116,7 +1021,7 @@
 	background: transparent;
 	border: 1px solid rgba(0, 255, 250, 0.35);
 	color: #00FFFA;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(16px, 1.4vw, 20px);
 	line-height: 1;
 	cursor: pointer;
@@ -1149,7 +1054,7 @@
 	pointer-events: none;
 }
 
-/* ─── Точки-переключатели ─── */
+/* Точки-переключатели */
 .compare__dot {
 	width: clamp(8px, 0.9vw, 10px);
 	height: clamp(8px, 0.9vw, 10px);
@@ -1190,10 +1095,10 @@
 	transform: scale(1.3);
 }
 
-/* ─── Текст «Примеры» внутри панели ─── */
+/* Текст «Примеры» внутри панели */
 .compare__nav-label {
 	padding: 0 clamp(8px, 1vw, 12px) 0 clamp(4px, 0.5vw, 6px);
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(9px, 0.75vw, 11px);
 	font-weight: 600;
 	letter-spacing: 0.2em;
@@ -1206,12 +1111,12 @@
 	text-shadow: 0 0 6px rgba(0, 255, 250, 0.35);
 }
 
-/* ─── Метки «До» / «После» на картинке ─── */
+/* Метки «До» / «После» на картинке */
 .compare__label {
 	position: absolute;
 	top: clamp(12px, 2vh, 20px);
 	padding: clamp(5px, 0.7vh, 8px) clamp(12px, 1.4vw, 16px);
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(10px, 0.9vw, 13px);
 	font-weight: 600;
 	letter-spacing: 0.2em;
@@ -1246,7 +1151,7 @@
 	text-shadow: 0 0 8px rgba(0, 255, 250, 0.6);
 }
 
-/* ─── Метки прячутся, когда ползунок подъехал к краю ─── */
+/* Метки прячутся, когда ползунок подъехал к краю */
 .compare.is-near-left .compare__label--before,
 .compare.is-near-right .compare__label--after {
 	opacity: 0;
@@ -1256,24 +1161,7 @@
 	opacity: 0.6;
 }
 
-/* На мобилке — метки компактнее */
-@media (max-width: 500px) {
-	.compare__label {
-		padding: 4px 10px;
-		font-size: 10px;
-		letter-spacing: 0.15em;
-	}
-	.compare__nav-label {
-	    display: none;   /* на узких экранах текст экономит место */
-	}
-	.compare__dot {
-		width: 12px;
-		height: 12px;
-	}
-}
-
-/* ─── Пульсация навигации при первом появлении ─── */
-/* Класс добавляется JS один раз — привлекает внимание к тому, что это кнопки */
+/* Пульсация навигации при первом появлении */
 .compare__nav.is-hinting .compare__dot {
 	animation: compare-dot-hint 1.4s ease-in-out 3;
 }
@@ -1283,33 +1171,9 @@
 .compare__nav.is-hinting .compare__dot:nth-child(4) { animation-delay: 0.45s; }
 .compare__nav.is-hinting .compare__dot:nth-child(5) { animation-delay: 0.6s; }
 
-@keyframes compare-dot-hint {
-	0%, 100% {
-		box-shadow: 0 0 0 rgba(0, 255, 250, 0);
-		transform: scale(1);
-	}
-	50% {
-		box-shadow: 0 0 16px rgba(0, 255, 250, 0.9);
-		transform: scale(1.35);
-	}
-}
-
 /* Активная точка не должна дёргаться во время подсказки */
 .compare__nav.is-hinting .compare__dot.is-active {
 	animation: compare-dot-hint-active 1.4s ease-in-out 3;
 }
 
-@keyframes compare-dot-hint-active {
-	0%, 100% {
-		box-shadow:
-			0 0 12px rgba(0, 255, 250, 0.9),
-			0 0 0 3px rgba(0, 255, 250, 0.15);
-		transform: scale(1.3);
-	}
-	50% {
-		box-shadow:
-			0 0 22px rgba(0, 255, 250, 1),
-			0 0 0 5px rgba(0, 255, 250, 0.2);
-		transform: scale(1.5);
-	}
-}
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */

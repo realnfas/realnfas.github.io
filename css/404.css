@@ -1,0 +1,277 @@
+/* СТИЛЬ СТРАНИЦЫ 404 */
+
+.error-404 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: clamp(18px, 3vh, 32px);
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: clamp(60px, 12vh, 140px) clamp(20px, 4vw, 40px) clamp(40px, 8vh, 80px);
+}
+
+/* ——— Цифры 404 ——— */
+.error-404__digits {
+	display: inline-flex;
+	gap: clamp(8px, 2vw, 28px);
+	cursor: pointer;
+	user-select: none;
+	-webkit-user-select: none;
+	transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.error-404__digits:hover {
+	transform: scale(1.03);
+}
+
+.error-404__digits:active {
+	transform: scale(0.98);
+}
+
+.error-404__digits:focus-visible {
+	outline: 2px solid #00FFFA;
+	outline-offset: 8px;
+	border-radius: 8px;
+}
+
+.error-404__digit {
+	display: inline-block;
+	font-family: Manrope, sans-serif;
+	font-size: clamp(110px, 22vw, 280px);
+	font-weight: 800;
+	line-height: 0.9;
+	letter-spacing: -0.04em;
+
+	background: linear-gradient(180deg,
+		#FF1100 0%,
+		#ff5a4a 35%,
+		#a5e5e3 65%,
+		#00FFFA 100%
+	);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: transparent;
+
+	filter:
+		drop-shadow(0 0 25px rgba(0, 255, 250, 0.35))
+		drop-shadow(0 0 60px rgba(255, 17, 0, 0.15));
+
+	animation: error-glow 4s ease-in-out infinite;
+	will-change: filter, transform;
+}
+
+.error-404__digit:nth-child(2) {
+	animation-delay: 0.4s;
+}
+
+.error-404__digit:nth-child(3) {
+	animation-delay: 0.8s;
+}
+
+/* Глитч при клике */
+.error-404.is-glitching .error-404__digit {
+	animation: error-glitch 0.45s ease;
+}
+
+/* ——— Лисичка ——— */
+.error-404__fox {
+	font-size: clamp(38px, 6vw, 68px);
+	line-height: 1;
+	filter: drop-shadow(0 0 18px rgba(0, 255, 250, 0.55));
+	animation: error-fox-bounce 3.5s ease-in-out infinite;
+}
+
+/* ——— Заголовок ——— */
+.error-404__title {
+	font-family: Manrope, sans-serif;
+	font-size: clamp(20px, 3vw, 36px);
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: #fff;
+	line-height: 1.2;
+	text-shadow:
+		0 0 20px rgba(0, 255, 250, 0.3),
+		0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* ——— Фраза ——— */
+.error-404__phrase {
+	font-family: Roboto, sans-serif;
+	font-size: clamp(14px, 1.3vw, 20px);
+	font-weight: 300;
+	font-style: italic;
+	line-height: 1.6;
+	color: rgba(0, 255, 250, 0.85);
+	max-width: 60ch;
+	min-height: 3.2em;
+	text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+	transition: opacity 0.3s ease;
+}
+
+.error-404__phrase.is-changing {
+	opacity: 0;
+}
+
+/* ——— Подсказка ——— */
+.error-404__hint {
+	font-family: Manrope, sans-serif;
+	font-size: clamp(11px, 0.9vw, 13px);
+	font-weight: 400;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.5);
+	margin-top: -8px;
+}
+
+/* ——— Кнопки ——— */
+.error-404__actions {
+	display: flex;
+	gap: clamp(10px, 1.5vw, 18px);
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: clamp(10px, 2vh, 20px);
+}
+
+.error-404__btn {
+	display: inline-block;
+	padding: clamp(12px, 1.6vh, 16px) clamp(24px, 2.5vw, 36px);
+	font-family: Manrope, sans-serif;
+	font-size: clamp(13px, 1.1vw, 16px);
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	text-decoration: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	white-space: nowrap;
+}
+
+.error-404__btn--primary {
+	color: #000;
+	background: #00FFFA;
+	border: 1px solid #00FFFA;
+}
+
+.error-404__btn--primary:hover {
+	background: #fff;
+	border-color: #fff;
+	box-shadow: 0 0 25px rgba(0, 255, 250, 0.7);
+	transform: translateY(-2px);
+}
+
+.error-404__btn--ghost {
+	color: #00FFFA;
+	background: transparent;
+	border: 1px solid #00FFFA;
+}
+
+.error-404__btn--ghost:hover {
+	background: rgba(0, 255, 250, 0.12);
+	box-shadow: 0 0 25px rgba(0, 255, 250, 0.4);
+	transform: translateY(-2px);
+}
+
+/* ——— Пасхалка ——— */
+.error-404__easter {
+	margin-top: clamp(15px, 2vh, 25px);
+	padding: clamp(12px, 1.6vh, 16px) clamp(20px, 2.5vw, 30px);
+	border: 1px solid rgba(0, 255, 250, 0.4);
+	border-radius: 6px;
+	background: rgba(0, 255, 250, 0.05);
+	font-family: Manrope, sans-serif;
+	font-size: clamp(13px, 1.1vw, 16px);
+	letter-spacing: 0.05em;
+	color: #00FFFA;
+	text-shadow: 0 0 10px rgba(0, 255, 250, 0.5);
+	box-shadow:
+		0 0 25px rgba(0, 255, 250, 0.2),
+		inset 0 0 20px rgba(0, 255, 250, 0.05);
+	animation: error-easter-in 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ——— Анимации ——— */
+@keyframes error-glow {
+	0%, 100% {
+		filter:
+			drop-shadow(0 0 25px rgba(0, 255, 250, 0.35))
+			drop-shadow(0 0 60px rgba(255, 17, 0, 0.15));
+		transform: translateY(0);
+	}
+	50% {
+		filter:
+			drop-shadow(0 0 40px rgba(0, 255, 250, 0.55))
+			drop-shadow(0 0 80px rgba(255, 17, 0, 0.25));
+		transform: translateY(-4px);
+	}
+}
+
+@keyframes error-glitch {
+	0%   { transform: translate(0, 0) skew(0deg); }
+	15%  { transform: translate(-5px, 2px) skew(-2deg); }
+	30%  { transform: translate(5px, -2px) skew(2deg); }
+	45%  { transform: translate(-3px, 1px) skew(-1deg); }
+	60%  { transform: translate(3px, -1px) skew(1deg); }
+	80%  { transform: translate(-1px, 1px) skew(0deg); }
+	100% { transform: translate(0, 0) skew(0deg); }
+}
+
+@keyframes error-fox-bounce {
+	0%, 100% { transform: translateY(0) rotate(0deg); }
+	50%      { transform: translateY(-8px) rotate(5deg); }
+}
+
+@keyframes error-easter-in {
+	from { opacity: 0; transform: translateY(-10px) scale(0.96); }
+	to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ——— Адаптив ——— */
+@media (max-width: 600px) {
+	.error-404 {
+		padding-top: clamp(40px, 10vh, 80px);
+		gap: clamp(14px, 2.2vh, 22px);
+	}
+
+	.error-404__digits {
+		gap: 4px;
+	}
+
+	.error-404__digit {
+		font-size: clamp(90px, 28vw, 140px);
+	}
+
+	.error-404__title {
+		font-size: clamp(17px, 5vw, 24px);
+		letter-spacing: 0.06em;
+	}
+
+	.error-404__actions {
+		flex-direction: column;
+		align-items: stretch;
+		width: 100%;
+		max-width: 280px;
+	}
+
+	.error-404__btn {
+		text-align: center;
+	}
+}
+
+/* ——— Уважение к prefers-reduced-motion ——— */
+@media (prefers-reduced-motion: reduce) {
+	.error-404__digit,
+	.error-404__fox,
+	.error-404__easter {
+		animation: none;
+	}
+	.error-404__digits:hover,
+	.error-404.is-glitching .error-404__digit {
+		animation: none;
+		transform: none;
+	}
+}

@@ -283,24 +283,97 @@
 		if (handled) e.preventDefault();
 	});
 
-	// Указатель
-	root.addEventListener('pointerdown', (e) => {
-		if (e.target.closest('.compare__nav')) return;
-		startDrag(e);
-	});
-	root.addEventListener('pointermove', moveDrag);
-	root.addEventListener('pointerup', endDrag);
-	root.addEventListener('pointercancel', endDrag);
-	root.addEventListener('pointerleave', endDrag);
+// ─────────────────────────────────────────────────────────
+//  Указатель — универсально для мыши, пера и тача
+//  Идея: на таче сначала ждём, куда именно поедет палец.
+//  Если жест больше похож на вертикальный — отпускаем,
+//  пусть браузер скроллит. Если на горизонтальный — забираем.
+// ─────────────────────────────────────────────────────────
+const SWIPE_THRESHOLD = 8; // px до старта драга
 
-	// Клик — тоже двигает ползунок
-	root.addEventListener('click', (e) => {
-		if (e.target.closest('.compare__nav')) return;
-		if (e.detail !== 1) return;
-		hideNav();
+let pendingTouch = null;   // { startX, startY, pointerId }
+let activePointerId = null;
+
+root.addEventListener('pointerdown', (e) => {
+	if (e.target.closest('.compare__nav')) return;
+
+	if (e.pointerType === 'touch') {
+		// Ещё не решили — горизонталь это или вертикаль
+		pendingTouch = {
+			startX: e.clientX,
+			startY: e.clientY,
+			pointerId: e.pointerId
+		};
+		return;
+	}
+
+	// Мышь / перо — сразу тащим, как раньше
+	activePointerId = e.pointerId;
+	dragging = true;
+	root.setPointerCapture?.(e.pointerId);
+	hideNav();
+	setPosition(positionFromEvent(e.clientX));
+});
+
+root.addEventListener('pointermove', (e) => {
+	// Состояние 1: палец только коснулся — решаем, чей это жест
+	if (pendingTouch && e.pointerId === pendingTouch.pointerId) {
+		const dx = Math.abs(e.clientX - pendingTouch.startX);
+		const dy = Math.abs(e.clientY - pendingTouch.startY);
+
+		// Пошёл вертикальный скролл → отдаём браузеру
+		if (dy > SWIPE_THRESHOLD && dy > dx) {
+			pendingTouch = null;
+			return;
+		}
+
+		// Явно горизонтальный жест → забираем себе
+		if (dx > SWIPE_THRESHOLD && dx > dy) {
+			activePointerId = e.pointerId;
+			dragging = true;
+			hideNav();
+			pendingTouch = null;
+
+			// Важно: захватываем палец, иначе при выезде за .compare
+			// перестанем получать pointermove
+			try { root.setPointerCapture(e.pointerId); } catch (_) {}
+			setPosition(positionFromEvent(e.clientX));
+		}
+		return;
+	}
+
+	// Состояние 2: активно тащим — двигаем ползунок
+	if (dragging && e.pointerId === activePointerId) {
 		setPosition(positionFromEvent(e.clientX));
-		setTimeout(showNav, 400);
-	});
+	}
+});
+
+function finishPointer(e) {
+	if (pendingTouch && e.pointerId === pendingTouch.pointerId) {
+		pendingTouch = null;
+	}
+	if (dragging && e.pointerId === activePointerId) {
+		dragging = false;
+		activePointerId = null;
+		try { root.releasePointerCapture?.(e.pointerId); } catch (_) {}
+		showNav();
+	}
+}
+
+root.addEventListener('pointerup', finishPointer);
+root.addEventListener('pointercancel', finishPointer);
+root.addEventListener('pointerleave', finishPointer);
+
+// Клик мышью — двигает ползунок в точку клика.
+// На тач НЕ дублируем: там уже сработал pointerdown+drag.
+root.addEventListener('click', (e) => {
+	if (e.target.closest('.compare__nav')) return;
+	if (e.pointerType === 'touch') return; // ← важно
+	if (e.detail !== 1) return;
+	hideNav();
+	setPosition(positionFromEvent(e.clientX));
+	setTimeout(showNav, 400);
+});
 
 	// Не даём навигации дёргать ползунок
 	if (navBox) {

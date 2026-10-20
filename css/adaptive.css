@@ -1,7 +1,8 @@
 /* АДАПТИВНОСТЬ */
 
+/* Отключает анимации у тех, кто не желает их видеть */
 @media (prefers-reduced-motion: reduce) {
-	#studio_name span {
+	#studio_name h1 {
 		animation: none;
 		color: #FF1100;
 		text-shadow: 0 0 12px rgba(255, 17, 0, 0.6);
@@ -23,45 +24,69 @@
 	}
 }
 
-/* ─── Мобильное меню (≤900px) ─── */
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
 @media (max-width: 900px) {
 	/* Прячем «десктопное» меню, вместо него будет бургер */
 	.menu { display: none; }
 
 	/* Показываем бургер */
 	.menu-toggle { display: flex; }
+
+	/* CТРАХОВКА ОТ ГОРИЗОНТАЛЬНОГО СКРОЛЛА — на всю мобилку */
+	html, body {
+		overflow-x: clip;
+		max-width: 100%;
+	}
+
+	/* Меньше пустоты между секциями на мобилке */
+	:root {
+		--gap-slide: clamp(50px, 8vh, 90px);
+	}
+
+	/* Заголовки секций — не уезжают за край на мобилке */
+	.text_caption {
+		width: 100%;                            /* вместо max-content */
+		max-width: 100%;
+		margin-left: 0;                         /* убираем 15vw-отступ */
+		margin-right: 0;
+		padding-left: clamp(16px, 5vw, 28px);   /* аккуратный отступ слева */
+		padding-right: clamp(16px, 5vw, 28px);  /* и справа, чтобы не касалось края */
+		box-sizing: border-box;
+		margin-top: clamp(200px, 80vh, 1000px);
+	}
+
+	.text_caption h2 {
+		font-size: clamp(28px, 9vw, 42px);      /* компактнее */
+		line-height: 1.15;
+		word-break: break-word;                 /* длинные слова переносятся */
+		max-width: 100%;
+	}
+
+	/* Заголовок внутри галереи (hscroll) — убираем особый отступ */
+	.hscroll__head {
+		padding-left: 0;
+	}
+
+	/* Внутри галереи .text_caption уже обнуляется через margin: 0, но добавим на всякий случай */
+	.hscroll__head .text_caption {
+		padding-left: clamp(16px, 5vw, 28px);
+		padding-right: clamp(16px, 5vw, 28px);
+	}
 }
 
-/* Отключает анимацию NFAS на мобилке */
 @media (max-width: 700px) {
-	#studio_name span {
+	/* Отключает анимацию NFAS на мобилке */
+	#studio_name h1 {
 		animation: none;
 		color: #FF1100;
 		text-shadow: 0 0 12px rgba(255, 17, 0, 0.6);
 	}
 }
 
-/* Плашка версии скрыта на мелких экранах */
-@media (max-width: 450px) {
-	#plashka_version {
-		display: none;
-	}
-}
-
-/* ─── Мобильный ремонт: узкие экраны (≤480px) ─── */
-
-/* 1. СТРАХОВКА ОТ ГОРИЗОНТАЛЬНОГО СКРОЛЛА — на всю мобилку */
-@media (max-width: 900px) {
-	html, body {
-		overflow-x: clip;
-		max-width: 100%;
-	}
-}
-
-/* 2. ШАПКА — компактнее на маленьких экранах */
 @media (max-width: 480px) {
 	/* NFAS: плотнее буквы, чтобы не разъезжалось */
-	#studio_name {
+	#studio_name h1 {
 		letter-spacing: clamp(4px, 1.5vw, 12px);
 		padding-left: clamp(4px, 1.5vw, 12px);
 		margin-top: clamp(80px, 14vh, 140px);
@@ -93,10 +118,8 @@
 	#logotype_container::before {
 		inset: -4px;
 	}
-}
 
-/* 3. БУРГЕР-МЕНЮ — компактные кнопки, ничего не вылазит */
-@media (max-width: 480px) {
+	/* БУРГЕР-МЕНЮ — компактные кнопки, ничего не вылазит */
 	.menu-drawer__nav {
 		padding: 16px;
 		gap: 12px;
@@ -112,16 +135,7 @@
 		word-break: break-word;
 		text-align: center;
 	}
-}
 
-/* ─── Меньше пустоты между секциями на мобилке ─── */
-@media (max-width: 900px) {
-	:root {
-		--gap-slide: clamp(50px, 8vh, 90px);
-	}
-}
-
-@media (max-width: 480px) {
 	:root {
 		--gap-slide: clamp(30px, 5vh, 50px);
 	}
@@ -139,31 +153,8 @@
 	.hscroll__head .text_caption {
 		margin-top: 0;
 	}
-}
 
-/* ─── Заголовки секций — не уезжают за край на мобилке ─── */
-@media (max-width: 900px) {
-	.text_caption {
-		width: 100%;                            /* вместо max-content */
-		max-width: 100%;
-		margin-left: 0;                         /* убираем 15vw-отступ */
-		margin-right: 0;
-		padding-left: clamp(16px, 5vw, 28px);   /* аккуратный отступ слева */
-		padding-right: clamp(16px, 5vw, 28px);  /* и справа, чтобы не касалось края */
-		box-sizing: border-box;
-		margin-top: clamp(200px, 80vh, 1000px);
-	}
-
-	.text_caption h2 {
-		font-size: clamp(28px, 9vw, 42px);      /* компактнее */
-		line-height: 1.15;
-		word-break: break-word;                 /* длинные слова переносятся */
-		max-width: 100%;
-	}
-}
-
-/* На совсем узких экранах — ещё плотнее */
-@media (max-width: 480px) {
+	/* На совсем узких экранах — ещё плотнее */
 	.text_caption {
 		padding-left: 14px;
 		padding-right: 14px;
@@ -173,24 +164,8 @@
 		font-size: clamp(24px, 9vw, 34px);
 		padding-left: clamp(10px, 3vw, 16px);
 	}
-}
 
-/* ─── Заголовок внутри галереи (hscroll) — убираем особый отступ ─── */
-@media (max-width: 900px) {
-	.hscroll__head {
-		padding-left: 0;
-	}
-
-	/* Внутри галереи .text_caption уже обнуляется через margin: 0,
-	но добавим на всякий случай */
-	.hscroll__head .text_caption {
-		padding-left: clamp(16px, 5vw, 28px);
-		padding-right: clamp(16px, 5vw, 28px);
-	}
-}
-
-/* ─── Карточки галереи — центрируем на мобилке ─── */
-@media (max-width: 700px) {
+	/* Карточки галереи — центрируем на мобилке */
 	.hscroll__viewport {
 		justify-content: center;
 	}
@@ -209,4 +184,488 @@
 		max-width: min(80vw, 500px);
 		margin: 0 auto;
 	}
+
+	/* Подпись снизу — название студии */
+	@media (max-width: 480px) {
+	.doc-foundation {
+		padding: 24px 18px;
+	}
+
+	.doc-foundation__date {
+		font-size: clamp(24px, 8vw, 34px);
+		letter-spacing: 0.08em;
+	}
+
+	.doc-foundation__label,
+	.doc-foundation__signature {
+		font-size: 10px;
+		letter-spacing: 0.24em;
+	}
 }
+}
+
+@media (max-width: 450px) {
+	/* Плашка версии скрыта на мелких экранах */
+	#plashka_version {
+		display: none;
+	}
+}
+
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* ДОРОЖНАЯ КАРТА — план развития и подразделения */
+/* ─── 4. Адаптив ─── */
+@media (max-width: 700px) {
+	.doc-progress-hero {
+		padding: 22px 18px;
+	}
+
+	.doc-progress-hero__percent {
+		font-size: clamp(40px, 12vw, 64px);
+	}
+
+	/* В шапке плана — две строки: название сверху, метры снизу */
+	.doc-plan__summary {
+		grid-template-columns: auto 1fr auto;
+		grid-template-areas:
+			"num title pct"
+			".   meter meter";
+		gap: 8px 12px;
+		padding: 12px 14px;
+	}
+
+	.doc-plan__num   { grid-area: num; }
+	.doc-plan__title { grid-area: title; }
+	.doc-plan__meter { grid-area: meter; width: 100%; margin-top: 4px; }
+	.doc-plan__pct   { grid-area: pct; }
+
+	.doc-plan__summary::after {
+		display: none;
+	}
+
+	/* Карточка подразделения — вертикальная раскладка */
+	.doc-sub__header {
+		grid-template-columns: auto 1fr;
+		grid-template-areas:
+			"icon info"
+			"meter meter"
+			"pct pct";
+		gap: 10px 14px;
+		padding: 16px;
+	}
+
+	.doc-sub__icon      { grid-area: icon; }
+	.doc-sub__head-info { grid-area: info; }
+	.doc-sub__meter     { grid-area: meter; width: 100%; margin-top: 4px; }
+	.doc-sub__pct       { grid-area: pct; text-align: left; min-width: 0; }
+}
+
+@media (max-width: 480px) {
+	.doc-plan__title {
+		font-size: 13px;
+	}
+
+	.doc-plan__task {
+		font-size: 12.5px;
+		padding: 6px 8px;
+		gap: 10px;
+	}
+
+	.doc-plan__check {
+		width: 16px;
+		height: 16px;
+	}
+
+	.doc-sub__name {
+		font-size: 14px;
+		letter-spacing: 0.04em;
+	}
+
+	.doc-sub__goal {
+		font-size: 12px;
+	}
+}
+
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* Строчка-мостик на basic */
+
+/* Мобильный размер — чуть компактнее */
+@media (max-width: 480px) {
+	.doc-contact__avatar {
+		width: 34px;
+		height: 34px;
+	}
+}
+
+/* ─── Команда: адаптив ─── */
+
+/* Планшет (≤900px) — уменьшаем минимальную ширину карточек */
+@media (max-width: 900px) {
+	.doc-team {
+		grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+		max-width: 100%;
+	}
+}
+
+/* Телефон (≤600px) — строго одна колонка */
+@media (max-width: 600px) {
+	.doc-team {
+		grid-template-columns: 1fr;
+		max-width: 320px;
+		gap: 12px;
+	}
+
+	.doc-team__member {
+		padding: 18px 16px 16px;
+		gap: 8px;
+	}
+
+	.doc-team__avatar {
+		width: 64px;
+		height: 64px;
+	}
+
+	.doc-team__name {
+		font-size: 15px;
+		letter-spacing: 0.1em;
+	}
+
+	.doc-team__role {
+		font-size: 12px;
+	}
+
+	.doc-team__arrow {
+		top: 10px;
+		right: 12px;
+		font-size: 14px;
+	}
+}
+
+/* Маленький телефон (≤400px) — компактнее */
+@media (max-width: 400px) {
+	.doc-team {
+		max-width: 100%;
+	}
+
+	.doc-team__member {
+		padding: 16px 12px 14px;
+	}
+
+	.doc-team__avatar {
+		width: 56px;
+		height: 56px;
+	}
+
+	.doc-team__name {
+		font-size: 14px;
+	}
+
+	.doc-team__role {
+		font-size: 11px;
+		letter-spacing: 0.02em;
+	}
+}
+
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* ——— ROADMAP — стилизованный заголовок "Наш путь" ——— */
+@media (max-width: 600px) {
+	.doc-intro--roadmap .doc-intro__title {
+		font-size: clamp(22px, 7vw, 34px);
+		letter-spacing: 0.1em;
+	}
+
+	.doc-intro__rule {
+		width: min(240px, 85%);
+	}
+
+	.doc-intro--roadmap .doc-intro__lead {
+		padding: 14px 16px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.doc-intro--roadmap .doc-intro__title,
+	.doc-intro__rule-gem {
+		animation: none;
+	}
+}
+
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* ——— ROADMAP — «Хроника» ——— */
+@media (min-width: 901px) {
+	.chronicle {
+		max-width: min(1400px, calc(100vw - 520px));
+	}
+}
+
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* ——— ROADMAP — «Хроника» ——— */
+
+@media (max-width: 700px) {
+	.chronicle {
+		--chronicle-card-w: clamp(220px, 75vw, 300px);
+		margin-top: clamp(30px, 5vh, 50px);
+	}
+
+	.chronicle__hint {
+		font-size: 10px;
+		letter-spacing: 0.16em;
+		margin-bottom: clamp(12px, 1.8vh, 16px);
+	}
+
+	.chronicle__line {
+		margin: clamp(12px, 1.8vh, 18px) clamp(12px, 3vw, 20px);
+	}
+
+	.chronicle__viewport {
+		mask-image: none;
+		-webkit-mask-image: none;
+		padding: clamp(24px, 3.5vh, 40px) 0;
+	}
+
+	.chronicle__card {
+		min-height: clamp(220px, 26vh, 280px);
+	}
+
+	.chronicle__year {
+		font-size: clamp(48px, 7vw, 72px);
+	}
+
+	.chronicle__body {
+		padding-top: clamp(52px, 7vh, 76px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.chronicle__arrow,
+	.chronicle__card--now,
+	.chronicle__line::before {
+		animation: none;
+	}
+}
+
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* ——— CONTACTS — стилизованный заголовок "Связаться с нами" ——— */
+
+@media (max-width: 600px) {
+	.doc-intro--contacts .doc-intro__title {
+		font-size: clamp(22px, 7vw, 34px);
+		letter-spacing: 0.1em;
+	}
+
+	.doc-intro--contacts .doc-intro__lead {
+		padding: 14px 16px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.doc-intro--contacts .doc-intro__title {
+		animation: none;
+	}
+}
+
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* ——— Подложка под статьи (текст на docs-страницах) ——— */
+
+/* На мобилке — меньше отступов, чтобы контент не сжимался */
+@media (max-width: 700px) {
+	.doc-body {
+		padding: clamp(16px, 2.4vh, 22px) clamp(14px, 3vw, 20px);
+		border-radius: 6px;
+	}
+}
+
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* ——— PRICE — Статус заказов (карточки) ——— */
+
+@media (max-width: 600px) {
+	.doc-status-card__icon {
+		width: 34px;
+		height: 34px;
+		font-size: 16px;
+	}
+
+	.doc-status-card__title {
+		font-size: 15px;
+	}
+
+	.doc-status-card__badge {
+		font-size: 9px;
+		padding: 3px 8px;
+		letter-spacing: 0.1em;
+	}
+
+	.doc-status-card__slots-num {
+		font-size: 26px;
+	}
+}
+
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* ——— PRICE — Оплата (карточки по группам) ——— */
+@media (max-width: 600px) {
+	.price-feature__icon {
+		width: 30px;
+		height: 30px;
+		font-size: 15px;
+	}
+
+	.price-feature__title {
+		font-size: 13px;
+	}
+
+	.price-feature__badge {
+		font-size: 9px;
+		padding: 3px 8px;
+	}
+
+	.price-payment__card {
+		padding: 12px 14px;
+	}
+
+	.price-payment__name {
+		font-size: 13px;
+	}
+}
+
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* Карточки внутри горизонтального трека */
+/* На мобилке — без скролл-хвата, просто вертикальный список */
+@media (max-width: 700px) {
+	.hscroll {
+		min-height: auto;
+	}
+	.hscroll__sticky {
+		position: static;
+		height: auto;
+		overflow: visible;
+	}
+	.hscroll__viewport {
+		overflow: visible;
+	}
+	.hscroll__track {
+		flex-direction: column;
+		align-items: center;
+		transform: none !important;
+		padding: 0;
+		gap: clamp(15px, 2vw, 30px);
+	}
+	.hscroll__track .portfolio__item {
+		width: 100%;
+		max-width: clamp(280px, 80vw, 500px);
+	}
+	.hscroll__hint {
+		display: none;
+	}
+}
+
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* ПАНЕЛЬ С ОПИСАНИЕМ */
+@media (max-width: 650px) {
+	.work-panel {
+		padding: 12px;
+	}
+
+	.work-panel__content {
+		max-height: 94vh;
+		padding: 14px;
+	}
+
+	.work-panel__media {
+		aspect-ratio: 4 / 3;
+	}
+
+	.work-panel__close {
+		width: 38px;
+		height: 38px;
+		top: 10px;
+		right: 10px;
+	}
+
+	.work-panel__content::before,
+	.work-panel__content::after {
+		width: 18px;
+		height: 18px;
+	}
+
+	.work-panel__nav {
+		width: 36px;
+		height: 36px;
+		font-size: 20px;
+	}
+}
+
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* ОТЗЫВЫ */
+
+/* На мобилке — скрываем, там галерея вертикальная */
+@media (max-width: 700px) {
+	.hscroll__dots {
+		display: none;
+	}
+}
+
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* НАВИГАЦИЯ ПО ПАРАМ СРАВНЕНИЯ */
+
+/* На мобилке — метки компактнее */
+@media (max-width: 500px) {
+	.compare__label {
+		padding: 4px 10px;
+		font-size: 10px;
+		letter-spacing: 0.15em;
+	}
+	.compare__nav-label {
+	    display: none;   /* на узких экранах текст экономит место */
+	}
+	.compare__dot {
+		width: 12px;
+		height: 12px;
+	}
+}
+
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* ЛАЙТБОКС ДЛЯ ИЗОБРАЖЕНИЙ */
+@media (max-width: 700px) {
+	.lightbox__wrapper { padding: 15px; }
+	.lightbox__close { top: 10px; right: 10px; width: 40px; height: 40px; font-size: 20px; }
+	.lightbox__hint { display: none; }
+}
+
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* КНОПКА «НАВЕРХ» */
+
+/* На мобилке — чуть левее, чтобы не мешать */
+@media (max-width: 500px) {
+	.scroll-top {
+		bottom: 20px;
+		right: 16px;
+	}
+}
+
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* ССЫЛКИ ВНУТРИ ТЕКСТА (главная страница) */
+@media (prefers-reduced-motion: reduce) {
+	#block_description a,
+	.services__item a,
+	.faq__answer a,
+	.reviews__item a {
+		transition: none;
+	}
+}
+
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */

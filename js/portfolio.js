@@ -13,6 +13,15 @@
 
 	const cards = Array.from(document.querySelectorAll('.portfolio__item'));
 
+		cards.forEach(card => {
+		if (!card.hasAttribute('role'))     card.setAttribute('role', 'button');
+		if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '0');
+		if (!card.hasAttribute('aria-label')) {
+			const kind = card.dataset.video ? 'видео' : 'работу';
+			card.setAttribute('aria-label', `Открыть ${kind}: ${card.dataset.title || ''}`);
+		}
+	});
+
 	let currentVideo = null;
 	let currentIndex = -1;
 	let lastFocusedElement = null;
@@ -249,6 +258,13 @@
 	// ─── 9. Обработчики ───
 	cards.forEach((card, i) => {
 		card.addEventListener('click', () => openPanel(i));
+
+		card.addEventListener('keydown', (e) => {
+			if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+				e.preventDefault();
+				openPanel(i);
+			}
+		});
 	});
 
 	panel.addEventListener('click', (e) => {

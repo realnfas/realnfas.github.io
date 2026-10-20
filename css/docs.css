@@ -1,4 +1,4 @@
-/* ─── ДОКУМЕНТАЦИОННЫЕ СТРАНИЦЫ ─── */
+/* СТИЛЬ ВНЕ ГЛАВНОЙ: ДОКУМЕНТАЦИЯ */
 
 /* Хлебные крошки сверху и снизу */
 .doc-breadcrumbs {
@@ -14,7 +14,7 @@
 .doc-breadcrumbs__link {
 	position: relative;
 	padding: clamp(8px, 1.2vh, 12px) clamp(16px, 1.8vw, 24px);
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(12px, 1vw, 15px);
 	font-weight: 400;
 	letter-spacing: 0.12em;
@@ -41,7 +41,7 @@
 	align-items: center;
 	justify-content: center;
 	gap: 10px;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(12px, 1vw, 14px);
 	font-weight: 300;
 	letter-spacing: 0.15em;
@@ -77,7 +77,7 @@
 }
 
 .doc-intro__title {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(24px, 3vw, 38px);
 	font-weight: 600;
 	letter-spacing: 0.03em;
@@ -118,7 +118,7 @@
 }
 
 .doc-block__title {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(18px, 1.8vw, 26px);
 	font-weight: 600;
 	letter-spacing: 0.03em;
@@ -168,7 +168,7 @@
 	position: absolute;
 	left: 0;
 	top: 0;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(11px, 0.9vw, 14px);
 	font-weight: 500;
 	letter-spacing: 0.05em;
@@ -223,7 +223,7 @@
 
 .doc-outro__signature {
 	margin-top: clamp(15px, 2vh, 25px);
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(13px, 1vw, 16px);
 	font-weight: 400;
 	letter-spacing: 0.1em;
@@ -257,7 +257,7 @@
 }
 
 .doc-footer p {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 300;
 	letter-spacing: 0.1em;
@@ -287,7 +287,7 @@
 	border-bottom-style: solid;
 }
 
-/* ─── Уровни важности ─── */
+/* Уровни важности */
 .doc-level {
 	display: flex;
 	flex-direction: column;
@@ -304,7 +304,7 @@
 .doc-level--red    { border-color: #FF1100; background: rgba(255, 17, 0, 0.06); }
 
 .doc-level__title {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(18px, 1.8vw, 26px);
 	font-weight: 600;
 	letter-spacing: 0.03em;
@@ -340,7 +340,7 @@
 	font-weight: 500;
 }
 
-/* ─── Список правил с нумерацией ─── */
+/* Список правил с нумерацией */
 .doc-rules {
 	counter-reset: doc-counter;
 	display: flex;
@@ -369,7 +369,7 @@
 	position: absolute;
 	left: 0;
 	top: 0.15em;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(11px, 0.9vw, 14px);
 	font-weight: 500;
 	letter-spacing: 0.05em;
@@ -379,7 +379,7 @@
 
 /* Заголовок пункта — «Взаимопонимание», «Уважение чужого труда»... */
 .doc-rule__title {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(14px, 1.2vw, 17px);
 	font-weight: 500;
 	letter-spacing: 0.05em;
@@ -404,7 +404,7 @@
 	font-weight: 500;
 }
 
-/* ─── Цитата (для предупреждений) ─── */
+/* Цитата (для предупреждений) */
 .doc-quote {
 	position: relative;
 	padding: clamp(12px, 1.6vh, 18px) clamp(16px, 2vw, 22px) clamp(12px, 1.6vh, 18px) clamp(38px, 4vw, 55px);
@@ -430,16 +430,16 @@
 	box-shadow: 0 0 10px rgba(255, 17, 0, 0.7);
 }
 
-/* ─── Дополнительное пространство внутри блока ─── */
+/* Дополнительное пространство внутри блока */
 .doc-block > p + .doc-level,
 .doc-block > p + .doc-rules,
 .doc-block > .doc-rules + p {
 	margin-top: clamp(12px, 1.8vh, 20px);
 }
 
-/* ─── Подзаголовок внутри блока ─── */
+/* Подзаголовок внутри блока */
 .doc-subtitle {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(15px, 1.3vw, 19px);
 	font-weight: 500;
 	font-style: italic;
@@ -451,7 +451,7 @@
 	border-left: 1px solid rgba(0, 255, 250, 0.5);
 }
 
-/* ─── Маркированный список (без номеров) ─── */
+/* Маркированный список (без номеров) */
 .doc-bullets {
 	display: flex;
 	flex-direction: column;
@@ -486,7 +486,7 @@
 	font-weight: 500;
 }
 
-/* ─── Сетка карточек лицензий Creative Commons ─── */
+/* Сетка карточек лицензий Creative Commons */
 .doc-licenses {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -519,7 +519,7 @@
 }
 
 .doc-license__name {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(15px, 1.3vw, 19px);
 	font-weight: 600;
 	letter-spacing: 0.06em;
@@ -540,7 +540,7 @@
 	font-weight: 500;
 }
 
-/* ─── Диалог двух персонажей ─── */
+/* Диалог двух персонажей */
 .doc-dialogue {
 	display: flex;
 	flex-direction: column;
@@ -575,7 +575,7 @@
 }
 
 .doc-dialogue__speaker {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(12px, 0.95vw, 14px);
 	font-weight: 600;
 	letter-spacing: 0.1em;
@@ -593,7 +593,7 @@
 /* Реплика в сторону / ремарка */
 .doc-dialogue__stage {
 	text-align: center;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(12px, 1vw, 15px);
 	font-style: italic;
 	letter-spacing: 0.1em;
@@ -606,14 +606,14 @@
 .doc-dialogue__signature {
 	text-align: center;
 	margin-top: clamp(15px, 2vh, 25px);
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(14px, 1.2vw, 18px);
 	font-weight: 500;
 	letter-spacing: 0.05em;
 	color: #00FFFA;
 }
 
-/* ─── Дата основания ─── */
+/* Дата основания */
 .doc-foundation {
 	position: relative;
 	display: flex;
@@ -662,7 +662,7 @@
 
 /* Метка «ОСНОВАНО» */
 .doc-foundation__label {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 600;
 	letter-spacing: 0.3em;
@@ -674,7 +674,7 @@
 
 /* Крупная дата */
 .doc-foundation__date {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(28px, 4vw, 48px);
 	font-weight: 700;
 	letter-spacing: 0.12em;
@@ -715,25 +715,9 @@
 	will-change: text-shadow, color;
 }
 
-@keyframes doc-foundation-gem {
-	0%, 100% {
-		color: rgba(0, 255, 250, 0.55);
-		text-shadow:
-			0 0 6px rgba(0, 255, 250, 0.5),
-			0 0 12px rgba(0, 255, 250, 0.2);
-	}
-	50% {
-		color: #00FFFA;
-		text-shadow:
-			0 0 14px rgba(0, 255, 250, 1),
-			0 0 28px rgba(0, 255, 250, 0.6),
-			0 0 48px rgba(0, 255, 250, 0.3);
-	}
-}
-
 /* Подпись снизу — название студии */
 .doc-foundation__signature {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(12px, 1vw, 15px);
 	font-weight: 400;
 	letter-spacing: 0.18em;
@@ -742,25 +726,7 @@
 	padding-left: 0.18em;
 }
 
-/* Адаптив */
-@media (max-width: 480px) {
-	.doc-foundation {
-		padding: 24px 18px;
-	}
-
-	.doc-foundation__date {
-		font-size: clamp(24px, 8vw, 34px);
-		letter-spacing: 0.08em;
-	}
-
-	.doc-foundation__label,
-	.doc-foundation__signature {
-		font-size: 10px;
-		letter-spacing: 0.24em;
-	}
-}
-
-/* ─── Карточки целей с прогрессом ─── */
+/* Карточки целей с прогрессом */
 .doc-goals {
 	display: flex;
 	flex-direction: column;
@@ -787,7 +753,7 @@
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 500;
 	letter-spacing: 0.15em;
@@ -820,7 +786,7 @@
 	justify-content: space-between;
 	align-items: center;
 	gap: 12px;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 400;
 	letter-spacing: 0.08em;
@@ -852,7 +818,7 @@
 	transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ─── Команда ─── */
+/* Команда */
 .doc-team {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -945,7 +911,7 @@
 }
 
 .doc-team__name {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(16px, 1.4vw, 20px);
 	font-weight: 600;
 	letter-spacing: 0.12em;
@@ -970,7 +936,7 @@
 	position: absolute;
 	top: clamp(10px, 1.2vh, 14px);
 	right: clamp(12px, 1.4vw, 16px);
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(14px, 1.2vw, 18px);
 	color: rgba(0, 255, 250, 0.4);
 	transition: transform 0.35s ease, color 0.35s ease;
@@ -981,7 +947,7 @@
 	transform: translate(3px, -3px);
 }
 
-/* ─── Наши ценности ─── */
+/* Наши ценности */
 .doc-values {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1012,7 +978,7 @@
 }
 
 .doc-value__title {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(14px, 1.2vw, 17px);
 	font-weight: 500;
 	letter-spacing: 0.05em;
@@ -1029,7 +995,7 @@
 	color: rgba(255, 255, 255, 0.8);
 }
 
-/* ─── FAQ-страница ─── */
+/* FAQ-страница */
 .doc-faq {
 	display: flex;
 	flex-direction: column;
@@ -1057,7 +1023,7 @@
 	gap: clamp(10px, 1.2vw, 16px);
 	padding: clamp(14px, 1.8vh, 20px) clamp(18px, 2vw, 26px);
 	cursor: pointer;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(14px, 1.2vw, 17px);
 	font-weight: 500;
 	color: #fff;
@@ -1081,7 +1047,7 @@
 .doc-faq__question::after {
 	content: '+';
 	margin-left: auto;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(20px, 1.8vw, 26px);
 	font-weight: 300;
 	color: #00FFFA;
@@ -1130,11 +1096,6 @@
 	opacity: 0.85;
 }
 
-@keyframes doc-faq-open {
-	from { opacity: 0; transform: translateY(-6px); }
-	to   { opacity: 1; transform: translateY(0); }
-}
-
 /* Заголовок раздела FAQ */
 .doc-faq-group {
 	display: flex;
@@ -1143,7 +1104,7 @@
 }
 
 .doc-faq-group__title {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(18px, 1.8vw, 26px);
 	font-weight: 600;
 	letter-spacing: 0.03em;
@@ -1154,7 +1115,7 @@
 	line-height: 1.2;
 }
 
-/* ─── Списки «создаю / не создаю» ─── */
+/* Списки «создаю / не создаю» */
 .doc-info-lists {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1178,7 +1139,7 @@
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(14px, 1.2vw, 17px);
 	font-weight: 600;
 	letter-spacing: 0.06em;
@@ -1198,7 +1159,7 @@
 	color: rgba(255, 255, 255, 0.8);
 }
 
-/* ─── Особенности ─── */
+/* Особенности */
 .doc-features {
 	display: flex;
 	flex-direction: column;
@@ -1214,7 +1175,7 @@
 }
 
 .doc-feature__title {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 500;
 	letter-spacing: 0.04em;
@@ -1250,7 +1211,7 @@
 	opacity: 0.7;
 }
 
-/* ─── Карточка отдела с прайсом ─── */
+/* Карточка отдела с прайсом */
 .doc-price-card {
 	display: flex;
 	flex-direction: column;
@@ -1283,7 +1244,7 @@
 }
 
 .doc-price-card__title {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(18px, 1.8vw, 24px);
 	font-weight: 600;
 	letter-spacing: 0.08em;
@@ -1319,7 +1280,7 @@
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(15px, 1.3vw, 19px);
 	font-weight: 500;
 	color: #fff;
@@ -1337,7 +1298,7 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 8px;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(12px, 1vw, 14px);
 	font-weight: 400;
 	letter-spacing: 0.06em;
@@ -1357,7 +1318,7 @@
 }
 
 .doc-price-group__title {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(12px, 1vw, 14px);
 	font-weight: 600;
 	letter-spacing: 0.15em;
@@ -1396,7 +1357,7 @@
 }
 
 .doc-price-list__price {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(14px, 1.15vw, 17px);
 	font-weight: 600;
 	color: #00FFFA;
@@ -1427,7 +1388,7 @@
 }
 
 .doc-price-examples__label {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 500;
 	letter-spacing: 0.04em;
@@ -1457,7 +1418,7 @@
 	color: rgba(255, 255, 255, 0.8);
 }
 
-/* ─── Оплата ─── */
+/* Оплата */
 .doc-payment {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -1473,7 +1434,7 @@
 	border: 1px solid rgba(0, 255, 250, 0.15);
 	border-radius: 5px;
 	background: rgba(0, 0, 0, 0.4);
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 400;
 	letter-spacing: 0.05em;
@@ -1492,7 +1453,7 @@
 	flex-shrink: 0;
 }
 
-/* ─── Блок предупреждения (спойлер) ─── */
+/* Блок предупреждения (спойлер) */
 .doc-spoiler-warning {
 	position: relative;
 	display: flex;
@@ -1527,7 +1488,7 @@
 	border: 1px solid rgba(255, 17, 0, 0.5);
 	border-radius: 3px;
 	background: rgba(255, 17, 0, 0.08);
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 600;
 	letter-spacing: 0.15em;
@@ -1555,7 +1516,7 @@
 	font-weight: 500;
 }
 
-/* ─── Блок самого секрета ─── */
+/* Блок самого секрета */
 .doc-spoiler-reveal {
 	display: flex;
 	flex-direction: column;
@@ -1590,7 +1551,7 @@
 	border: 1px solid rgba(0, 255, 250, 0.4);
 	border-radius: 3px;
 	background: rgba(0, 255, 250, 0.06);
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 600;
 	letter-spacing: 0.15em;
@@ -1606,7 +1567,7 @@
 }
 
 .doc-spoiler-reveal__title {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(20px, 2vw, 28px);
 	font-weight: 600;
 	letter-spacing: 0.03em;
@@ -1654,7 +1615,7 @@
 	border-bottom-style: solid;
 }
 
-/* ─── Страница лицензии ─── */
+/* Страница лицензии */
 .doc-licence-badge {
 	display: inline-flex;
 	align-items: center;
@@ -1663,7 +1624,7 @@
 	border: 1px solid #00FFFA;
 	border-radius: 4px;
 	background: rgba(0, 255, 250, 0.06);
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(16px, 1.5vw, 22px);
 	font-weight: 600;
 	letter-spacing: 0.12em;
@@ -1688,7 +1649,7 @@
 	padding-left: 4px;
 }
 
-/* ─── Страница "Связаться с нами" ─── */
+/* Страница "Связаться с нами" */
 .doc-contacts {
 	display: flex;
 	flex-direction: column;
@@ -1703,7 +1664,7 @@
 }
 
 .doc-contacts__group-title {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(18px, 1.8vw, 26px);
 	font-weight: 600;
 	letter-spacing: 0.03em;
@@ -1718,7 +1679,7 @@
 .doc-contacts__subtitle {
 	position: relative;
 	padding-left: clamp(18px, 2vw, 24px);
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(14px, 1.2vw, 17px);
 	font-weight: 500;
 	letter-spacing: 0.08em;
@@ -1791,7 +1752,7 @@
 }
 
 .doc-contact__name {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(14px, 1.15vw, 17px);
 	font-weight: 500;
 	letter-spacing: 0.05em;
@@ -1844,13 +1805,16 @@
 	gap: clamp(10px, 1.4vw, 16px);
 }
 
-/* ─── Главное меню (main_menu.html) ─── */
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* ─── ГЛАВНОЕ МЕНЮ (main_menu.html) ─── */
+
 /* На этой странице первая секция — без огромного отступа сверху */
 .middle > .slide-block:first-child .text_caption {
 	margin-top: clamp(100px, 20vh, 300px);
 }
 
-/* ─── Меню документации ─── */
+/* Меню документации */
 .docs-nav {
 	display: flex;
 	flex-direction: column;
@@ -1868,7 +1832,7 @@
 	padding: clamp(12px, 1.6vh, 18px) clamp(18px, 2vw, 26px);
 	color: rgba(255, 255, 255, 0.75);
 	text-decoration: none;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(14px, 1.2vw, 17px);
 	font-weight: 400;
 	letter-spacing: 0.08em;
@@ -1916,7 +1880,7 @@
 	transform: translate(2px, -2px);
 }
 
-/* ─── Плашка ─── */
+/* Плашка */
 .menu-plate {
 	display: flex;
 	justify-content: center;
@@ -1931,7 +1895,7 @@
 	filter: drop-shadow(0 0 30px rgba(0, 255, 250, 0.15));
 }
 
-/* ─── Футер страницы ─── */
+/* Футер страницы */
 .menu-footer {
 	display: flex;
 	flex-direction: column;
@@ -1941,14 +1905,14 @@
 }
 
 .menu-footer__line {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 300;
 	letter-spacing: 0.1em;
 	color: rgba(255, 255, 255, 0.75);
 }
 
-/* ─── Блок "Сейчас" ─── */
+/* Блок "Сейчас" */
 .doc-now-block {
 	display: flex;
 	flex-direction: column;
@@ -1975,7 +1939,7 @@
 	opacity: 0.7;
 }
 
-/* ─── Блок "Мечта" ─── */
+/* Блок "Мечта" */
 .doc-dream {
 	display: flex;
 	flex-direction: column;
@@ -1993,7 +1957,7 @@
 }
 
 .doc-dream__label {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(12px, 1vw, 14px);
 	font-weight: 600;
 	letter-spacing: 0.2em;
@@ -2003,7 +1967,7 @@
 }
 
 .doc-dream__text {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(18px, 1.8vw, 24px);
 	font-weight: 500;
 	font-style: italic;
@@ -2017,7 +1981,7 @@
 	font-weight: 600;
 }
 
-/* ─── ФИКС: убираем двойные отступы в верхней части docs-страниц ─── */
+/* ФИКС: убираем двойные отступы в верхней части docs-страниц */
 .middle > .doc-breadcrumbs,
 .middle > .doc-readtime,
 .middle > .divider {
@@ -2031,11 +1995,11 @@
 	margin-bottom: clamp(20px, 4vh, 50px);
 }
 
-/* ═══════════════════════════════════════════════════════════
-   ДОРОЖНАЯ КАРТА — план развития и подразделения
-   ═══════════════════════════════════════════════════════════ */
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
-/* ─── 1. HERO-блок общего прогресса ─── */
+/* ДОРОЖНАЯ КАРТА — план развития и подразделения */
+
+/* 1. HERO-блок общего прогресса */
 .doc-progress-hero {
 	position: relative;
 	display: flex;
@@ -2066,7 +2030,7 @@
 }
 
 .doc-progress-hero__label {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(12px, 1vw, 14px);
 	font-weight: 600;
 	letter-spacing: 0.2em;
@@ -2076,7 +2040,7 @@
 }
 
 .doc-progress-hero__percent {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(48px, 7vw, 92px);
 	font-weight: 700;
 	line-height: 1;
@@ -2111,7 +2075,7 @@
 	color: rgba(255, 255, 255, 0.7);
 }
 
-/* ─── 2. План (аккордеоны) ─── */
+/* 2. План (аккордеоны) */
 .doc-plan {
 	display: flex;
 	flex-direction: column;
@@ -2166,7 +2130,7 @@
 
 /* Номер 01, 02... */
 .doc-plan__num {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 600;
 	letter-spacing: 0.08em;
@@ -2176,7 +2140,7 @@
 
 /* Название пункта */
 .doc-plan__title {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(14px, 1.15vw, 17px);
 	font-weight: 500;
 	letter-spacing: 0.02em;
@@ -2206,7 +2170,7 @@
 
 /* Процент справа */
 .doc-plan__pct {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(12px, 1vw, 14px);
 	font-weight: 600;
 	letter-spacing: 0.02em;
@@ -2222,7 +2186,7 @@
 	position: absolute;
 	right: clamp(14px, 1.8vw, 22px);
 	bottom: clamp(8px, 1.2vh, 12px);
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: 12px;
 	color: rgba(0, 255, 250, 0.4);
 	transition: transform 0.3s ease;
@@ -2243,11 +2207,6 @@
 	padding: clamp(4px, 0.6vh, 8px) clamp(14px, 1.8vw, 22px) clamp(14px, 2vh, 18px);
 	border-top: 1px solid rgba(0, 255, 250, 0.1);
 	animation: doc-plan-open 0.35s ease;
-}
-
-@keyframes doc-plan-open {
-	from { opacity: 0; transform: translateY(-4px); }
-	to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Отдельная задача с чекбоксом */
@@ -2301,7 +2260,7 @@
 
 .doc-plan__task.is-done .doc-plan__check::after {
 	content: '✓';
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: 11px;
 	font-weight: 700;
 	color: #000;
@@ -2315,7 +2274,7 @@
 	color: rgba(255, 255, 255, 0.5);
 }
 
-/* ─── 3. Карточки подразделений ─── */
+/* 3. Карточки подразделений */
 .doc-subs {
 	display: flex;
 	flex-direction: column;
@@ -2362,7 +2321,7 @@
 }
 
 .doc-sub__name {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(15px, 1.4vw, 20px);
 	font-weight: 600;
 	letter-spacing: 0.06em;
@@ -2404,7 +2363,7 @@
 }
 
 .doc-sub__pct {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(12px, 1vw, 14px);
 	font-weight: 600;
 	color: #00FFFA;
@@ -2431,81 +2390,9 @@
 	padding: clamp(4px, 0.6vh, 8px) clamp(12px, 1.6vw, 18px) clamp(12px, 1.8vh, 16px);
 }
 
-/* ─── 4. Адаптив ─── */
-@media (max-width: 700px) {
-	.doc-progress-hero {
-		padding: 22px 18px;
-	}
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
-	.doc-progress-hero__percent {
-		font-size: clamp(40px, 12vw, 64px);
-	}
-
-	/* В шапке плана — две строки: название сверху, метры снизу */
-	.doc-plan__summary {
-		grid-template-columns: auto 1fr auto;
-		grid-template-areas:
-			"num title pct"
-			".   meter meter";
-		gap: 8px 12px;
-		padding: 12px 14px;
-	}
-
-	.doc-plan__num   { grid-area: num; }
-	.doc-plan__title { grid-area: title; }
-	.doc-plan__meter { grid-area: meter; width: 100%; margin-top: 4px; }
-	.doc-plan__pct   { grid-area: pct; }
-
-	.doc-plan__summary::after {
-		display: none;
-	}
-
-	/* Карточка подразделения — вертикальная раскладка */
-	.doc-sub__header {
-		grid-template-columns: auto 1fr;
-		grid-template-areas:
-			"icon info"
-			"meter meter"
-			"pct pct";
-		gap: 10px 14px;
-		padding: 16px;
-	}
-
-	.doc-sub__icon      { grid-area: icon; }
-	.doc-sub__head-info { grid-area: info; }
-	.doc-sub__meter     { grid-area: meter; width: 100%; margin-top: 4px; }
-	.doc-sub__pct       { grid-area: pct; text-align: left; min-width: 0; }
-}
-
-@media (max-width: 480px) {
-	.doc-plan__title {
-		font-size: 13px;
-	}
-
-	.doc-plan__task {
-		font-size: 12.5px;
-		padding: 6px 8px;
-		gap: 10px;
-	}
-
-	.doc-plan__check {
-		width: 16px;
-		height: 16px;
-	}
-
-	.doc-sub__name {
-		font-size: 14px;
-		letter-spacing: 0.04em;
-	}
-
-	.doc-sub__goal {
-		font-size: 12px;
-	}
-}
-
-/* ═══════════════════════════════════════════════════════════
-   ЧЕМ МЫ ЗАНИМАЕМСЯ (basic.html)
-   ═══════════════════════════════════════════════════════════ */
+/* ——— ЧЕМ МЫ ЗАНИМАЕМСЯ (basic.html) ——— */
 
 .doc-directions {
 	display: grid;
@@ -2549,7 +2436,7 @@
 }
 
 .doc-direction__name {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 600;
 	letter-spacing: 0.06em;
@@ -2575,7 +2462,7 @@
 	align-self: center;
 	margin-top: clamp(16px, 2.4vh, 24px);
 	padding: clamp(12px, 1.6vh, 16px) clamp(24px, 2.5vw, 36px);
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 500;
 	letter-spacing: 0.1em;
@@ -2620,7 +2507,7 @@
 	transform: scale(1.08);
 }
 
-/* ─── Строчка-мостик на basic ─── */
+/* Строчка-мостик на basic */
 .doc-contacts__hint {
 	margin-top: clamp(12px, 1.8vh, 16px);
 	padding: 0 12px;
@@ -2647,86 +2534,9 @@
 	border-bottom-style: solid;
 }
 
-/* Мобильный размер — чуть компактнее */
-@media (max-width: 480px) {
-	.doc-contact__avatar {
-		width: 34px;
-		height: 34px;
-	}
-}
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
-/* ─── Команда: адаптив ─── */
-
-/* Планшет (≤900px) — уменьшаем минимальную ширину карточек */
-@media (max-width: 900px) {
-	.doc-team {
-		grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-		max-width: 100%;
-	}
-}
-
-/* Телефон (≤600px) — строго одна колонка */
-@media (max-width: 600px) {
-	.doc-team {
-		grid-template-columns: 1fr;
-		max-width: 320px;
-		gap: 12px;
-	}
-
-	.doc-team__member {
-		padding: 18px 16px 16px;
-		gap: 8px;
-	}
-
-	.doc-team__avatar {
-		width: 64px;
-		height: 64px;
-	}
-
-	.doc-team__name {
-		font-size: 15px;
-		letter-spacing: 0.1em;
-	}
-
-	.doc-team__role {
-		font-size: 12px;
-	}
-
-	.doc-team__arrow {
-		top: 10px;
-		right: 12px;
-		font-size: 14px;
-	}
-}
-
-/* Маленький телефон (≤400px) — компактнее */
-@media (max-width: 400px) {
-	.doc-team {
-		max-width: 100%;
-	}
-
-	.doc-team__member {
-		padding: 16px 12px 14px;
-	}
-
-	.doc-team__avatar {
-		width: 56px;
-		height: 56px;
-	}
-
-	.doc-team__name {
-		font-size: 14px;
-	}
-
-	.doc-team__role {
-		font-size: 11px;
-		letter-spacing: 0.02em;
-	}
-}
-
-/* ═══════════════════════════════════════════════════════════
-   ROADMAP — стилизованный заголовок "Наш путь"
-   ═══════════════════════════════════════════════════════════ */
+/* ——— ROADMAP — стилизованный заголовок "Наш путь" ——— */
 
 .doc-intro--roadmap {
 	padding: clamp(24px, 3.5vh, 36px) 0 clamp(8px, 1.2vh, 14px);
@@ -2764,19 +2574,6 @@
 	will-change: filter;
 }
 
-@keyframes doc-intro-title-glow {
-	0%, 100% {
-		filter:
-			drop-shadow(0 0 12px rgba(0, 255, 250, 0.35))
-			drop-shadow(0 0 24px rgba(255, 17, 0, 0.15));
-	}
-	50% {
-		filter:
-			drop-shadow(0 0 18px rgba(0, 255, 250, 0.6))
-			drop-shadow(0 0 36px rgba(255, 17, 0, 0.3));
-	}
-}
-
 .doc-intro__rule {
 	display: flex;
 	align-items: center;
@@ -2806,19 +2603,6 @@
 	text-shadow: 0 0 12px rgba(0, 255, 250, 0.9);
 	flex-shrink: 0;
 	animation: doc-intro-gem-pulse 2.4s ease-in-out infinite;
-}
-
-@keyframes doc-intro-gem-pulse {
-	0%, 100% {
-		text-shadow: 0 0 8px rgba(0, 255, 250, 0.6);
-		opacity: 0.7;
-	}
-	50% {
-		text-shadow:
-			0 0 16px rgba(0, 255, 250, 1),
-			0 0 28px rgba(0, 255, 250, 0.5);
-		opacity: 1;
-	}
 }
 
 .doc-intro--roadmap .doc-intro__lead {
@@ -2873,31 +2657,9 @@
 	box-shadow: 2px 2px 8px rgba(255, 17, 0, 0.4);
 }
 
-@media (max-width: 600px) {
-	.doc-intro--roadmap .doc-intro__title {
-		font-size: clamp(22px, 7vw, 34px);
-		letter-spacing: 0.1em;
-	}
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
-	.doc-intro__rule {
-		width: min(240px, 85%);
-	}
-
-	.doc-intro--roadmap .doc-intro__lead {
-		padding: 14px 16px;
-	}
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.doc-intro--roadmap .doc-intro__title,
-	.doc-intro__rule-gem {
-		animation: none;
-	}
-}
-
-/* ═══════════════════════════════════════════════════════════
-   ROADMAP — «Хроника»
-   ═══════════════════════════════════════════════════════════ */
+/* ——— ROADMAP — «Хроника» ——— */
 
 .chronicle {
 	--chronicle-card-w: clamp(240px, 26vw, 320px);
@@ -2908,13 +2670,7 @@
 	margin: clamp(50px, 8vh, 90px) auto 0;
 }
 
-@media (min-width: 901px) {
-	.chronicle {
-		max-width: min(1400px, calc(100vw - 520px));
-	}
-}
-
-/* ─── Полосы ─── */
+/* Полосы */
 .chronicle__line {
 	position: relative;
 	height: 2px;
@@ -2951,19 +2707,14 @@
 	animation-duration: 11s;
 }
 
-@keyframes chronicle-line-flow {
-	0%   { background-position: 200% 0; }
-	100% { background-position: -200% 0; }
-}
-
-/* ─── Подсказка ─── */
+/* Подсказка */
 .chronicle__hint {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	gap: clamp(10px, 1.2vw, 16px);
 	margin-bottom: clamp(14px, 2vh, 20px);
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 400;
 	letter-spacing: 0.22em;
@@ -2983,12 +2734,7 @@
 	animation-direction: alternate-reverse;
 }
 
-@keyframes chronicle-arrow {
-	0%, 100% { transform: translateX(0); }
-	50%      { transform: translateX(5px); }
-}
-
-/* ─── Скролл-контейнер ─── */
+/* Скролл-контейнер */
 .chronicle__viewport {
 	width: 100%;
 	overflow-x: auto;
@@ -3055,7 +2801,7 @@
 	);
 }
 
-/* ─── Трек ─── */
+/* Трек */
 .chronicle__track {
 	display: flex;
 	gap: clamp(16px, 2vw, 24px);
@@ -3066,7 +2812,7 @@
 	align-items: stretch;
 }
 
-/* ─── Карточка ─── */
+/* Карточка */
 .chronicle__card {
 	position: relative;
 	flex: 0 0 auto;
@@ -3088,7 +2834,7 @@
 	isolation: isolate;
 }
 
-/* ─── Скрим — затемняет низ карточки, чтобы текст читался поверх года ─── */
+/* Скрим — затемняет низ карточки, чтобы текст читался поверх года */
 .chronicle__card::before {
 	content: '';
 	position: absolute;
@@ -3105,12 +2851,12 @@
 	);
 }
 
-/* ─── Год — декоративный, на фоне ─── */
+/* Год — декоративный, на фоне */
 .chronicle__year {
 	position: absolute;
 	top: clamp(6px, 1vh, 12px);
 	right: clamp(10px, 1.5vw, 16px);
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(56px, 7vw, 88px);
 	font-weight: 800;
 	line-height: 1;
@@ -3126,7 +2872,7 @@
 	transform: translate(-2px, 2px) scale(1.03);
 }
 
-/* ─── Текст ─── */
+/* Текст */
 .chronicle__body {
 	position: relative;
 	z-index: 2;
@@ -3141,7 +2887,7 @@
 	align-self: flex-start;
 	padding: clamp(4px, 0.6vh, 6px) clamp(10px, 1.2vw, 14px);
 	border-radius: 20px;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(9px, 0.8vw, 11px);
 	font-weight: 600;
 	letter-spacing: 0.22em;
@@ -3161,7 +2907,7 @@
 		0 0 12px rgba(0, 0, 0, 0.7);
 }
 
-/* ─── Список действий ─── */
+/* Список действий */
 .chronicle__list {
 	position: relative;
 	z-index: 1;
@@ -3202,7 +2948,7 @@
 	opacity: 0.5;
 }
 
-/* ─── Цвета маркеров и линии по типу карточки ─── */
+/* Цвета маркеров и линии по типу карточки */
 .chronicle__card--past .chronicle__list {
 	border-top-color: rgba(255, 17, 0, 0.2);
 }
@@ -3244,7 +2990,7 @@
 	opacity: 0.7;
 }
 
-/* ─── Прошлое ─── */
+/* Прошлое */
 .chronicle__card--past {
 	border: 1px solid rgba(255, 17, 0, 0.25);
 	background:
@@ -3279,7 +3025,7 @@
 		0 12px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* ─── Сейчас ─── */
+/* Сейчас */
 .chronicle__card--now {
 	border: 1px solid #00FFFA;
 	background:
@@ -3290,21 +3036,6 @@
 		0 0 20px rgba(0, 255, 250, 0.18),
 		0 8px 24px rgba(0, 0, 0, 0.5);
 	animation: chronicle-now-pulse 3.2s ease-in-out infinite;
-}
-
-@keyframes chronicle-now-pulse {
-	0%, 100% {
-		box-shadow:
-			inset 0 0 60px rgba(0, 255, 250, 0.08),
-			0 0 20px rgba(0, 255, 250, 0.18),
-			0 8px 24px rgba(0, 0, 0, 0.5);
-	}
-	50% {
-		box-shadow:
-			inset 0 0 80px rgba(0, 255, 250, 0.12),
-			0 0 35px rgba(0, 255, 250, 0.3),
-			0 8px 24px rgba(0, 0, 0, 0.5);
-	}
 }
 
 .chronicle__card--now .chronicle__year {
@@ -3333,7 +3064,7 @@
 		0 12px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* ─── Будущее ─── */
+/* Будущее */
 .chronicle__card--future {
 	border: 2px dashed rgba(0, 255, 250, 0.35);
 	background:
@@ -3364,53 +3095,9 @@
 		0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* ─── Адаптив ─── */
-@media (max-width: 700px) {
-	.chronicle {
-		--chronicle-card-w: clamp(220px, 75vw, 300px);
-		margin-top: clamp(30px, 5vh, 50px);
-	}
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
-	.chronicle__hint {
-		font-size: 10px;
-		letter-spacing: 0.16em;
-		margin-bottom: clamp(12px, 1.8vh, 16px);
-	}
-
-	.chronicle__line {
-		margin: clamp(12px, 1.8vh, 18px) clamp(12px, 3vw, 20px);
-	}
-
-	.chronicle__viewport {
-		mask-image: none;
-		-webkit-mask-image: none;
-		padding: clamp(24px, 3.5vh, 40px) 0;
-	}
-
-	.chronicle__card {
-		min-height: clamp(220px, 26vh, 280px);
-	}
-
-	.chronicle__year {
-		font-size: clamp(48px, 7vw, 72px);
-	}
-
-	.chronicle__body {
-		padding-top: clamp(52px, 7vh, 76px);
-	}
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.chronicle__arrow,
-	.chronicle__card--now,
-	.chronicle__line::before {
-		animation: none;
-	}
-}
-
-/* ═══════════════════════════════════════════════════════════
-   CONTACTS — стилизованный заголовок "Связаться с нами"
-   ═══════════════════════════════════════════════════════════ */
+/* ——— CONTACTS — стилизованный заголовок "Связаться с нами" ——— */
 
 .doc-intro--contacts {
 	padding: clamp(24px, 3.5vh, 36px) 0 clamp(8px, 1.2vh, 14px);
@@ -3500,26 +3187,9 @@
 	box-shadow: 2px 2px 8px rgba(255, 17, 0, 0.4);
 }
 
-@media (max-width: 600px) {
-	.doc-intro--contacts .doc-intro__title {
-		font-size: clamp(22px, 7vw, 34px);
-		letter-spacing: 0.1em;
-	}
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
-	.doc-intro--contacts .doc-intro__lead {
-		padding: 14px 16px;
-	}
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.doc-intro--contacts .doc-intro__title {
-		animation: none;
-	}
-}
-
-/* ═══════════════════════════════════════════════════════════
-   Подложка под статьи (текст на docs-страницах)
-   ═══════════════════════════════════════════════════════════ */
+/* ——— Подложка под статьи (текст на docs-страницах) ——— */
 
 /* Основная обёртка с текстом — даёт читаемость на любом фоне */
 .doc-body {
@@ -3561,14 +3231,6 @@
 	border-radius: 1px;
 }
 
-/* На мобилке — меньше отступов, чтобы контент не сжимался */
-@media (max-width: 700px) {
-	.doc-body {
-		padding: clamp(16px, 2.4vh, 22px) clamp(14px, 3vw, 20px);
-		border-radius: 6px;
-	}
-}
-
 /* ─── Усиливаем читаемость отдельных блоков ─── */
 
 /* Финальный блок "В заключение" — плотнее подложка + blur */
@@ -3603,9 +3265,9 @@
 		0 0 12px rgba(0, 0, 0, 0.5);
 }
 
-/* ═══════════════════════════════════════════════════════════
-	PRICE — Статус заказов (карточки)
-	═══════════════════════════════════════════════════════════ */
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+
+/* ——— PRICE — Статус заказов (карточки) ——— */
 
 .doc-status-grid {
 	display: grid;
@@ -3637,7 +3299,7 @@
 	pointer-events: none;
 }
 
-/* ─── Открыто ─── */
+/* Открыто */
 .doc-status-card--open {
 	border: 1px solid rgba(0, 255, 250, 0.35);
 	background:
@@ -3657,7 +3319,7 @@
 		0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* ─── Закрыто ─── */
+/* Закрыто */
 .doc-status-card--closed {
 	border: 1px solid rgba(255, 17, 0, 0.3);
 	background:
@@ -3678,7 +3340,7 @@
 		0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* ─── Шапка ─── */
+/* Шапка */
 .doc-status-card__header {
 	display: flex;
 	align-items: center;
@@ -3707,7 +3369,7 @@
 }
 
 .doc-status-card__title {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(16px, 1.4vw, 20px);
 	font-weight: 600;
 	letter-spacing: 0.08em;
@@ -3719,14 +3381,14 @@
 	text-shadow: 0 0 12px rgba(0, 255, 250, 0.15);
 }
 
-/* ─── Бейдж статуса ─── */
+/* Бейдж статуса */
 .doc-status-card__badge {
 	display: inline-flex;
 	align-items: center;
 	gap: 6px;
 	padding: clamp(4px, 0.6vh, 6px) clamp(10px, 1.2vw, 14px);
 	border-radius: 20px;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(10px, 0.85vw, 12px);
 	font-weight: 600;
 	letter-spacing: 0.12em;
@@ -3766,18 +3428,7 @@
 	box-shadow: 0 0 6px rgba(255, 17, 0, 0.6);
 }
 
-@keyframes doc-status-dot {
-	0%, 100% {
-		opacity: 1;
-		box-shadow: 0 0 8px rgba(0, 255, 250, 0.9);
-	}
-	50% {
-		opacity: 0.4;
-		box-shadow: 0 0 3px rgba(0, 255, 250, 0.3);
-	}
-}
-
-/* ─── Слоты ─── */
+/* Слоты */
 .doc-status-card__slots {
 	display: flex;
 	flex-wrap: wrap;
@@ -3789,7 +3440,7 @@
 }
 
 .doc-status-card__slots-num {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(28px, 3vw, 40px);
 	font-weight: 700;
 	line-height: 1;
@@ -3827,7 +3478,7 @@
 .doc-status-card__slots-fill {
 	display: block;
 	height: 100%;
-	width: 100%;
+	width: 0;
 	border-radius: 3px;
 	background: linear-gradient(90deg, rgba(0, 255, 250, 0.4), #00FFFA);
 	box-shadow: 0 0 8px rgba(0, 255, 250, 0.5);
@@ -3839,7 +3490,7 @@
 	box-shadow: 0 0 8px rgba(255, 17, 0, 0.4);
 }
 
-/* ─── Заметка ─── */
+/* Заметка */
 .doc-status-card__note {
 	font-family: Roboto, sans-serif;
 	font-size: clamp(12px, 1vw, 14px);
@@ -3862,7 +3513,7 @@
 	border-bottom-style: solid;
 }
 
-/* ─── Футер статуса ─── */
+/* Футер статуса */
 .doc-status-footer {
 	display: flex;
 	flex-direction: column;
@@ -3896,32 +3547,9 @@
 	border-bottom-style: solid;
 }
 
-/* ─── Адаптив ─── */
-@media (max-width: 600px) {
-	.doc-status-card__icon {
-		width: 34px;
-		height: 34px;
-		font-size: 16px;
-	}
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
-	.doc-status-card__title {
-		font-size: 15px;
-	}
-
-	.doc-status-card__badge {
-		font-size: 9px;
-		padding: 3px 8px;
-		letter-spacing: 0.1em;
-	}
-
-	.doc-status-card__slots-num {
-		font-size: 26px;
-	}
-}
-
-/* ═══════════════════════════════════════════════════════════
-   PRICE — Особенности (карточки)
-   ═══════════════════════════════════════════════════════════ */
+/* ——— PRICE — Особенности (карточки) ——— */
 
 .price-features {
 	display: grid;
@@ -3964,7 +3592,7 @@
 		0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* ─── Шапка карточки ─── */
+/* Шапка карточки */
 .price-feature__head {
 	display: flex;
 	align-items: center;
@@ -3988,7 +3616,7 @@
 }
 
 .price-feature__title {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(14px, 1.2vw, 17px);
 	font-weight: 600;
 	letter-spacing: 0.06em;
@@ -4000,11 +3628,11 @@
 	min-width: 0;
 }
 
-/* ─── Бейдж ─── */
+/* Бейдж */
 .price-feature__badge {
 	padding: 4px 10px;
 	border-radius: 20px;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(10px, 0.85vw, 12px);
 	font-weight: 600;
 	letter-spacing: 0.08em;
@@ -4029,7 +3657,7 @@
 	border-color: rgba(255, 17, 0, 0.4);
 }
 
-/* ─── Лид — основной текст ─── */
+/* Лид — основной текст */
 .price-feature__lead {
 	font-family: Roboto, sans-serif;
 	font-size: clamp(13px, 1.05vw, 15px);
@@ -4044,7 +3672,7 @@
 	font-weight: 500;
 }
 
-/* ─── Сворачиваемые детали ─── */
+/* Сворачиваемые детали */
 .price-feature__details {
 	margin-top: 4px;
 	border-top: 1px dashed rgba(255, 255, 255, 0.1);
@@ -4057,7 +3685,7 @@
 	gap: 6px;
 	cursor: pointer;
 	list-style: none;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 500;
 	letter-spacing: 0.1em;
@@ -4103,14 +3731,9 @@
 	font-weight: 500;
 }
 
-@keyframes price-feature-fade {
-	from { opacity: 0; transform: translateY(-4px); }
-	to   { opacity: 1; transform: translateY(0); }
-}
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
-/* ═══════════════════════════════════════════════════════════
-   PRICE — Оплата (карточки по группам)
-   ═══════════════════════════════════════════════════════════ */
+/* ——— PRICE — Оплата (карточки по группам) ——— */
 
 .price-payment-lead {
 	font-family: Roboto, sans-serif;
@@ -4138,7 +3761,7 @@
 	display: flex;
 	align-items: center;
 	gap: 8px;
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(13px, 1.1vw, 15px);
 	font-weight: 600;
 	letter-spacing: 0.08em;
@@ -4159,7 +3782,7 @@
 	gap: clamp(10px, 1.4vw, 14px);
 }
 
-/* ─── Карточка способа оплаты ─── */
+/* Карточка способа оплаты */
 .price-payment__card {
 	position: relative;
 	display: flex;
@@ -4195,7 +3818,7 @@
 }
 
 .price-payment__name {
-	font-family: Jost, sans-serif;
+	font-family: Manrope, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 600;
 	letter-spacing: 0.06em;
@@ -4212,7 +3835,7 @@
 	color: rgba(255, 255, 255, 0.6);
 }
 
-/* ─── Подсказка внизу ─── */
+/* Подсказка внизу */
 .price-payment-note {
 	margin-top: clamp(14px, 2vh, 20px);
 	padding: clamp(12px, 1.6vh, 16px) clamp(16px, 2vw, 20px);
@@ -4227,28 +3850,4 @@
 	color: rgba(255, 255, 255, 0.75);
 }
 
-/* ─── Адаптив ─── */
-@media (max-width: 600px) {
-	.price-feature__icon {
-		width: 30px;
-		height: 30px;
-		font-size: 15px;
-	}
-
-	.price-feature__title {
-		font-size: 13px;
-	}
-
-	.price-feature__badge {
-		font-size: 9px;
-		padding: 3px 8px;
-	}
-
-	.price-payment__card {
-		padding: 12px 14px;
-	}
-
-	.price-payment__name {
-		font-size: 13px;
-	}
-}
+/* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */

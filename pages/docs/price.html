@@ -31,6 +31,7 @@
 		<link rel="stylesheet" href="/css/fonts.css">
 		<link rel="stylesheet" href="/css/adaptive.css">
 		<link rel="stylesheet" href="/css/anim.css">
+		<link rel="stylesheet" href="/css/lightbox.css">
 		<link rel="preload" as="image" href="/media/img/bg/bg1.jpg">
 		<noscript>
 			<style>
@@ -105,8 +106,8 @@
 									<h3 class="doc-block__title">Статус ✨</h3>
 
 									<div class="doc-status-grid">
-										<!-- Тут можно менять общее количество слотов -->
-										<article class="doc-status-card doc-status-card--open" data-max-slots="5">
+										<!-- Тут можно менять общее количество слотов. + doc-status-card--closed это закрыто, а doc-status-card--open это открыто -->
+										<article class="doc-status-card doc-status-card--closed" data-max-slots="5">
 											<header class="doc-status-card__header">
 												<span class="doc-status-card__icon">📬</span>
 													<h4 class="doc-status-card__title">Заказы</h4>
@@ -153,7 +154,7 @@
 											</p>
 										</article>
 
-										<article class="doc-status-card doc-status-card--closed" data-max-slots="5">
+										<article class="doc-status-card doc-status-card--open" data-max-slots="5">
 											<header class="doc-status-card__header">
 												<span class="doc-status-card__icon">🎁</span>
 												<h4 class="doc-status-card__title">Реквесты</h4>
@@ -487,6 +488,7 @@
 		</div>
 		<script src="/js/site-config.js"></script>
 		<script src="/js/scroll-bg.js"></script>
+		<script src="/js/lightbox.js"></script>
 		<!-- ПОДВАЛ -->
 		<footer>
 			<div id="text_footer"></div>

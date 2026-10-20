@@ -32,7 +32,8 @@
 				if (isMobile()) return;
 				if (scrollDistance <= 0) return;   // защита от деления на ноль
 				const targetProgress = i / Math.max(1, cards.length - 1);
-				const targetScrollY = section.offsetTop + targetProgress * scrollDistance;
+				const rect = section.getBoundingClientRect();
+				const targetScrollY = rect.top + window.scrollY + targetProgress * scrollDistance;
 				window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
 			});
 

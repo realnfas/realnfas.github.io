@@ -97,7 +97,7 @@ window.SITE_CONFIG = {
 		menu:                 '/pages/p2/main_menu.html',
 		roadmap:              '/pages/p3/roadmap.html',
 		contacts:             '/pages/p4/contactus.html',
-		// страницы докуме    нтации
+		// страницы документации
 		disclaimer:           '/pages/docs/disclaimer.html',
 		rules:                '/pages/docs/rules.html',
 		copyright:            '/pages/docs/copyright.html',
@@ -108,6 +108,8 @@ window.SITE_CONFIG = {
 		licence:              '/pages/docs/licence.html',
 	},
 };
+
+// ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 // ─── ОБРАБОТЧИКИ ───
 document.addEventListener('DOMContentLoaded', () => {
@@ -155,19 +157,12 @@ document.addEventListener('DOMContentLoaded', () => {
 		el.style.backgroundImage = `url('${base}${file}')`;
 	});
 
-	// 5. Подстановка текста
-	document.querySelectorAll('[data-text]').forEach(el => {
-		const key = el.dataset.text;
-		const val = SITE_CONFIG.texts[key];
-		if (val === undefined) return;
-
-		if (el.tagName === 'IMG') {
-			el.alt = val;
-		} else if (el.tagName === 'INPUT') {
-			el.placeholder = val;
-		} else {
-			el.textContent = val;
-		}
+	// 5. Внутренние ссылки
+	document.querySelectorAll('[data-page]').forEach(el => {
+		const key = el.dataset.page;
+		const val = SITE_CONFIG.pages[key];
+		if (!val) return;
+		el.href = val;
 	});
 
 	// 6. Подстановка плашек
@@ -184,12 +179,19 @@ document.addEventListener('DOMContentLoaded', () => {
 		el.innerHTML = val;
 	});
 
-	// 8. Внутренние ссылки
-	document.querySelectorAll('[data-page]').forEach(el => {
-		const key = el.dataset.page;
-		const val = SITE_CONFIG.pages[key];
-		if (!val) return;
-		el.href = val;
+		// 8. Подстановка текста
+	document.querySelectorAll('[data-text]').forEach(el => {
+		const key = el.dataset.text;
+		const val = SITE_CONFIG.texts[key];
+		if (val === undefined) return;
+
+		if (el.tagName === 'IMG') {
+			el.alt = val;
+		} else if (el.tagName === 'INPUT') {
+			el.placeholder = val;
+		} else {
+			el.textContent = val;
+		}
 	});
 	
 	// 9. Подсветка активного пункта меню
@@ -239,8 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				revealItems.forEach((el, i) => {
 					el.style.transitionDelay = `${(i % 4) * 40}ms`;
 				
-					// 🎯 Если это большая секция с пустым верхом —
-					// следим за её ВИДИМЫМ содержимым, а не за пустым краем
+					// Если это большая секция с пустым верхом — следим за её ВИДИМЫМ содержимым, а не за пустым краем
 					if (el.tagName === 'SECTION' && el.offsetHeight > window.innerHeight) {
 						const visible = el.querySelector(
 							'.text_caption, .hscroll__head, .cta, .services, .faq, .reviews, .stats, .doc-body'
@@ -294,8 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 
-	// 12. Анимированные прогресс-бары
-	// (исключаем hero-бар дорожной карты — им управляет roadmap.js)
+	// 12. Анимированные прогресс-бары (исключаем hero-бар дорожной карты — им управляет roadmap.js)
 	const progressBars = Array.from(document.querySelectorAll('.doc-goal__bar-fill'))
 	.filter(bar => bar.id !== 'studioProgressFill');
 	if (progressBars.length && 'IntersectionObserver' in window) {
