@@ -14,7 +14,7 @@
 .doc-breadcrumbs__link {
 	position: relative;
 	padding: clamp(8px, 1.2vh, 12px) clamp(16px, 1.8vw, 24px);
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(12px, 1vw, 15px);
 	font-weight: 400;
 	letter-spacing: 0.12em;
@@ -41,7 +41,7 @@
 	align-items: center;
 	justify-content: center;
 	gap: 10px;
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(12px, 1vw, 14px);
 	font-weight: 300;
 	letter-spacing: 0.15em;
@@ -77,7 +77,7 @@
 }
 
 .doc-intro__title {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(24px, 3vw, 38px);
 	font-weight: 600;
 	letter-spacing: 0.03em;
@@ -118,7 +118,7 @@
 }
 
 .doc-block__title {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(18px, 1.8vw, 26px);
 	font-weight: 600;
 	letter-spacing: 0.03em;
@@ -168,7 +168,7 @@
 	position: absolute;
 	left: 0;
 	top: 0;
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(11px, 0.9vw, 14px);
 	font-weight: 500;
 	letter-spacing: 0.05em;
@@ -223,7 +223,7 @@
 
 .doc-outro__signature {
 	margin-top: clamp(15px, 2vh, 25px);
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(13px, 1vw, 16px);
 	font-weight: 400;
 	letter-spacing: 0.1em;
@@ -257,7 +257,7 @@
 }
 
 .doc-footer p {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 300;
 	letter-spacing: 0.1em;
@@ -304,7 +304,7 @@
 .doc-level--red    { border-color: #FF1100; background: rgba(255, 17, 0, 0.06); }
 
 .doc-level__title {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(18px, 1.8vw, 26px);
 	font-weight: 600;
 	letter-spacing: 0.03em;
@@ -369,7 +369,7 @@
 	position: absolute;
 	left: 0;
 	top: 0.15em;
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(11px, 0.9vw, 14px);
 	font-weight: 500;
 	letter-spacing: 0.05em;
@@ -379,7 +379,7 @@
 
 /* Заголовок пункта — «Взаимопонимание», «Уважение чужого труда»... */
 .doc-rule__title {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(14px, 1.2vw, 17px);
 	font-weight: 500;
 	letter-spacing: 0.05em;
@@ -439,7 +439,7 @@
 
 /* Подзаголовок внутри блока */
 .doc-subtitle {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(15px, 1.3vw, 19px);
 	font-weight: 500;
 	font-style: italic;
@@ -519,7 +519,7 @@
 }
 
 .doc-license__name {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(15px, 1.3vw, 19px);
 	font-weight: 600;
 	letter-spacing: 0.06em;
@@ -575,7 +575,7 @@
 }
 
 .doc-dialogue__speaker {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(12px, 0.95vw, 14px);
 	font-weight: 600;
 	letter-spacing: 0.1em;
@@ -593,7 +593,7 @@
 /* Реплика в сторону / ремарка */
 .doc-dialogue__stage {
 	text-align: center;
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(12px, 1vw, 15px);
 	font-style: italic;
 	letter-spacing: 0.1em;
@@ -606,7 +606,7 @@
 .doc-dialogue__signature {
 	text-align: center;
 	margin-top: clamp(15px, 2vh, 25px);
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(14px, 1.2vw, 18px);
 	font-weight: 500;
 	letter-spacing: 0.05em;
@@ -662,7 +662,7 @@
 
 /* Метка «ОСНОВАНО» */
 .doc-foundation__label {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 600;
 	letter-spacing: 0.3em;
@@ -674,7 +674,7 @@
 
 /* Крупная дата */
 .doc-foundation__date {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(28px, 4vw, 48px);
 	font-weight: 700;
 	letter-spacing: 0.12em;
@@ -717,7 +717,7 @@
 
 /* Подпись снизу — название студии */
 .doc-foundation__signature {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(12px, 1vw, 15px);
 	font-weight: 400;
 	letter-spacing: 0.18em;
@@ -753,7 +753,7 @@
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 500;
 	letter-spacing: 0.15em;
@@ -786,7 +786,7 @@
 	justify-content: space-between;
 	align-items: center;
 	gap: 12px;
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 400;
 	letter-spacing: 0.08em;
@@ -911,7 +911,7 @@
 }
 
 .doc-team__name {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(16px, 1.4vw, 20px);
 	font-weight: 600;
 	letter-spacing: 0.12em;
@@ -936,7 +936,7 @@
 	position: absolute;
 	top: clamp(10px, 1.2vh, 14px);
 	right: clamp(12px, 1.4vw, 16px);
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(14px, 1.2vw, 18px);
 	color: rgba(0, 255, 250, 0.4);
 	transition: transform 0.35s ease, color 0.35s ease;
@@ -978,7 +978,7 @@
 }
 
 .doc-value__title {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(14px, 1.2vw, 17px);
 	font-weight: 500;
 	letter-spacing: 0.05em;
@@ -1023,7 +1023,7 @@
 	gap: clamp(10px, 1.2vw, 16px);
 	padding: clamp(14px, 1.8vh, 20px) clamp(18px, 2vw, 26px);
 	cursor: pointer;
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(14px, 1.2vw, 17px);
 	font-weight: 500;
 	color: #fff;
@@ -1047,7 +1047,7 @@
 .doc-faq__question::after {
 	content: '+';
 	margin-left: auto;
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(20px, 1.8vw, 26px);
 	font-weight: 300;
 	color: #00FFFA;
@@ -1104,7 +1104,7 @@
 }
 
 .doc-faq-group__title {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(18px, 1.8vw, 26px);
 	font-weight: 600;
 	letter-spacing: 0.03em;
@@ -1139,7 +1139,7 @@
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(14px, 1.2vw, 17px);
 	font-weight: 600;
 	letter-spacing: 0.06em;
@@ -1175,7 +1175,7 @@
 }
 
 .doc-feature__title {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 500;
 	letter-spacing: 0.04em;
@@ -1244,7 +1244,7 @@
 }
 
 .doc-price-card__title {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(18px, 1.8vw, 24px);
 	font-weight: 600;
 	letter-spacing: 0.08em;
@@ -1280,7 +1280,7 @@
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(15px, 1.3vw, 19px);
 	font-weight: 500;
 	color: #fff;
@@ -1298,7 +1298,7 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 8px;
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(12px, 1vw, 14px);
 	font-weight: 400;
 	letter-spacing: 0.06em;
@@ -1318,7 +1318,7 @@
 }
 
 .doc-price-group__title {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(12px, 1vw, 14px);
 	font-weight: 600;
 	letter-spacing: 0.15em;
@@ -1357,7 +1357,7 @@
 }
 
 .doc-price-list__price {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(14px, 1.15vw, 17px);
 	font-weight: 600;
 	color: #00FFFA;
@@ -1388,7 +1388,7 @@
 }
 
 .doc-price-examples__label {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 500;
 	letter-spacing: 0.04em;
@@ -1434,7 +1434,7 @@
 	border: 1px solid rgba(0, 255, 250, 0.15);
 	border-radius: 5px;
 	background: rgba(0, 0, 0, 0.4);
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 400;
 	letter-spacing: 0.05em;
@@ -1488,7 +1488,7 @@
 	border: 1px solid rgba(255, 17, 0, 0.5);
 	border-radius: 3px;
 	background: rgba(255, 17, 0, 0.08);
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 600;
 	letter-spacing: 0.15em;
@@ -1551,7 +1551,7 @@
 	border: 1px solid rgba(0, 255, 250, 0.4);
 	border-radius: 3px;
 	background: rgba(0, 255, 250, 0.06);
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 600;
 	letter-spacing: 0.15em;
@@ -1567,7 +1567,7 @@
 }
 
 .doc-spoiler-reveal__title {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(20px, 2vw, 28px);
 	font-weight: 600;
 	letter-spacing: 0.03em;
@@ -1624,7 +1624,7 @@
 	border: 1px solid #00FFFA;
 	border-radius: 4px;
 	background: rgba(0, 255, 250, 0.06);
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(16px, 1.5vw, 22px);
 	font-weight: 600;
 	letter-spacing: 0.12em;
@@ -1664,7 +1664,7 @@
 }
 
 .doc-contacts__group-title {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(18px, 1.8vw, 26px);
 	font-weight: 600;
 	letter-spacing: 0.03em;
@@ -1679,7 +1679,7 @@
 .doc-contacts__subtitle {
 	position: relative;
 	padding-left: clamp(18px, 2vw, 24px);
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(14px, 1.2vw, 17px);
 	font-weight: 500;
 	letter-spacing: 0.08em;
@@ -1752,7 +1752,7 @@
 }
 
 .doc-contact__name {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(14px, 1.15vw, 17px);
 	font-weight: 500;
 	letter-spacing: 0.05em;
@@ -1832,7 +1832,7 @@
 	padding: clamp(12px, 1.6vh, 18px) clamp(18px, 2vw, 26px);
 	color: rgba(255, 255, 255, 0.75);
 	text-decoration: none;
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(14px, 1.2vw, 17px);
 	font-weight: 400;
 	letter-spacing: 0.08em;
@@ -1905,7 +1905,7 @@
 }
 
 .menu-footer__line {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 300;
 	letter-spacing: 0.1em;
@@ -1957,7 +1957,7 @@
 }
 
 .doc-dream__label {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(12px, 1vw, 14px);
 	font-weight: 600;
 	letter-spacing: 0.2em;
@@ -1967,7 +1967,7 @@
 }
 
 .doc-dream__text {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(18px, 1.8vw, 24px);
 	font-weight: 500;
 	font-style: italic;
@@ -2030,7 +2030,7 @@
 }
 
 .doc-progress-hero__label {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(12px, 1vw, 14px);
 	font-weight: 600;
 	letter-spacing: 0.2em;
@@ -2040,7 +2040,7 @@
 }
 
 .doc-progress-hero__percent {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(48px, 7vw, 92px);
 	font-weight: 700;
 	line-height: 1;
@@ -2130,7 +2130,7 @@
 
 /* Номер 01, 02... */
 .doc-plan__num {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 600;
 	letter-spacing: 0.08em;
@@ -2140,7 +2140,7 @@
 
 /* Название пункта */
 .doc-plan__title {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(14px, 1.15vw, 17px);
 	font-weight: 500;
 	letter-spacing: 0.02em;
@@ -2170,7 +2170,7 @@
 
 /* Процент справа */
 .doc-plan__pct {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(12px, 1vw, 14px);
 	font-weight: 600;
 	letter-spacing: 0.02em;
@@ -2186,7 +2186,7 @@
 	position: absolute;
 	right: clamp(14px, 1.8vw, 22px);
 	bottom: clamp(8px, 1.2vh, 12px);
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: 12px;
 	color: rgba(0, 255, 250, 0.4);
 	transition: transform 0.3s ease;
@@ -2260,7 +2260,7 @@
 
 .doc-plan__task.is-done .doc-plan__check::after {
 	content: '✓';
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: 11px;
 	font-weight: 700;
 	color: #000;
@@ -2321,7 +2321,7 @@
 }
 
 .doc-sub__name {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(15px, 1.4vw, 20px);
 	font-weight: 600;
 	letter-spacing: 0.06em;
@@ -2363,7 +2363,7 @@
 }
 
 .doc-sub__pct {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(12px, 1vw, 14px);
 	font-weight: 600;
 	color: #00FFFA;
@@ -2436,7 +2436,7 @@
 }
 
 .doc-direction__name {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 600;
 	letter-spacing: 0.06em;
@@ -2462,7 +2462,7 @@
 	align-self: center;
 	margin-top: clamp(16px, 2.4vh, 24px);
 	padding: clamp(12px, 1.6vh, 16px) clamp(24px, 2.5vw, 36px);
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 500;
 	letter-spacing: 0.1em;
@@ -2714,7 +2714,7 @@
 	justify-content: center;
 	gap: clamp(10px, 1.2vw, 16px);
 	margin-bottom: clamp(14px, 2vh, 20px);
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 400;
 	letter-spacing: 0.22em;
@@ -2856,7 +2856,7 @@
 	position: absolute;
 	top: clamp(6px, 1vh, 12px);
 	right: clamp(10px, 1.5vw, 16px);
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(56px, 7vw, 88px);
 	font-weight: 800;
 	line-height: 1;
@@ -2887,7 +2887,7 @@
 	align-self: flex-start;
 	padding: clamp(4px, 0.6vh, 6px) clamp(10px, 1.2vw, 14px);
 	border-radius: 20px;
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(9px, 0.8vw, 11px);
 	font-weight: 600;
 	letter-spacing: 0.22em;
@@ -3369,7 +3369,7 @@
 }
 
 .doc-status-card__title {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(16px, 1.4vw, 20px);
 	font-weight: 600;
 	letter-spacing: 0.08em;
@@ -3388,7 +3388,7 @@
 	gap: 6px;
 	padding: clamp(4px, 0.6vh, 6px) clamp(10px, 1.2vw, 14px);
 	border-radius: 20px;
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(10px, 0.85vw, 12px);
 	font-weight: 600;
 	letter-spacing: 0.12em;
@@ -3440,7 +3440,7 @@
 }
 
 .doc-status-card__slots-num {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(28px, 3vw, 40px);
 	font-weight: 700;
 	line-height: 1;
@@ -3616,7 +3616,7 @@
 }
 
 .price-feature__title {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(14px, 1.2vw, 17px);
 	font-weight: 600;
 	letter-spacing: 0.06em;
@@ -3632,7 +3632,7 @@
 .price-feature__badge {
 	padding: 4px 10px;
 	border-radius: 20px;
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(10px, 0.85vw, 12px);
 	font-weight: 600;
 	letter-spacing: 0.08em;
@@ -3685,7 +3685,7 @@
 	gap: 6px;
 	cursor: pointer;
 	list-style: none;
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 500;
 	letter-spacing: 0.1em;
@@ -3761,7 +3761,7 @@
 	display: flex;
 	align-items: center;
 	gap: 8px;
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(13px, 1.1vw, 15px);
 	font-weight: 600;
 	letter-spacing: 0.08em;
@@ -3818,7 +3818,7 @@
 }
 
 .price-payment__name {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 600;
 	letter-spacing: 0.06em;

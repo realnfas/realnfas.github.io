@@ -174,54 +174,131 @@
 
 /* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
 
-/* Manrope */
+/* Montserrat */
 @font-face {
-	font-family: 'Manrope';
-	src:url('../fonts/Manrope/Manrope-200-ExtraLight.ttf') format('truetype');
+	font-family: 'Montserrat';
+	src:url('../fonts/Montserrat/Montserrat-100-Thin.ttf') format('truetype');
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src:url('../fonts/Montserrat/Montserrat-100-ThinItalic.ttf') format('truetype');
+	font-weight: 100;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src:url('../fonts/Montserrat/Montserrat-200-ExtraLight.ttf') format('truetype');
 	font-weight: 200;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Manrope';
-	src:url('../fonts/Manrope/Manrope-300-Light.ttf') format('truetype');
+	font-family: 'Montserrat';
+	src:url('../fonts/Montserrat/Montserrat-200-ExtraLightItalic.ttf') format('truetype');
+	font-weight: 200;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src:url('../fonts/Montserrat/Montserrat-300-Light.ttf') format('truetype');
 	font-weight: 300;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Manrope';
-	src:url('../fonts/Manrope/Manrope-400-Regular.ttf') format('truetype');
+	font-family: 'Montserrat';
+	src:url('../fonts/Montserrat/Montserrat-300-LightItalic.ttf') format('truetype');
+	font-weight: 300;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src:url('../fonts/Montserrat/Montserrat-400-Regular.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Manrope';
-	src:url('../fonts/Manrope/Manrope-500-Medium.ttf') format('truetype');
+	font-family: 'Montserrat';
+	src:url('../fonts/Montserrat/Montserrat-400-Italic.ttf') format('truetype');
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src:url('../fonts/Montserrat/Montserrat-500-Medium.ttf') format('truetype');
 	font-weight: 500;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Manrope';
-	src:url('../fonts/Manrope/Manrope-600-SemiBold.ttf') format('truetype');
+	font-family: 'Montserrat';
+	src:url('../fonts/Montserrat/Montserrat-500-MediumItalic.ttf') format('truetype');
+	font-weight: 500;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src:url('../fonts/Montserrat/Montserrat-600-SemiBold.ttf') format('truetype');
 	font-weight: 600;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Manrope';
-	src:url('../fonts/Manrope/Manrope-700-Bold.ttf') format('truetype');
+	font-family: 'Montserrat';
+	src:url('../fonts/Montserrat/Montserrat-600-SemiBoldItalic.ttf') format('truetype');
+	font-weight: 600;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src:url('../fonts/Montserrat/Montserrat-700-Bold.ttf') format('truetype');
 	font-weight: 700;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Manrope';
-	src:url('../fonts/Manrope/Manrope-800-ExtraBold.ttf') format('truetype');
+	font-family: 'Montserrat';
+	src:url('../fonts/Montserrat/Montserrat-700-BoldItalic.ttf') format('truetype');
+	font-weight: 700;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src:url('../fonts/Montserrat/Montserrat-800-ExtraBold.ttf') format('truetype');
 	font-weight: 800;
 	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src:url('../fonts/Montserrat/Montserrat-800-ExtraBoldItalic.ttf') format('truetype');
+	font-weight: 800;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src:url('../fonts/Montserrat/Montserrat-900-Black.ttf') format('truetype');
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src:url('../fonts/Montserrat/Montserrat-900-BlackItalic.ttf') format('truetype');
+	font-weight: 900;
+	font-style: italic;
 }
 
 /* —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */

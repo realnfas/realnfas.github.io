@@ -38,7 +38,7 @@
 
 .error-404__digit {
 	display: inline-block;
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(110px, 22vw, 280px);
 	font-weight: 800;
 	line-height: 0.9;
@@ -86,7 +86,7 @@
 
 /* ——— Заголовок ——— */
 .error-404__title {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(20px, 3vw, 36px);
 	font-weight: 600;
 	letter-spacing: 0.1em;
@@ -118,7 +118,7 @@
 
 /* ——— Подсказка ——— */
 .error-404__hint {
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(11px, 0.9vw, 13px);
 	font-weight: 400;
 	letter-spacing: 0.15em;
@@ -139,7 +139,7 @@
 .error-404__btn {
 	display: inline-block;
 	padding: clamp(12px, 1.6vh, 16px) clamp(24px, 2.5vw, 36px);
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	font-weight: 500;
 	letter-spacing: 0.1em;
@@ -183,7 +183,7 @@
 	border: 1px solid rgba(0, 255, 250, 0.4);
 	border-radius: 6px;
 	background: rgba(0, 255, 250, 0.05);
-	font-family: Manrope, sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: clamp(13px, 1.1vw, 16px);
 	letter-spacing: 0.05em;
 	color: #00FFFA;
